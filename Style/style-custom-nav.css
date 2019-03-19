@@ -34,6 +34,8 @@
   
   .navbar a:hover, .dropdown:hover .dropbtn {
     font-weight: bold;
+    color: #BFBEBE !important;
+    cursor: pointer;
   }
   
   .dropdown-content {
@@ -67,9 +69,7 @@
       font-family: Impact, Charcoal, sans-serif;
   }
 
-  .pull-right{
-    float: right !important;
-  }
+  
 
   .font-Sego{
     font-family: "Segoe UI",Arial,sans-serif;
@@ -98,16 +98,15 @@
     background-color: #3F51D4;
   }
 
-  .child-nav-color {
-    float: left;
-    font-size: 16px;
-    color: white !important;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-
   .nav-child-color{
     color: white !important;
     font-size: 41px !important;
+  }
+
+  .nav-child-space{
+    margin-left: 7%;
+  }
+
+  .nav-user-space{
+    margin-right: 2%;
   }
