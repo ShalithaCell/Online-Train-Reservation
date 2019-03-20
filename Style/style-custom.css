@@ -16,3 +16,11 @@
   .pull-left{
     float: left !important;
   }
+
+  @media only screen and (max-width: 1440px) {
+    .div-parent-lg{
+        height: 190px;
+        background-color: #3F51D4;
+    }
+  }
+

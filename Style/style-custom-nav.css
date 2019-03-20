@@ -91,6 +91,46 @@
     margin-right: 30px;
   }
 
+  @media only screen and (max-width: 400px) {
+    .nav-logo-text{
+          font-size: 15px !important;
+          font-family: Impact, Charcoal, sans-serif;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 10px;
+      color: black;
+      text-align: center;
+      padding: 14px 10px;
+      text-decoration: none;
+    }
+
+    .nav-space {
+      margin-right: 7px;
+    }
+
+    .nav-user-space {
+      margin-right: 0%;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 12px;
+      border: none;
+      outline: none;
+      color: black;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .custom-resize-font {
+      font-size: 13px !important;
+    }
+
+  }
+
 
   /*Nav bar child */
 
@@ -104,9 +144,37 @@
   }
 
   .nav-child-space{
-    margin-left: 7%;
+    margin-left: 9%;
   }
 
   .nav-user-space{
     margin-right: 2%;
   }
+
+  .custom-resize-font{
+    font-size: 22px !important;
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .nav-child-color{
+        color: white !important;
+        font-size: 16px !important;
+      }
+    .custom-resize-font{
+        font-size: 16px !important;
+    }
+    .nav-child-space{
+        margin-left: 7%;
+      }
+  }
+
+  @media only screen and (max-width: 400px) {
+      
+      .custom-resize-font {
+        font-size: 12px !important;
+      }
+  
+    }
+
+  
+
