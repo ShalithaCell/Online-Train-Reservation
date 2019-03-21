@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.search-block{
+    background-color: red;
+    margin-left: 4%;
+    margin-right: 4%;
+    height: 200px;
+    margin-top: -60px;
+}
+
+@media only screen and (max-width: 400px) {
+      
+    .search-block{
+        background-color: red;
+        margin-left: 4%;
+        margin-right: 4%;
+        height: 150px;
+        margin-top: -21px;
+    }
+
+  }
