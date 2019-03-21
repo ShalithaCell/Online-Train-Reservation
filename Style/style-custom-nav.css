@@ -69,11 +69,6 @@
       font-family: Impact, Charcoal, sans-serif;
   }
 
-  
-
-  .font-Sego{
-    font-family: "Segoe UI",Arial,sans-serif;
-  }
 
   .nav-item-font{
     font-size: 20px;
@@ -153,6 +148,11 @@
 
   .custom-resize-font{
     font-size: 22px !important;
+  }
+
+  .footer-icon-size{
+    font-size: 30px;
+    padding-left: 8px;
   }
 
   @media only screen and (max-width: 1440px) {

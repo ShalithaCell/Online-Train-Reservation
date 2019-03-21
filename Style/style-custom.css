@@ -2,6 +2,11 @@
     height: 250px;
     background-color: #3F51D4;
 }
+
+.font-Sego{
+    font-family: "Segoe UI",Arial,sans-serif;
+  }
+
 .div-parent-md{
     height: 200px;
     background-color: #3F51D4;
@@ -28,6 +33,7 @@
    background-color: #3F51D4;
 }
 
+
 /* Create three equal columns that floats next to each other */
 .column {
     float: left;
@@ -42,7 +48,24 @@
     clear: both;
 }
 
+.footer-item{
+    color: white;
+    padding: 10px;
+    padding-left: 33%;
+    
+}
 
+.remove-underline{
+    text-decoration: none;
+    color: white;
+}
+
+.copyright-align{
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
 
 @media only screen and (max-width: 479px){
     .container {
