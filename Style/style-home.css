@@ -10,6 +10,22 @@
     margin-top: -60px;
 }
 
+.center-block-column{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.center-blick-column-second{
+    text-align: left;
+    font-size: 26px;
+    font-weight: 700;
+    color: #333333;
+    padding-left: 11px;
+    padding: 2px;
+}
+
 @media only screen and (max-width: 400px) {
       
     .search-block{
