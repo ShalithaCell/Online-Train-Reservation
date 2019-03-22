@@ -3,10 +3,10 @@
 
 
 .search-block{
-    background-color: red;
+    background-color: #F1F9FB;
     margin-left: 4%;
     margin-right: 4%;
-    height: 200px;
+    height: 389px;
     margin-top: -60px;
 }
 
@@ -26,14 +26,68 @@
     padding: 2px;
 }
 
+#imgTrain{
+    width: 70%;
+    height: auto;
+}
+
+.white-space{
+    background-color: rebeccapurple;
+    margin-top: 0.8%;
+}
+
+.radio-pad{
+    padding-left: 11%;
+    padding-top: 3%;
+}
+
+
+@media only screen and (max-width: 1440px){
+    .center-blick-column-second {
+        text-align: left;
+        font-size: 19px;
+        font-weight: 700;
+        color: #333333;
+        padding-left: 11px;
+        padding: 2px;
+    }
+}
+
 @media only screen and (max-width: 400px) {
       
     .search-block{
-        background-color: red;
+        background-color: #F1F9FB;
         margin-left: 4%;
         margin-right: 4%;
-        height: 150px;
-        margin-top: -21px;
+        height: 121px;
+        margin-top: 14px;
     }
 
+    .center-block-column {
+        text-align: center;
+        font-size: 8px;
+        font-weight: 700;
+        color: #333333;
+    }
+    .center-blick-column-second {
+        text-align: left;
+        font-size: 6px;
+        font-weight: 700;
+        color: #333333;
+        padding-left: 11px;
+        padding: 2px;
+    }
+
+    .footer-icon-size {
+        font-size: 12px;
+        padding-left: 8px;
+    }
+
+    .white-space {
+        background-color: rebeccapurple;
+        margin-top: -25.2%;
+    }
+
+
+    
   }
