@@ -6,6 +6,11 @@
     background-color: #3F51D4;
 }
 
+.responsive-custom {
+    width: 67%;
+    height: auto;
+  }
+
 .font-Sego{
     font-family: "Segoe UI",Arial,sans-serif;
   }

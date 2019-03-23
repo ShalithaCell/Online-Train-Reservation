@@ -158,6 +158,16 @@ input[type=text] {
     .txt1 {
         font-size: 22px;
     }
+
+    .image-suport {
+        margin-left: 15%;
+        margin-top: 100%;
+    }
+
+    .responsive-custom {
+        width: 78%;
+        height: auto;
+    }
 }
 
 @media only screen and (max-width: 400px) {
