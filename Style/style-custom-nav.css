@@ -176,6 +176,14 @@
       .custom-resize-font {
         font-size: 12px !important;
       }
+
+      #footer {
+        /* position: absolute; */
+        bottom: 0;
+        width: 100%;
+        height: 95px;
+        background-color: #3F51D4;
+    }
   
     }
 

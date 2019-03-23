@@ -108,6 +108,17 @@ input[type=text] {
     opacity: 0;
   }
 
+  .txt1{
+    font-size: 27px;
+  }
+
+  .image-suport{
+    margin-left: 15%;
+  }
+
+
+  /*Responsive*/
+
 @media only screen and (max-width: 1440px){
     .center-blick-column-second {
         text-align: left;
@@ -116,6 +127,36 @@ input[type=text] {
         color: #333333;
         padding-left: 11px;
         padding: 2px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .txt1{
+        font-size: 18px;
+    }
+
+    .home-radio-block {
+        background-color: white;
+        height: 10%;
+        margin-top: 1%;
+        padding-left: 2%;
+        padding-top: 43px;
+    }
+
+    .center-blick-column-second {
+        text-align: left;
+        font-size: 16px;
+        font-weight: 700;
+        color: #333333;
+        padding-left: 11px;
+        padding: 2px;
+    }
+    
+}
+
+@media only screen and (max-width: 400px) {
+    .txt1 {
+        font-size: 22px;
     }
 }
 
@@ -152,6 +193,42 @@ input[type=text] {
     .white-space {
         background-color: rebeccapurple;
         margin-top: -25.2%;
+    }
+
+    .txt1{
+        font-size: 7px;
+    }
+
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 11px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .search-bar-item {
+        width: 91%;
+    }
+
+    .home-radio-block {
+        background-color: white;
+        height: 10%;
+        margin-top: 1%;
+        padding-left: 2%;
+        padding-top: 3px;
+    }
+
+    .column {
+        float: left;
+        width: 32%;
+        height: 70px;
+        font-size: 8px;
     }
 
 
