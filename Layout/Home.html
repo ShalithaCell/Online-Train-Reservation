@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="../resources/favicon-train.ico"
-    />
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
     <title>BOOkit-Home</title>
 
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
 
     <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../Style/style-custom-nav.css"
-    />
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
     <link rel="stylesheet" type="text/css" href="../Style/style-home.css" />
 
@@ -26,72 +19,110 @@
     <script src="../Script/Header.js"></script>
 
     <script>
-      //Jquery function for load nevigation to page
-      $(function() {
-        $("#Header").html(getHeaderLG());
-        $("#footerID").html(getFooter());
-      });
-    </script>
-  </head>
+        //Jquery function for load navigation to page
+        $(function () {
+            $("#Header").html(getHeaderLG());
+            $("#footerID").html(getFooter());
+        });
 
-  <body>
+        $(document).ready(function () {
+
+            //-------------------------js methods-------------------------------------------
+
+
+            document.getElementById("btnExchange").addEventListener("click", function(event){
+                event.preventDefault()
+
+                var txtFrom = document.getElementById('txtTrainFrom').value;
+                var txtTo = document.getElementById('txtTrainTo').value;
+
+                if(txtFrom != '' && txtTo != ''){
+                    document.getElementById("txtTrainFrom").value = txtTo;
+                    document.getElementById("txtTrainTo").value = txtFrom;
+                }
+
+            });
+
+            
+        });
+
+        
+
+    </script>
+</head>
+
+<body>
     <!--Navigation Bar -->
     <div id="Header"></div>
 
     <!--Page Content -->
     <div style="height:100vh">
-      <div class="search-block">
-        <div>
-          <div class="row font-Sego">
-            <div class="column center-block-column">
-              <p>
-                BOOKit Trains 24x7 Helpline <br />
-                011-1234567
-              </p>
-              <div style="background-color:white">
-                <h3 class="master-blue-color">Your Ticket Search Ends Here</h3>
-              </div>
+        <div class="search-block">
+            <div>
+                <div class="row font-Sego">
+                    <div class="column center-block-column">
+                        <p>
+                            BOOKit Trains 24x7 Helpline <br />
+                            011-1234567
+                        </p>
+                        <div style="background-color:white">
+                            <h3 class="master-blue-color">Your Ticket Search Ends Here</h3>
+                        </div>
+                    </div>
+                    <div class="column center-blick-column-second">
+                        <p style="padding-left: 22%;">
+                            Hassle Free Train Tickets Booking <br />
+                            - Zero service charge <br />
+                            - Easy cancellation and refund <br />
+                            - No hidden charges
+                        </p>
+                    </div>
+                    <div class="column">
+                        <img id="imgTrain" src="../resources/Train.png" style="padding-left: 22%;" />
+                    </div>
+                </div>
             </div>
-            <div class="column center-blick-column-second">
-              <p style="padding-left: 22%;">
-                Hassle Free Train Tickets Booking <br />
-                - Zero service charge <br />
-                - Easy cancellation and refund <br />
-                - No hidden charges
-              </p>
+            <div>
+                <form action="">
+                    <div class="form-inline home-radio-block font-Sego">
+                            <label class="container">Book Ticket
+                                    <input type="radio" checked="checked" name="radio">
+                                    <span class="checkmark"></span>
+                            </label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="container">Check PNR Status
+                                    <input type="radio" name="radio">
+                                    <span class="checkmark"></span>
+                            </label>
+                    </div>
+                    <div class="form-inline search-bar font-Sego">
+                        <!--Text box From-->
+                        <div class="search-bar-item">
+                            <label for="txtTrainFrom">From</label>
+                            <input type="text" id="txtTrainFrom" name="txtbFrom">
+                        </div>
+                        <div>
+                                <button id="btnExchange" ><i class="fas fa-exchange-alt"></i></button>
+                        </div>
+                        <!--Text box To-->
+                        <div class="search-bar-item" style="margin-left: 2%;">
+                                <label for="txtTrainTo">To</label>
+                                <input type="text" id="txtTrainTo" name="txtbTo">
+                            </div>
+                            <div class="search-bar-item calender" style="margin-left: 2%;">
+                                    <label for="dPicker">Date Of Birth</label>
+                                    <input type="date" name="dateofbirth" id="dPicker">
+                            </div>
+                            <button class="button" style="margin-left: 2%;">Search</button>
+                    </div>
+                    </div>
+                </form>
             </div>
-            <div class="column">
-              <img
-                id="imgTrain"
-                src="../resources/Train.png"
-                style="padding-left: 22%;"
-              />
-            </div>
-          </div>
         </div>
-        <div>
-          <div class="column white-space">
-            <div class="form-inline radio-pad">
-              <label class="container"
-                >One
-                <input type="radio" checked="checked" name="radio" />
-                <span class="checkmark"></span>
-              </label>
-
-              <label class="container"
-                >One
-                <input type="radio" checked="checked" name="radio" />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-          </div>
-          <div class="column white-space"></div>
-          <div class="column white-space"></div>
-        </div>
-      </div>
     </div>
 
     <!--Footer -->
     <footer id="footerID"></footer>
-  </body>
+</body>
+
 </html>

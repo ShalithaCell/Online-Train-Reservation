@@ -3,10 +3,10 @@
 
 
 .search-block{
-    background-color: #F1F9FB;
+    background-color: #F1F9FF;
     margin-left: 4%;
     margin-right: 4%;
-    height: 389px;
+    height: 294px;
     margin-top: -60px;
 }
 
@@ -36,11 +36,77 @@
     margin-top: 0.8%;
 }
 
-.radio-pad{
-    padding-left: 11%;
-    padding-top: 3%;
-}
 
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+  }
+
+  .home-radio-block{
+    background-color: white;
+    height: 10%;
+    margin-top: 1%;
+    padding-left: 2%;
+    padding-top: 5px;
+  }
+
+  .search-bar{
+    height: 10%;
+    background: white;
+    padding-left: 2%;
+  }
+
+  .search-bar-item{
+    width: 20%;
+  }
+
+  #btnExchange {
+    background-color: white;
+    color: #3F51D4;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 15px;
+  }
+
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  /*DatePicker*/
+  [type="date"] {
+    background:#fff url("../resources/calendar_2.png")  97% 50% no-repeat ;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+  }
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
 
 @media only screen and (max-width: 1440px){
     .center-blick-column-second {
@@ -56,7 +122,7 @@
 @media only screen and (max-width: 400px) {
       
     .search-block{
-        background-color: #F1F9FB;
+        background-color: #F1F9FF;
         margin-left: 4%;
         margin-right: 4%;
         height: 121px;
