@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+              #grad{
+                  height: 100vh;
+                  background-color: #DDA0DD;
+                 background-image: linear-gradient(-90deg,purple, 	#6495ED);
+                }  
+   
+/*create a rectangle*/
+                #cornerrec{
+                    border-radius: 25px;
+                    background:	#F0FFFF;
+                    padding: 5%;
+                    width: 50%;
+                    height: 50vh;
+                    margin-left: 25%;
+                    margin-right: 25%;
+                      }
+
+/*add the icon of person*/
+                #image{
+                    float: left;
+
+                }
+/*add a vertical line*/
+                #vl{
+                    border-left: 2px solid green;
+                    height: 420px;
+                    position: absolute;
+                    left: 50%;
+                    margin-left: -10px;
+                    top: 300px;
+                }
+/*creatw a google sign in button*/
+                #goobut{
+                    display: inline-block;
+                    border-radius: 15px;
+                    background-color: rgb(25, 215, 221));
+                    border: 2px  solid red;
+                    color: black;
+                    text-align: center;
+                    font-size: px;
+                    padding: 10px;
+                    width:190px;
+                    cursor: pointer;
+                    margin: -15px;
+                }
+/*forms*/
+                .filform{
+                width: 100%;
+                padding: 12px;
+                margin: 8px ;
+                display: inline-block;
+                border: 1px solid #ccc;
+
+              }  
