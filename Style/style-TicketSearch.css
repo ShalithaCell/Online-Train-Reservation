@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    box-sizing: border-box;
+  }
+
+  .column-general {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column-first {
+    float: left;
+    width: 29%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+  .column-two {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .round-coner{
+    border-radius: 15px;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 9px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: #3F51D4;
+    color: white;
+  }
+
+  .color-white{
+      color: white;
+  }
+
+  .div-custom{
+    width: 20%;
+  }
+
+  .row{
+    padding-bottom: 1%;
+  }
+
+  #btnExchange {
+    background-color: #3F51D4;
+    color: white;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 15px;
+    border: none
+  }
+
+  .button-search {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  #txtNoOfPassengers{
+    background-color: white !important;
+    border-bottom: 2px solid gray !important;
+    font-size: 1em !important;
+  }
+
+  .ful-width{
+    width: 100%;
+  }
+
+  .column-A {
+    float: left;
+    width: 20%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+  .column-B {
+    float: left;
+    width: 20%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+  .column-C {
+    float: left;
+    width: 20%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+  .column-D {
+    float: left;
+    width: 20%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+
