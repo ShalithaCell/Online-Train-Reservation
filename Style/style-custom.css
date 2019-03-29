@@ -152,6 +152,10 @@
     margin-left: 5%;
   }
 
+  .medium-font-size-icon{
+    font-size: 1.5em;
+  }
+
 @media only screen and (max-width: 479px){
     .container-custom {
         width: 90%;

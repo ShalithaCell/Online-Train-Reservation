@@ -105,13 +105,18 @@
     width: 100%;
   }
 
+
+  .custom-style-list{
+    border-style: solid;
+    background-color: white;
+  }
+
   .column-A {
     float: left;
     width: 20%;
     margin-right: 1%;
     padding: 10px;
     height: 100%; 
-    margin-top: 1%;
   }
 
   .column-B {
@@ -120,7 +125,6 @@
     margin-right: 1%;
     padding: 10px;
     height: 100%; 
-    margin-top: 1%;
   }
 
   .column-C {
@@ -129,7 +133,6 @@
     margin-right: 1%;
     padding: 10px;
     height: 100%; 
-    margin-top: 1%;
   }
 
   .column-D {
@@ -138,7 +141,17 @@
     margin-right: 1%;
     padding: 10px;
     height: 100%; 
-    margin-top: 1%;
+  }
+  .column-train-detail-general {
+    float: left;
+    width: 20%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
   }
 
+  .lable-train-type{
+    text-transform: uppercase;
+    color: #00C409;
+  }
 
