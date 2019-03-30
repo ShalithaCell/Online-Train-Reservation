@@ -23,6 +23,10 @@
         <script src="../Script/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="../Style/jquery-ui.css" />
 
+        <!--Jquery confirm-->
+        <script src="../Script/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
 
         <!--Custom combo box plugins-->
         <script src="../Script/custom-combo.js"></script>
@@ -55,7 +59,39 @@
                                 dateFormat: "m/d/yy"
                         });
 
+
+                        
                 });
+
+                function viewReview(){
+                                //content already created using test web pages
+                                $.confirm({
+                                        width : 50, 
+                                        height:50,
+                                        closeIcon: true,
+                                        title: 'Reviews',
+                                        content: '' +
+                                        '<form action="" class="formName">' +
+                                                        '<div style="font-size: 60%;"> <div class="half-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-add form-inline font-Sego"> <h2 style="text-align: left;color: gray;">Add Review</h2> <br><textarea placeholder="Enter review" cols="30" rows="5"></textarea> <div class="ful-width btn-left"> <button class="button-addReview" style="margin-left: 2%;"><i class="fas fa-plus"></i> &nbsp;Add</button> </div></div></div>'+
+                                        '</form>',
+                                        buttons: {
+                                                
+                                                cancel: function () {
+                                                //close
+                                                },
+                                        },
+                                        onContentReady: function () {
+                                                // bind to events
+                                                var jc = this;
+                                                this.$content.find('form').on('submit', function (e) {
+                                                // if the user submits the form by pressing enter in the field.
+                                                e.preventDefault();
+                                                jc.$$formSubmit.trigger('click'); // reference the button and click it
+                                                });
+                                        }
+                                });
+                        }
+
 
 
 
@@ -126,7 +162,7 @@
 
                                                 <div id="grpAvailable">
                                                         <h3>Availability</h3>
-                                                        <label class="container">Book Ticket
+                                                        <label class="container">All
                                                                 <input type="radio" checked="checked"
                                                                         name="grpAvailable">
                                                                 <span class="checkmark"></span>
@@ -175,20 +211,131 @@
                                         <hr style="margin-top: -2%;">
                                         
                                         <div id="divTrainList">
-                                                <div class="row round-coner custom-style-list">
+                                                <div id="divTrain_1" class="row round-coner custom-style-list margin-top-sm">
                                                         <div class="column-train-detail-general">
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_1"><b>Ruhunu Kumari</b></label> <br>
-                                                                <label id="lblTrainType_1" class="lable-train-type"><b>Express Train</b></label>
+                                                                <label id="lblTrainType_1" class="lable-train-type"><b>Express Train</b></label> <br>
+                                                                <a onclick="viewReview()" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
                                                         </div>
                                                         <div class="column-train-detail-general">
-                                                                asdasds
+                                                                <label id="Departure_1" class="lable-cus">COLOMBO FORT</label> <br>
+                                                                <label id="Departure_Time_1" class="lable-cus-time">06:35:00</label>
                                                         </div>
                                                         <div class="column-train-detail-general">
-                                                                asdasds
+                                                                <label id="Destination_1" class="lable-cus">MATARA</label> <br>
+                                                                <label id="Destination_Time_1" class="lable-cus-time">06:35:00</label>
+                                                        </div>
+                                                        <div class="column-train-detail-large">
+                                                                <fieldset id="fld_div_1_class_1" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_1">Class A</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_1">$ 10</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_1_Class_1_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_1_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
+
+                                                                <fieldset id="fld_div_1_class_2" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_2">Class B</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_2">$ 8</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_1_Class_2_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_1_Class_2_availability" class="div-status-remains">10 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
+                                                        </div>
+                                                </div>
+
+
+                                                <div id="divTrain_2" class="row round-coner custom-style-list margin-top-sm">
+                                                        <div class="column-train-detail-general">
+                                                                <i class="fas fa-subway medium-font-size-icon"></i> <br>
+                                                                <label id="lblTrainName_2"><b>Rajarata Rajina</b></label> <br>
+                                                                <label id="lblTrainType_2" class="lable-train-type"><b>Colombo Commuter</b></label> <br>
+                                                                <a href="" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
                                                         </div>
                                                         <div class="column-train-detail-general">
-                                                                asdasds
+                                                                <label id="Departure_2" class="lable-cus">COLOMBO FORT</label> <br>
+                                                                <label id="Departure_Time_2" class="lable-cus-time">10:30:00</label>
+                                                        </div>
+                                                        <div class="column-train-detail-general">
+                                                                <label id="Destination_2" class="lable-cus">MATARA</label> <br>
+                                                                <label id="Destination_Time_2" class="lable-cus-time">13:50:00</label>
+                                                        </div>
+                                                        <div class="column-train-detail-large">
+                                                                <fieldset id="fld_div_2_class_1" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_2">Class A</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_2">$ 10</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_2_Class_1_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_2_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
+
+                                                                <fieldset id="fld_div_1_class_2" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_2">Class B</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_2">$ 8</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_2_Class_2_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_2_Class_2_availability" class="div-status-remains">10 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
+                                                        </div>
+                                                </div>
+
+
+                                                <div id="divTrain_3" class="row round-coner custom-style-list margin-top-sm">
+                                                        <div class="column-train-detail-general">
+                                                                <i class="fas fa-subway medium-font-size-icon"></i> <br>
+                                                                <label id="lblTrainName_3"><b>Sagarika</b></label> <br>
+                                                                <label id="lblTrainType_3" class="lable-train-type"><b>Long Distance</b></label> <br>
+                                                                <a href="" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
+                                                        </div>
+                                                        <div class="column-train-detail-general">
+                                                                <label id="Departure_3" class="lable-cus">COLOMBO FORT</label> <br>
+                                                                <label id="Departure_Time_3" class="lable-cus-time">16:44:00</label>
+                                                        </div>
+                                                        <div class="column-train-detail-general">
+                                                                <label id="Destination_3" class="lable-cus">MATARA</label> <br>
+                                                                <label id="Destination_Time_3" class="lable-cus-time">19:35:00</label>
+                                                        </div>
+                                                        <div class="column-train-detail-large">
+                                                                <fieldset id="fld_div_3_class_1" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_3">Class A</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_3">$ 10</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_3_Class_1_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_3_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
+
+                                                                <fieldset id="fld_div_3_class_2" class="margin-top-sm">
+                                                                        <legend class="legend-custom"><lable id="lgnd_3_2">Class B</lable></legend>
+                                                                        <div class="style-price"><label id="lblTrain_3_2">$ 8</label></div>
+                                                                        <div class="div-details form-inline">
+                                                                                <label id="lblTrain_3_Class_2_availability" class="div-status-available">Available</label>
+                                                                                <label id="lblTrain_3_Class_2_remains" class="div-status-remains">10 to Remaining(s)</label>
+                                                                        </div>
+                                                                        <div class="center">
+                                                                                <button class="button-sm" style="margin-left: 2%;">Book</button>
+                                                                        </div>
+                                                                </fieldset>
                                                         </div>
                                                 </div>
                                         </div>

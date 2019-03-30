@@ -156,6 +156,14 @@
     font-size: 1.5em;
   }
 
+  .center{
+    text-align: center;
+  }
+
+  .margin-top-sm{
+    margin-top: 1%;
+  }
+
 @media only screen and (max-width: 479px){
     .container-custom {
         width: 90%;
