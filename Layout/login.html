@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" type="text/css" href="../Style/style-login.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="../Script/jquery-3.3.1.min.js"></script>
     <script src="../Script/Header.js"></script>
 
@@ -33,35 +35,68 @@
     <div id='Header'>
     </div>
 
+    <!--Make the gradient to background-->
     <div id="grad" style="text-align:center;">
             <br>
             <br>
             <br>
             <br>
             <br>
+        
+        <!--Make a rectangle-->
         <div id="cornerrec" style="text-align:center;">
-         
-            <div id="image" style="font-size: 30vh;">
+
+            <form >
+
+                <div class="row">
+                    <div id="image" class="user-login" style="font-size: 30vh;">
 
                     <i class="fas fa-user-tie"></i>
                       </div>
                 
-                         <div id="vl">
+                         <div id="vl" class="vl">
+                               
                           </div>
 
+                <!-- Sign in with google -->
                 <div id="goobut">
                         <i class="fab fa-google"></i>
                             Sign in with Google >>
                           </div>
-                <div class="filform">
-                    <form>
-                        * Username or email<br>
-                        
-                        * Password<br>
-                    </form>
-                </div>
+
+                <div class="form-user-login">
+
+                    <!---login-->
+                    <div class="Username">
+                        <label for="txtTrainFrom">*Username or eamil</label>
+                        <input type="text" id="txtTrainFrom" name="txtbFrom">
+                    </div>
+
                 
-             </div>
+
+                    <div class="psword">
+                        <label for="txtTrainFrom">*Password</label>
+                        <input type="text" id="txtTrainFrom" name="txtbFrom">
+                    </div>
+                
+                </div>  
+              
+                    <div class="fpword">
+                    <a href= "#">Forgot password..?</a>
+
+                    </div>
+
+                    <button class="lgbutton">
+                        Log-in
+
+                    </buton>
+
+
+              
+                        
+
+                </div>
+            </form>
     </div>
 
     <footer id="footerID">

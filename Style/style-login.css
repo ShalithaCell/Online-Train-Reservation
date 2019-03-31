@@ -24,33 +24,93 @@
                 }
 /*add a vertical line*/
                 #vl{
-                    border-left: 2px solid green;
+                    border-left: 2px solid blue;
                     height: 420px;
                     position: absolute;
-                    left: 50%;
+                    left: 47%;
                     margin-left: -10px;
                     top: 300px;
                 }
 /*creatw a google sign in button*/
                 #goobut{
                     display: inline-block;
-                    border-radius: 15px;
+                    border-radius: 45px;
                     background-color: rgb(25, 215, 221));
                     border: 2px  solid red;
                     color: black;
                     text-align: center;
                     font-size: px;
-                    padding: 10px;
-                    width:190px;
+                    padding: 7px;
+                    width:200px;
                     cursor: pointer;
                     margin: -15px;
                 }
-/*forms*/
-                .filform{
-                width: 100%;
-                padding: 12px;
-                margin: 8px ;
-                display: inline-block;
-                border: 1px solid #ccc;
 
-              }  
+    /*forms*/
+                input[type=text] {
+                    width: 250px;
+                    float: right;
+                    padding: 12px 20px;
+                    box-sizing: unset;
+                    border: none;
+                    border-bottom: 1px solid #B2B2B2;
+                }
+
+                #name{
+                    height:20px;
+                    width:20px;
+                }
+
+                .form-user-login {
+                    margin: 20px;
+                }
+
+                .user-login{
+                    padding: 12px;
+                    float: left;
+                }
+
+                form{
+                    border: 0px solid;
+                }
+
+                input[type=text], input[type=password] {
+                    width: 31%;
+                    padding: 12px 8px;
+                    margin: 2px 26px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                  }
+
+
+                  .vl {
+                    position: absolute;
+                    left: 50%;
+                    transform: translate(-50%);
+                    border: 2px solid #ddd;
+                    height: 175px;
+                  }
+
+                  .fpword{
+                    margin: 20%;
+                    margin-left: 20px;
+
+                  }
+
+                  .lgbutton{
+                    background-color: 	#1E90FF;
+                    border: none;
+                    color: white;
+                    padding: 20px;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 5px 5px;
+                    cursor: pointer;
+                    border-radius: 20px;
+
+                      }
+
+            
+                
