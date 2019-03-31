@@ -63,6 +63,22 @@
                         
                 });
 
+                function addNewReview(){
+                        var review = $.trim($("#txtareaReview").val());
+                        var reviewTitle = $.trim($("#txtareaTitle").val());
+
+                        if(review == '' || reviewTitle == ''){
+                                return;
+                        }
+
+                        var content = '<div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">'+reviewTitle+'</h2> <p> '+review+'</p></div></div>';
+
+                        document.getElementById("div_review_parent").innerHTML = document.getElementById("div_review_parent").innerHTML + content;
+
+                        $.trim($("#txtareaReview").val(''));
+                        $.trim($("#txtareaTitle").val(''));
+                }
+                
                 function viewReview(){
                                 //content already created using test web pages
                                 $.confirm({
@@ -72,7 +88,7 @@
                                         title: 'Reviews',
                                         content: '' +
                                         '<form action="" class="formName">' +
-                                                        '<div style="font-size: 60%;"> <div class="half-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-add form-inline font-Sego"> <h2 style="text-align: left;color: gray;">Add Review</h2> <br><textarea placeholder="Enter review" cols="30" rows="5"></textarea> <div class="ful-width btn-left"> <button class="button-addReview" style="margin-left: 2%;"><i class="fas fa-plus"></i> &nbsp;Add</button> </div></div></div>'+
+                                                        '<div style="font-size: 60%;" > <div id="div_review_parent"> <div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div></div><div class="ful-width review-add form-inline font-Sego"> <h2 style="text-align: left;color: gray; margin-left: 1%;">Add Review</h2> <br><textarea id="txtareaTitle" placeholder="Enter Review" cols="30" rows="1"></textarea> <textarea id="txtareaReview" placeholder="Enter Description" cols="30" rows="5"></textarea> <div class="ful-width btn-left"> <button id="btnAddReview" class="button-addReview" style="margin-left: 2%;" onclick="addNewReview()"><i class="fas fa-plus"></i> &nbsp;Add</button> </div></div></div>'+
                                         '</form>',
                                         buttons: {
                                                 
@@ -216,7 +232,7 @@
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_1"><b>Ruhunu Kumari</b></label> <br>
                                                                 <label id="lblTrainType_1" class="lable-train-type"><b>Express Train</b></label> <br>
-                                                                <a onclick="viewReview()" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
+                                                                <label onclick="viewReview()" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</label>
                                                         </div>
                                                         <div class="column-train-detail-general">
                                                                 <label id="Departure_1" class="lable-cus">COLOMBO FORT</label> <br>
@@ -259,7 +275,7 @@
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_2"><b>Rajarata Rajina</b></label> <br>
                                                                 <label id="lblTrainType_2" class="lable-train-type"><b>Colombo Commuter</b></label> <br>
-                                                                <a href="" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
+                                                                <label onclick="viewReview()" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</label>
                                                         </div>
                                                         <div class="column-train-detail-general">
                                                                 <label id="Departure_2" class="lable-cus">COLOMBO FORT</label> <br>
@@ -302,7 +318,7 @@
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_3"><b>Sagarika</b></label> <br>
                                                                 <label id="lblTrainType_3" class="lable-train-type"><b>Long Distance</b></label> <br>
-                                                                <a href="" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</a>
+                                                                <label onclick="viewReview()" class="reviews">Reviews(<label id="lblReview_train_1">15</label>)</label>
                                                         </div>
                                                         <div class="column-train-detail-general">
                                                                 <label id="Departure_3" class="lable-cus">COLOMBO FORT</label> <br>

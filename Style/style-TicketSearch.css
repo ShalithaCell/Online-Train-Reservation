@@ -223,6 +223,8 @@
   .reviews{
     font-weight: bold;
     color: gray;
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   .review-parent{
@@ -293,6 +295,10 @@
   .jconfirm.jconfirm-white .jconfirm-bg, .jconfirm.jconfirm-light .jconfirm-bg {
     background-color: transparent !important;
     opacity: .2;
+}
+
+.checked {
+  color: orange;
 }
 
 
