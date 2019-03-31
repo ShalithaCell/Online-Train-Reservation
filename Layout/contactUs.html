@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+    <title>BOOkit-About Us</title>
+
+    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+    <link rel="stylesheet" type="text/css" href="../Style/style-contactUs.css" />
+
+    <script src="../Script/jquery-3.3.1.min.js"></script>
+    <script src="../Script/Header.js"></script>
+
+    <script>
+        //Jquery function for load navigation to page
+        $(function () {
+            $("#Header").html(getHeaderMD());
+            $("#footerID").html(getFooter());
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navigation Bar -->
+    <div id="Header"></div>
+
+    <!--Page Content -->
+    <div style="height:100%">
+    <h2 style="text-align:center">Get in Touch with US</h2>
+    <div class="row">
+        <img src="../resources/train.jpg" alt="Train 1" width="650" height="500" hspace="8px">
+        <div class="column-cus">
+        </div>
+        <div class="column-cus" style="background-color:white;">
+            <h3 style="text-align:center"> Please note that every field is required***</h3>
+                <form action="################">
+                    <label for="fname">First Name*</label>
+                    <br/>
+                    <input type="text" name="formFN">
+                    <br/><br/>
+                    <label for="lname">Last Name*</label>
+                    <br/>
+                    <input type="text" name="formLN">
+                    </br><br/>
+                    <label for="email">E-mail*</label>
+                    <br/>
+                    <input type="text" name="formEmail">
+                    <br/><br/>
+                    <label for="contact">Contact No*</label>
+                    <br/>
+                    <input type="text" name="formContact">
+                    <br/><br/>
+                    <label for="contact">Country*</label>
+                    <br/><br/>
+                    <select name="dropdown">
+                        <option value="country">country 1</option>
+                        <option value="country">country 2</option>
+                        <option value="country">country 3</option>
+                        <option value="country">country 4</option>
+                    </select>
+                    </br><br/>
+                    <label for="message">Message*</label>
+                    <br/>
+                    <input type="text" name="message">
+                    <br/><br/>
+                    <input type="checkbox" name="agreement"> I`d like to receive more information about Bookit, and i understand and agree to the privacy.
+
+                    <p>Opting in for additional information is not required to receive this content. All the data is protected and secuired as outlined in our privacy policy.</p>
+                    
+                    <p id="p-align1">
+                    <button class="button">Send Message</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    <!--Footer -->
+    <footer id="footerID"></footer>
+</body>
+
+</html>

@@ -3,6 +3,35 @@
 /* aboutUs by gayan */
 
 .responsive {
+    margin-top: 15px;
     width: 100%;
     height: auto;
   }
+
+#div-last {
+    background-color:rgb(41, 39, 39);
+  }
+
+#h2-align{
+    text-align: center;
+}
+
+#div-align{
+  text-align: left;
+}
+
+
+#h4-align{
+  text-align: center;
+}
+
+.div-text{
+  color: white;
+}
+
+.column {
+  float: left;
+  width: 40%;
+  height: 82px;
+}
+
