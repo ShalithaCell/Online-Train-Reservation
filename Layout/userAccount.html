@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	
-		<link rel="stylesheet" type="text/css" href="../Style/style-user_account.css" />
-		<title> BOOKit-User Account </title>
-	</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+    <title>BOOkit-Home</title>
+
+    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css">
+    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom.css">
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../Style/train.css" />
+	<title> BOOKit-User Account </title>
+
+    <script src="../Script/jquery-3.3.1.min.js"></script>
+    <script src="../Script/Header.js"></script>
+
+    <script>
+
+        //Jquery function for load nevigation to page
+        $(function () {
+            $('#Header').html(getHeaderLG());
+            $('#footerID').html(getFooter());
+        });
+
+    </script>
+</head>
+
 		
 	<body>
+
+	   <!--Navigation Bar -->
+	   <div id='Header'>
+		</div>
+		
+		<div style="height:100%">
+
 		<div class="row">
 		<div class="column-custom-n left">
 			<img src = "../resources/pic.jpg" width = "180px" height = "180px">
@@ -52,6 +86,12 @@
 			</div>
 	</div>
 	
+
+		
+    <footer id="footerID">
+
+        </footer>
+
 	</body>
 	
 </html>	
