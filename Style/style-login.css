@@ -15,6 +15,7 @@
                     height: 50vh;
                     margin-left: 25%;
                     margin-right: 25%;
+                    margin-bottom: 2%;
                       }
 
 /*add the icon of person*/
@@ -113,4 +114,30 @@
                       }                                                                          
 
             
-                
+.col-md-3{
+    width: 50%;
+}
+
+.font-size-6{
+    font-size: 6em;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+    Background-color: #F0FFFF;
+  }
+
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+    Background-color: #F0FFFF;
+  }
