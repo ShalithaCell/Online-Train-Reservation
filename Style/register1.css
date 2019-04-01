@@ -83,6 +83,11 @@ input[type=text] {
     border-bottom: 2px solid #B2B2B2  ;
     Background-color: #f0e7e7;
   }
+  input[type=email] {
+    Background-color: #f0e7e7;
+    height: 4vh;
+}
+
 
   .btn-cus {
     background-color: blue;
