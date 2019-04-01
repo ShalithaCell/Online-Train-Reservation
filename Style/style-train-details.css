@@ -1,0 +1,158 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+    box-sizing: border-box;
+  }
+
+  .column-general {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column-first {
+    float: left;
+    width: 29%;
+    margin-right: 1%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+
+  .column-two {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 100%; 
+    margin-top: 1%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .round-coner{
+    border-radius: 15px;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 9px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: #3F51D4;
+    color: white;
+  }
+
+  .color-white{
+      color: white;
+  }
+
+  .div-custom{
+    width: 30%;
+  }
+
+  .div-custom-2{
+    width: 30%;
+  }
+
+  .row{
+    padding-bottom: 1%;
+  }
+
+
+  .button-search {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 9px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 30%;
+    font-weight: bold;
+  }
+
+  #txtNoOfPassengers{
+    background-color: white !important;
+    border-bottom: 2px solid gray !important;
+    font-size: 1em !important;
+  }
+
+  .ful-width{
+    width: 100%;
+  }
+
+  .half-width{
+    width: 100%;
+  }
+  .custom-style-list{
+    border-style: solid;
+    background-color: white;
+  }
+
+  .font-lg{
+    font-size: 1.5em;
+    margin-left: 1%;
+  }
+
+  .border-groove{
+    border-style: groove;
+  }
+
+  .div-parent-cus{
+      background-color: #0DA303;
+  }
+
+  .col-sm-1{
+      width: 20%;
+  }
+
+  .col-sm-2{
+      width:58%;;
+  }
+
+  .margin-left-cus{
+    margin-left: 20%;
+  }
+
+  .margin-left-cus-sm{
+    margin-left: 2%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  tr:nth-child(odd) {background-color: #b9b9b9;}
+
+  .info-cus{
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+
+
+
+
