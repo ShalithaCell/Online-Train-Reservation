@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+
+        <!--Fontawesome-->
+        <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+        <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+        
+        <!--Navigation bar and footer-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+        <!--style sheets for this page only-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-payment.css" />
+
+        <!--jquery-->
+        <script src="../Script/jquery-3.3.1.min.js"></script>
+        <!--jquery UI-->
+        <script src="../Script/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
+        <!--Jquery confirm-->
+        <script src="../Script/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
+
+        <!--Custom combo box plugins-->
+        <script src="../Script/custom-combo.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-combo.css" />
+
+        <!--Herder js file-->
+        <script src="../Script/Header.js"></script>
+
+        <script>
+                //Jquery function for load navigation to page
+                $(function () {
+                        $("#Header").html(getHeaderMD());
+                        $("#footerID").html(getFooter());
+                });
+
+                $(document).ready(function () {
+
+                        //-------------------------js methods-------------------------------------------
+
+
+                        //jquery ui calender
+                        $('#txtDate').datepicker({
+                                minDate: "0",
+                                maxDate: "12/31/2019",
+                                changeMonth: true,
+                                changeYear: true,
+                                showButtonPanel: true,
+                                dateFormat: "m/d/yy"
+                        });
+
+
+                        
+                });
+
+        </script>
+
+        <title>BOOkit-Payment</title>
+</head>
+
+<body>
+        <!--Navigation Bar -->
+        <div id="Header"></div>
+
+        <!--Page Content -->
+        <div style="height:100%">
+                <h2 class="font-Sego" style="color: #575757;margin-left: 1%;">Good news, your seat is available</h2>
+                <hr>
+
+                <div class="form-inline" style="width: 100%">
+
+                <div class="col-md-3 font-Sego">
+                    <form>
+                        <label class="medium-font-size-icon">Mon Mar 11</label> 
+                        <div class="form-inline"><h5>COLOMBO FORT &nbsp;&nbsp;</h5> <i class="fas fa-long-arrow-alt-right"></i> <h5>&nbsp;&nbsp;MATARA</h5></div>
+
+
+                        <div class="form-inline">
+                                <div >
+                                        <span class="slot">14:19</span>
+                                        <div class="v2"></div>
+                                        <span class="slot2"><i class="fas fa-train"></i></span>
+                                        <div class="v2"></div>
+                                        <span class="slot">17:30</span>
+                                    </div>
+                                    <div>
+                                            <span class="dot"></span>
+                                            <div class="vl"></div>
+                                            <span class="dot"></span>
+                                    </div>
+                                    <div style="margin-left:2%;">
+                                            <span class="slot">COLOMBO FORT</span>
+                                            <div class="v2"></div>
+                                            <span class="slot3">3H 1m</i></span>
+                                            <div class="v2"></div>
+                                            <span class="slot">MATARA</span>
+                                        </div>
+                        </div>
+
+                        
+                        
+
+                    </form>
+                </div>
+                <div class="col-md-3 form-inline">
+                    <div>
+                            <div class="v3"></div>
+                    </div>
+                    <div style="width: 90%;">
+                        <form action="">
+                            <div class="pay-details font-Sego">
+                                    <label for="txtTrainTo">First name :</label>
+                                    <input type="text" id="txtFirstName" name="txtbTo">
+                            </div>
+        
+                            <div class="pay-details font-Sego">
+                                    <label for="txtTrainTo">Last name :</label>
+                                    <input type="text" id="txtLastName" name="txtbTo">
+                            </div>
+                            <div class="pay-details font-Sego">
+                                    <label for="txtTrainTo">Email :</label>
+                                    <input type="email" id="txtEmail" name="txtbTo">
+                            </div>
+
+                        </form>
+                    </div>
+
+                    
+
+
+                </div>
+
+
+
+            </div>
+
+            <hr>
+            <h2 class="font-Sego" style="color: #575757;margin-left: 1%;">Secure Payment</h2>
+            <div class="margin-left-space">
+                    
+                <form>
+                    <label class="container"><i class="fab fa-cc-visa"></i>
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container"><i class="fab fa-cc-paypal"></i>
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container"><i class="fab fa-cc-amazon-pay"></i>
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                    </label>
+
+                </form>
+
+                <form>
+                        <label >Accepted Cards</label>
+                        <div class="icon-container">
+                          <i class="fab fa-cc-visa" style="color:navy;"></i>
+                          <i class="fab fa-cc-amex" style="color:blue;"></i>
+                          <i class="fab fa-cc-mastercard" style="color:red;"></i>
+                          <i class="fab fa-cc-discover" style="color:orange;"></i>
+                        </div>
+                        <br>
+                        <div style="width: 50%;" class="form-inline">
+                            <div style="width: 50%;">
+                                    <label for="cname">Name on Card</label>
+                                    <input type="text" id="cname" name="cardname" placeholder="Card name">
+                            </div>
+                                
+                            <div style="margin-left: 5%;width: 30%;">
+                                    <label for="ccnum">Credit card number</label>
+                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                            </div>
+                            <div style="margin-left: 5%;width: 10%;">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="352">
+                            </div>
+                                
+                        </div>
+
+                        <div style="width: 50%;" class="form-inline">
+                                <div style="width: 50%;">
+                                        <label for="expmonth">Exp Month</label>
+                                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                                </div>
+                                <div style="width: 45%; margin-left: 5%;">
+                                        <label for="expyear">Exp Year</label>
+                                        <input type="text" id="expyear" name="expyear" placeholder="2019">
+                                </div>
+                        </div>
+                        
+
+                </form>
+
+                <hr>
+
+                <div class="form-inline">
+                    <h2 class="font-Sego" style="color: #575757;margin-left: 1%;">
+                        Departure  Summery Total
+                    </h2>
+                    <span></span>
+                    <i class="fas fa-user margin-left-space"></i>
+
+                </div>
+
+                <div class="form-inline">
+                    <h4 class="font-Sego" style="color: #575757;margin-left: 1%;">
+                            Departure : Colombo
+                    </h4>
+                    <span></span>
+                    <h5 class="margin-left-space-md">$ 10</h5>
+                    <br>
+                </div>
+
+                <h4 class="font-Sego" style="color: #575757;margin-left: 1%;">
+                        Arrives : Matara
+                </h4>
+
+                <div class="form-inline">
+                        <h4 class="font-Sego" style="color: #575757;margin-left: 1%;">
+                                Total
+                        </h4>
+                        <span></span>
+                        <h5 style="margin-left: 11.5%;">$ 10</h5>
+                        <br>
+                    </div>
+
+                <div>
+                        <input type="submit" value="Continue to checkout" class="btn">
+                </div>
+                
+
+
+            </div>
+
+        </div>
+
+        <!--Footer -->
+        <footer id="footerID"></footer>
+</body>
+
+</html>

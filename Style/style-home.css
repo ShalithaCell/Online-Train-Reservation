@@ -106,7 +106,7 @@ input[type=text] {
   }
   [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
-    +
+    
   }
 
   
