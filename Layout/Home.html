@@ -5,16 +5,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
-    
+
+    <!--FontAwesome plugins-->
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
-
+   
+    <!--general custom styles plugin-->
     <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
     <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
+    <!--flickity plugin-->
     <link rel="stylesheet" type="text/css" href="../ExternalResources/flickity/flickity.css" />
     <script src="../ExternalResources/flickity/flickity.js"></script>
 
+       <!--page related style-->
     <link rel="stylesheet" type="text/css" href="../Style/style-home.css" />
     
 
@@ -46,8 +50,18 @@
 
             });
 
+            document.getElementById("TrainSearch").addEventListener("click", function(event){
+                event.preventDefault()
+                location.href = "TicketSearch.html";
+                
+            });
+
 
         });
+
+        
+
+        
 
         
 
@@ -116,9 +130,9 @@
                             </div>
                             <div class="search-bar-item calender" style="margin-left: 2%;">
                                     <label for="dPicker">Date</label>
-                                    <input type="date" name="dateofbirth" id="dPicker">
+                                    <input type="date" name="Date" id="dPicker">
                             </div>
-                            <button class="button" style="margin-left: 2%;">Search</button>
+                            <button class="button" id="TrainSearch" style="margin-left: 2%;">Search</button>
                     </div>
                     </div>
                 </form>

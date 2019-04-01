@@ -61,11 +61,7 @@
     cursor: pointer;
     border-radius: 20px;
   }
-  
-       font-family:calibri;
-  
-  
-  
+
    .row:after{
   
        content: "";

@@ -1,0 +1,35 @@
+#divCenter {
+  border-radius: 25px;
+  background: #d0d0d0;
+  padding: 20px;
+  width: 50%;
+  height: 330px;
+  margin-left: 25%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid grey ;
+  background-color: #d0d0d0;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 4%;
+  margin-left: 40%;
+}
