@@ -9,3 +9,7 @@ function getHeaderMD(){
 function getFooter(){
     return "<div class='container' id='footer'> <div class='row font-Sego'> <div class='column' > <div class='footer-item'> <h3>FOLLOW US ON:</h2> <a href='#' class='remove-underline footer-icon-size'><i class='fab fa-facebook'></i></a> <a href='#' class='remove-underline footer-icon-size'><i class='fab fa-google'></i></a> <a href='#' class='remove-underline footer-icon-size'><i class='fab fa-twitter-square'></i></a> <a href='#' class='remove-underline footer-icon-size'><i class='fab fa-linkedin'></i></a> </div></div><div class='column' > <div class='footer-item'> <h3>How To</h2> <a href='#' class='remove-underline'>Refund Rules</a> <br/> <a href='#' class='remove-underline'>Advertise with us</a> <br/> </div></div><div class='column' > <div class='footer-item'> <h3>Information</h2> <a href='#' class='remove-underline'>For Newly Migrated Agents</a> <br/> <a href='#' class='remove-underline'>About us</a> <br/> <div class='copyright-align'> &copy; 2019 BOOKit </div></div></div></div></div>";
 }
+
+function redirectToTrainDetails(){
+    window.location.href = "TrainDetails.html";
+}
