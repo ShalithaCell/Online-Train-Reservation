@@ -15,8 +15,14 @@
 
     <link rel="stylesheet" type="text/css" href="../Style/register1.css">
 
+    
+        <!--jquery-->
+        <script src="../Script/jquery-3.3.1.min.js"></script>
 
-    <script src="../Script/jquery-3.3.1.min.js"></script>
+    <!--jquery UI-->
+    <script src="../Script/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
     <script src="../Script/Header.js"></script>
 
     <script>
@@ -26,41 +32,131 @@
             $('#Header').html(getHeaderLG());
             $('#footerID').html(getFooter());
         });
+
+        $(document).ready(function () {
+
+            //-------------------------js methods-------------------------------------------
+
+            //jquery ui calender
+            $('#txtDOB').datepicker({
+                    minDate: "0",
+                    maxDate: "12/31/2019",
+                    changeMonth: true,
+                    changeYear: true,
+                    showButtonPanel: true,
+                    dateFormat: "m/d/yy"
+            });
+
+
+
+        });
+
+
+
     </script>
 </head>
 
 <body>
     <!--Navigation Bar -->
     <div id='Header'></div>
-        <!--registration form-->
-      <br><br><br><br>
+    <!--registration form-->
+    <br><br><br><br>
 
-        <div class="container">
-            <div class="row">
-                <div class="square">
-                    <div class="column1">
-                            <h1 id="hed1"> <i class="fas fa-subway" id="ticon"></i><br>Welcome</h1>
-                            <div>
-                                <p id="text1">You are 30 <br> seconds away <br> from <br> reserving <br> your train <br> seat</p>
-                            </div>
-                           
-                            <button class="button2"><a href="./login.html"></a> Login </button>
-                            
-
+    <div style="height:100%">
+        <div class="row">
+            <div class="square">
+                <div class="column1">
+                    <h1 id="hed1"> <i class="fas fa-subway" id="ticon"></i><br>Welcome</h1>
+                    <div>
+                        <p id="text1">You are 30 <br> seconds away <br> from <br> reserving <br> your train <br> seat
+                        </p>
                     </div>
-                    
-                    <div class="column2">
-                           
-                       <div class="square1 mt-5" class="column-two">
-                                   
-                              
-                      </div>
 
-                    </div>
+                    <button id="btnLogin"><a href="./login.html"></a> Login </button>
+
+
                 </div>
+
+                <div class="column2">
+                    <form action="">
+                    <div class="square1 mt-5 form-inline font-color font-Sego" class="column-two">
+
+                        <div class="col-md-3" style="margin-top: -5%;">
+                            <div style="width: 80%;">
+                                    <label for="txtFName">First name:</label>
+                                    <input type="text" id="txtFName" name="txtbFrom" required>
+                            </div>
+
+                            <div style="width: 80%;margin-top: 2%">
+                                    <label for="txtEmail">Email:</label>
+                                    <input type="text" id="txtEmail" name="txtbFrom">
+                            </div>
+
+                            <div   style="width: 80%;margin-top: 2%">
+                                    <label >Select Gender</label>
+                                    <div class="form-inline">
+                                            <label class="container" style="margin-top: 3%">Male
+                                                    <input id="rdoMale" type="radio" checked="checked" name="radio">
+                                                    <span class="checkmark"></span>
+                                            </label>
+
+                                            <label class="container" style="margin-top: 3%; margin-left: 7%">Female
+                                                    <input id="rdoFemale" type="radio" name="radio">
+                                                    <span class="checkmark"></span>
+                                            </label>
+                                    </div>
+                                    
+                            </div>
+
+                            <div style="width: 80%;margin-top: 2%">
+                                    <label for="txtPassword">Password:</label>
+                                    <input type="Password" id="txtPassword" name="txtbFrom">
+                            </div>
+
+                            
+                                
+                        </div>
+                        <div class="col-md-3">
+                                <div style="width: 80%;">
+                                        <label for="txtLastName">Last name:</label>
+                                        <input type="text" id="txtLastName" name="txtbFrom">
+                                </div>
+    
+                                <div style="width: 80%;margin-top: 2%">
+                                        <label for="txtContact">Contact no:</label>
+                                        <input type="text" id="txtContact" name="txtbFrom">
+                                </div>
+    
+                                <div style="width: 80%;margin-top: 2%">
+                                        <label for="txtDOB">Date of Birth:</label>
+                                        <input type="text" id="txtDOB" name="dob">
+                                </div>
+    
+                                <div style="width: 80%;margin-top: 2%">
+                                        <label for="txtConfirmPassword">Confirm Password:</label>
+                                        <input type="Password" id="txtConfirmPassword" name="txtbConfirmFrom">
+                                </div>
+
+                                <div>
+                                        <button type="submit" id="btnRegister" class="btn-cus" style="margin-left: 2%;">Register</button>
+                                </div>
+                        </div>
+
+                    </div>
+                </form>
+                </div>
+
             </div>
-          
+
         </div>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    </div>
 
 
 

@@ -2,7 +2,7 @@
     position: center;
     text-align: left;
     text-decoration-color: aqua;
-    width: 1400px;
+    width: 95%;
     height: 625px;
     margin-bottom: 10vh;
     display: inline-block;
@@ -14,8 +14,7 @@
 }
 .square1{
     position: right; 
-    text-align: center;
-    width: 1130px;
+    width: 80%;
     height: 550px;
     Background-color: #f0e7e7;
     align-content: center;
@@ -39,6 +38,70 @@
     position: absolute;
 
 }
+
+#btnLogin {
+    background-color: green;
+    color: white;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 15px;
+    width: 78%;
+  }
+
+  .font-color{
+      color: #424242;
+  }
+
+  .col-md-3{
+    width: 45%;
+    padding-left: 3%;
+  }
+
+  
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+    Background-color: #f0e7e7;
+  }
+
+  input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #B2B2B2  ;
+    Background-color: #f0e7e7;
+  }
+
+  .btn-cus {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 15px;
+    margin-left: 2%;
+    margin-top: 5%;
+    width: 100%;
+
+  }
 
   
 
