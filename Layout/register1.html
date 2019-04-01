@@ -83,17 +83,17 @@
 
                         <div class="col-md-3" style="margin-top: -5%;">
                             <div style="width: 80%;">
-                                    <label for="txtFName">First name:</label>
+                                    <label for="txtFName" required>First name :</label>
                                     <input type="text" id="txtFName" name="txtbFrom" required>
-                            </div>
+                            </div><br>
 
                             <div style="width: 80%;margin-top: 2%">
-                                    <label for="txtEmail">Email:</label>
-                                    <input type="text" id="txtEmail" name="txtbFrom">
-                            </div>
+                                    <label for="txtEmail" required>Email :</label>
+                                    <input type="email" id="txtEmail" name="txtbFrom" size="50%" required>
+                            </div><br>
 
                             <div   style="width: 80%;margin-top: 2%">
-                                    <label >Select Gender</label>
+                                    <label >Select Gender :</label>
                                     <div class="form-inline">
                                             <label class="container" style="margin-top: 3%">Male
                                                     <input id="rdoMale" type="radio" checked="checked" name="radio">
@@ -109,8 +109,8 @@
                             </div>
 
                             <div style="width: 80%;margin-top: 2%">
-                                    <label for="txtPassword">Password:</label>
-                                    <input type="Password" id="txtPassword" name="txtbFrom">
+                                    <label for="txtPassword" required>Password :</label>
+                                    <input type="Password" id="txtPassword" name="txtbFrom" required>
                             </div>
 
                             
@@ -118,25 +118,25 @@
                         </div>
                         <div class="col-md-3">
                                 <div style="width: 80%;">
-                                        <label for="txtLastName">Last name:</label>
+                                        <label for="txtLastName">Last name :</label>
                                         <input type="text" id="txtLastName" name="txtbFrom">
-                                </div>
+                                </div><br>
     
                                 <div style="width: 80%;margin-top: 2%">
-                                        <label for="txtContact">Contact no:</label>
-                                        <input type="text" id="txtContact" name="txtbFrom">
-                                </div>
+                                        <label for="txtContact" required>Contact no :</label>
+                                        <input type="text" id="txtContact" name="txtbFrom" required>
+                                </div><br>
     
                                 <div style="width: 80%;margin-top: 2%">
-                                        <label for="txtDOB">Date of Birth:</label>
-                                        <input type="text" id="txtDOB" name="dob">
-                                </div>
+                                        <label for="txtDOB" required>Date of Birth :</label>
+                                        <input type="text" id="txtDOB" name="dob" >
+                                </div><br>
     
                                 <div style="width: 80%;margin-top: 2%">
-                                        <label for="txtConfirmPassword">Confirm Password:</label>
-                                        <input type="Password" id="txtConfirmPassword" name="txtbConfirmFrom">
+                                        <label for="txtConfirmPassword" required>Confirm Password :</label>
+                                        <input type="Password" id="txtConfirmPassword" name="txtbConfirmFrom" required>
                                 </div>
-
+                                <br><br>
                                 <div>
                                         <button type="submit" id="btnRegister" class="btn-cus" style="margin-left: 2%;">Register</button>
                                 </div>
