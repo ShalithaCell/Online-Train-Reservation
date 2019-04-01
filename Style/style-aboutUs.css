@@ -35,9 +35,8 @@ body {
   color: white;
 }
 
-.column {
+.column-last {
   float: left;
   width: 40%;
   height: 82px;
 }
-
