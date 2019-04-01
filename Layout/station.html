@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!--character encoding for HTML document -->
+    <meta charset="UTF-8" />
+    <!--make the webpage responsive, relative to resolution -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--linking the BOOKit train icon on top of the page -->
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+
+    <title>BOOkit-Stations</title>
+
+    <!--fontawesome icon using (css files) -->
+    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+
+    <!--linking custom.css and custon-navigation bar .css files -->
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+    <!--linking station.css file -->
+    <link rel="stylesheet" type="text/css" href="../Style/style-station.css" />
+
+    <script src="../Script/jquery-3.3.1.min.js"></script>
+    <script src="../Script/Header.js"></script>
+
+    <script>
+        //Jquery function for load navigation to page
+        $(function () {
+            $("#Header").html(getHeaderMD());
+            $("#footerID").html(getFooter());
+        });
+    </script>
+</head>
+
+<body>
+    <!--Navigation Bar -->
+    <div id="Header"></div>
+
+    <!--Page Content -->
+    <div style="height:100%">
+    
+        <input type="text" placeholder="Search here...." id="search-bar1" name="search-bar1">
+
+        <h1 id="h1-cus">Five Trains Run Via Colombo Fort Station</h1>
+        <br/><br/><br/><br/>
+
+        <div>
+            <table>
+                <tr id="header-color">
+                  <th>Code</th>
+                  <th>Name</th>
+                  <th>RunsOn</th>
+                  <th>Arrives</th>
+                  <th>Halt</th>
+                  <th>Depart</th>
+            
+                </tr>
+                <tr>
+                    <td>20140</td>
+                    <td>Yal Devi</td>
+                    <td>MTWTFSS</td>
+                    <td>08.00 A.M.</td>
+                    <td>No Delay</td>
+                    <td>08.15 A.M</td>
+                </tr>
+                <tr>
+                  <td>24350</td>
+                  <td>Ruhunu Kumari</td>
+                  <td>MTWTFSS</td>
+                  <td>09.15 A.M</td>
+                  <td>No Delay</td>
+                  <td>09.20 A.M</td>
+            
+                </tr>
+                <tr>
+                        <td>33768</td>
+                        <td>Udarata Menike</td>
+                        <td>MTWTFSS</td>
+                        <td>07.00 A.M</td>
+                        <td>No Delay</td>
+                        <td>07.10 A.M</td>
+                </tr>
+                <tr>
+                        <td>10670</td>
+                        <td> Rajarata Rejini</td>
+                        <td>MTWTFSS</td>
+                        <td>10.00 A.M</td>
+                        <td>No Delay</td>
+                        <td>10.15 A.M</td>
+                </tr>
+                <tr>
+                        <td>28160</td>
+                        <td> Badulu Kumari</td>
+                        <td>MTWTFSS</td>
+                        <td>08.30 A.M</td>
+                        <td>No Delay</td>
+                        <td>08.40 A.M</td>
+                </tr>
+                      
+            </table>
+        </div>
+    </div>
+    <!--Footer -->
+    <footer id="footerID"></footer>
+</body>
+
+</html>

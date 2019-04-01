@@ -2,6 +2,12 @@
 /* CSS Document */
 /* aboutUs by gayan */
 
+
+body {
+  font-family: sans-serif;
+  margin-left: 2%;
+}
+
 .responsive {
     margin-top: 15px;
     width: 100%;
@@ -12,17 +18,17 @@
     background-color:rgb(41, 39, 39);
   }
 
-#h2-align{
+#h1-align{
     text-align: center;
+}
+
+#h4-align{
+  text-align: center;
 }
 
 #div-align{
   text-align: left;
-}
-
-
-#h4-align{
-  text-align: center;
+  font-size: 20px;
 }
 
 .div-text{

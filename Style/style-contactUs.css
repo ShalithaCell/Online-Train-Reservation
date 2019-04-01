@@ -2,12 +2,18 @@
 /* CSS Document */
 /* contactUs by gayan */
 
+body {
+    font-family: sans-serif;
+}
+
+/*make the page responsive*/
 .responsive {
     margin-top: 15px;
     width: 100%;
     height: auto;
 }
 
+/**/
 .column-cus {
     float: right;
     width: 50%;
@@ -23,15 +29,13 @@ input[type=text] {
     border-bottom: 2px solid #B2B2B2;
   }
 
-  .dropdown{
-    font-size: 15px;
-    border: none;
-    outline: none;
-    color:red;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 9px;
+.select {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
 }
 
 .button {
@@ -43,7 +47,8 @@ input[type=text] {
     font-size: 20px;
     display: inline-block;
     margin: 4px 2px;
-    margin-right: 2%;
+    margin-right: 5%;
+    margin-bottom: 5%;
     cursor: pointer;
 }
 
