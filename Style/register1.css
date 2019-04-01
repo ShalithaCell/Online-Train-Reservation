@@ -1,0 +1,45 @@
+.square{
+    position: center;
+    text-align: left;
+    text-decoration-color: aqua;
+    width: 1400px;
+    height: 625px;
+    margin-bottom: 10vh;
+    display: inline-block;
+    margin-left: 8vh;
+    background-image: linear-gradient(to right, rgb(11, 2, 90) , rgb(0, 162, 255));
+    border-width: thick;
+    color: aliceblue;
+    border: 1px solid black;
+}
+.square1{
+    position: right; 
+    text-align: center;
+    width: 1130px;
+    height: 550px;
+    Background-color: #f0e7e7;
+    align-content: center;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;  
+    margin-left: 7vh;
+    margin-top: 4vh;
+    float: right;
+    
+}
+.column1 {
+    float: left;
+    width: 15%;
+    height: 15%;
+    font-size: 20px;
+    margin-top: 20vh;
+    text-align: center;
+    color:white;
+    margin-bottom: 50%;
+    float: top;
+    position: absolute;
+
+}
+
+  
+
+
