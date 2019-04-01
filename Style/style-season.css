@@ -1,62 +1,62 @@
 {
-  box-sizing: border-box;
-}
-
-.column {
-	
-  float: left;
-  padding: 10px;
-  height: 300px; 
-}
-
-.left{
-	font-family:calibri;
-	color: gray;
-	padding-left: 60px;
-	padding-right: 10px;
-	padding-bottom:100px;
-	width: 40%;
-}
-
-
-.right {
-	font-family:calibri;
-	color:  grey;
-	width: 40%;
-	padding-left:60px;
-	padding-right:70px;
-	padding-bottom:100px;
-	
-}
-
-
-
-
-.button1{
-	
- 
-  background-color:#99ccff;
-  color: black;
-  padding: 20px 30px;
-  font-size: 20px;
-  border: "1";
+	box-sizing: border-box;
+  }
   
-}
-
-
-
-
-.button1:hover{
+  .column {
+	  
+	float: left;
+	padding: 10px;
+	height: 300px; 
+  }
+  
+  .left{
+	  font-family:calibri;
+	  color: gray;
+	  padding-left: 60px;
+	  padding-right: 10px;
+	  padding-bottom:100px;
+	  width: 40%;
+  }
+  
+  
+  .right {
+	  font-family:calibri;
+	  color:  grey;
+	  width: 40%;
+	  padding-left:60px;
+	  padding-right:70px;
+	  padding-bottom:100px;
+	  
+  }
+  
+  
+  
+  
+  .but{
+	  
+   
+	color: black;
+	padding: 20px 30px;
+	background-color:#99ccff;
+	font-size: 20px;
+	border: none;
+	height:75px;
+	width: 200px;
 	
-	color:pink;
-}
-
-input [type = submit]
-{
-	background-color:blue;
-	padding :20px 30px;
-	cursor: pointer;
-}
-input [type = submit]:hover{
-	background-color:green;
-}
+  }
+  
+  
+  
+  
+  .but:hover{
+	  
+	  background-color: blue;
+  }
+  
+  input [type = submit]
+  {
+	  background-color:blue;
+	  padding :20px 30px;
+	  cursor: pointer;
+  }
+  
