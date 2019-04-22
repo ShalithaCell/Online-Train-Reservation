@@ -26,7 +26,7 @@
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
-.register-left img{
+.register-left i{
     margin-top: 15%;
     margin-bottom: 5%;
     width: 25%;
@@ -93,4 +93,24 @@
     margin-top: 8%;
     margin-bottom: -15%;
     color: #495057;
+}
+
+.font-lg-T{
+    font-size: 4em;
+}
+
+.bg-primary a {
+	color: #fff;	
+}
+
+.pad{
+    padding: 2%;
+}
+
+.item-space{
+    margin-right: 5px;
+}
+
+.required{
+    border: solid 2px red;
 }

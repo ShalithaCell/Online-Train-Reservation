@@ -1,159 +1,321 @@
 <!DOCTYPE html>
 <html>
-    <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
-    
-            <!--Fontawesome-->
-            <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
-            <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
-            
-            <!--Navigation bar and footer-->
-            <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
-            <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
-        <script src="../Script/jquery-3.3.1.min.js"></script>
-        <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
 
-        <title>BOOkit-Payment</title>
-        
-        <!--style sheets for this page only-->
-        <link href="../Style/Register.css" rel="stylesheet" type="text/css">
+    <!--Fontawesome-->
+    <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
 
-        <!--jquery UI-->
-        <script src="../Script/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="../Style/jquery-ui.css" />
+    <!--Navigation bar and footer-->
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
-        <!--Jquery confirm-->
-        <script src="../Script/jquery-confirm.min.js"></script>
-        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+    <script src="../Script/jquery-3.3.1.min.js"></script>
+    <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <link href="../ExternalResources/DateTimePicker/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="../ExternalResources/DateTimePicker/bootstrap-datepicker.js"></script>
 
+    <title>BOOkit-Payment</title>
 
-        <!--Herder js file-->
-        <script src="../Script/Header.js"></script>
+    <!--style sheets for this page only-->
+    <link href="../Style/Register.css" rel="stylesheet" type="text/css">
 
-        <script>
-                //Jquery function for load navigation to page
-                $(function () {
-                        $("#Header").html(getHeaderMD());
-                        $("#footerID").html(getFooter());
-                });
+    <!--jquery UI-->
+    <script src="../Script/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../Style/jquery-ui.css" />
 
-                $(document).ready(function () {
-
-                        //-------------------------js methods-------------------------------------------
+    <!--Jquery confirm-->
+    <script src="../Script/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
 
 
-                        //jquery ui calender
-                        $('#txtDate').datepicker({
-                                minDate: "0",
-                                maxDate: "12/31/2019",
-                                changeMonth: true,
-                                changeYear: true,
-                                showButtonPanel: true,
-                                dateFormat: "m/d/yy"
-                        });
+    <!--Herder js file-->
+    <script src="../Script/Header.js"></script>
+
+    <script>
+        //Jquery function for load navigation to page
+        $(function () {
+            $("#Header").html(getHeaderMD());
+            $("#footerID").html(getFooter());
+        });
+
+        $(document).ready(function () {
+
+            //-------------------------js methods-------------------------------------------
 
 
-                        
-                });
+            //jquery ui calender
+            $('#txtDate').datepicker({
+                minDate: "0",
+                maxDate: "12/31/2019",
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: "m/d/yy"
+            });
 
-        </script>
+            $('#myTabContent :text').on('input',function(e){
+                if($(this).val().length > 0)
+                    $(this).removeClass('required');
+                else
+                    $(this).addClass('required');
+            });
 
-        
-        
-    </head>
-    <body>
-        <!--Navigation Bar -->
-        <div id="Header"></div>
+            $('#txtEmail_F').on('input',function(e){
+                if($(this).val().length > 0)
+                    $(this).removeClass('required');
+                else
+                    $(this).addClass('required');
+            });
 
-        <!--Page Content -->
+            $('#txtEmail_P').on('input',function(e){
+                if($(this).val().length > 0)
+                    $(this).removeClass('required');
+                else
+                    $(this).addClass('required');
+            });
+
+        });
+
+        function checkrequiredFields(type){
+            var count = 0;
+
+            if(type == 'F'){
+                if($('#txtFirstName_F').val().length == 0){
+                    $('#txtFirstName_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtLastName_F').val().length == 0){
+                    $('#txtLastName_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtPassword_F').val().length == 0){
+                    $('#txtPassword_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtDOB_F').val().length == 0){
+                    $('#txtDOB_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtEmail_F').val().length == 0){
+                    $('#txtEmail_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtPhone_F').val().length == 0){
+                    $('#txtPhone_F').addClass('required');
+                    count++;
+                }
+
+                if($('#txtConfirmPassword_F').val().length == 0){
+                    $('#txtConfirmPassword_F').addClass('required');
+                    count++;
+                }
+            } else{
+                if($('#txtFirstName_P').val().length == 0){
+                    $('#txtFirstName_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtLastName_P').val().length == 0){
+                    $('#txtLastName_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtPassword_P').val().length == 0){
+                    $('#txtPassword_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtDOB_P').val().length == 0){
+                    $('#txtDOB_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtEmail_P').val().length == 0){
+                    $('#txtEmail_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtPhone_P').val().length == 0){
+                    $('#txtPhone_P').addClass('required');
+                    count++;
+                }
+
+                if($('#txtConfirmPassword_P').val().length == 0){
+                    $('#txtConfirmPassword_P').addClass('required');
+                    count++;
+                }
+            }
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+    <!--Navigation Bar -->
+    <div id="Header"></div>
+
+    <!--Page Content -->
+    <div style="height:100%">
         <div class="container register">
+
             <div class="row">
                 <div class="col-md-3 register-left">
-                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <i class="fas fa-subway font-lg-T"></i>
                     <h3>Welcome.</h3>
-                    <input type="submit" name="" value="Login"/><br/>
+                    <input type="submit" name="" value="Login" /><br />
                 </div>
                 <div class="col-md-9 register-right">
                     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Auditor</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Free</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Auditi</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Premium</a>
                         </li>
                     </ul>
+
                     <div class="tab-content" id="myTabContent">
+                        
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Apply as a Auditor</h3>
+                            <h3 class="register-heading">Register as Free Member</h3>
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        <input id="txtFirstName_F" type="text" class="form-control"
+                                            placeholder="First Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        <input id="txtLastName_F" type="text" class="form-control"
+                                            placeholder="Last Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        <input id="txtPassword_F" type="password" class="form-control"
+                                            placeholder="Password *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" class="form-control" id="txtDOB_F"
+                                                placeholder="Choose Date Of Birth *">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
                                     </div>
+
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        <input id="txtEmail_F" type="email" class="form-control" placeholder="Email *"
+                                            value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Phone Number *" value="" />
+                                        <input id="txtPhone_F" type="text" minlength="10" maxlength="10"
+                                            name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
+                                            value="" />
                                     </div>
                                     <div class="form-group">
-                                    <input type="submit" class="btnRegister"  value="Register"/>
+                                        <input id="txtConfirmPassword_F" type="password" class="form-control"
+                                            placeholder="Confirm Password *" value="" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="radio-inline pad">
+                                            <input class="item-space" type="radio" name="optradio" checked>Male
+                                            <input class="item-space" type="radio" name="optradio">Female
+                                            <input class="item-space" type="radio" name="optradio">Other
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="button" id="btnRegister_F" class="btnRegister" value="Register" onclick="checkrequiredFields('F')"/>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        
                         <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <h3  class="register-heading">Apply as a Auditi</h3>
+                            <h3 class="register-heading">Register as Premium Member</h3>
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        <input id="txtFirstName_P" type="text" class="form-control"
+                                            placeholder="First Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        <input id="txtLastName_P" type="text" class="form-control"
+                                            placeholder="Last Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        <input id="txtPassword_P" type="password" class="form-control"
+                                            placeholder="Password *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone Number*" value="" />
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" class="form-control" id="txtDOB_P"
+                                                placeholder="Choose Date Of Birth *">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
                                     </div>
 
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        <input id="txtEmail_P" type="email" class="form-control" placeholder="Email *"
+                                            value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        <input id="txtPhone_P" type="text" minlength="10" maxlength="10"
+                                            name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
+                                            value="" />
                                     </div>
                                     <div class="form-group">
+                                        <input id="txtConfirmPassword_P" type="password" class="form-control"
+                                            placeholder="Confirm Password *" value="" />
                                     </div>
-                                    <input type="submit" class="btnRegister"  value="Register"/>
+
+                                    <div class="form-group">
+                                        <div class="radio-inline pad">
+                                            <input class="item-space" type="radio" name="optradioP" checked>Male
+                                            <input class="item-space" type="radio" name="optradioP">Female
+                                            <input class="item-space" type="radio" name="optradioP">Other
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" id="btnRegister_P" class="btnRegister" value="Register" onclick="checkrequiredFields('P')"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-        <!--Footer -->
-        <footer id="footerID"></footer>
-    </body>
+    </div>
+    <!--Footer -->
+    <footer id="footerID"></footer>
+</body>
+
 </html>
