@@ -32,7 +32,7 @@
   }
   
   /* Clear floats after the columns */
-  .row:after {
+  .row-T:after {
     content: "";
     display: table;
     clear: both;
@@ -65,7 +65,7 @@
     width: 30%;
   }
 
-  .row{
+  .row-T{
     padding-bottom: 1%;
   }
 
@@ -116,11 +116,11 @@
       background-color: #0DA303;
   }
 
-  .col-sm-1{
+  .col-sm-1-T{
       width: 20%;
   }
 
-  .col-sm-2{
+  .col-sm-2-T{
       width:58%;;
   }
 

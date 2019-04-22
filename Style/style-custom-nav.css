@@ -2,7 +2,7 @@
 /* CSS Document */
 
 /*parent nav bar*/
-.navbar {
+.navbar-T {
     overflow: hidden;
     background-color: white;
     margin: 3px;
@@ -10,7 +10,7 @@
 
   
   
-  .navbar a {
+  .navbar-T a {
     float: left;
     font-size: 1em;
     color: black;
@@ -19,12 +19,12 @@
     text-decoration: none;
   }
   
-  .dropdown {
+  .dropdown-T {
   
     overflow: hidden;
   }
   
-  .dropdown .dropbtn {
+  .dropdown-T .dropbtn {
     font-size: 1em;  
     border: none;
     outline: none;
@@ -35,7 +35,7 @@
     margin: 0;
   }
   
-  .navbar a:hover, .dropdown:hover .dropbtn {
+  .navbar-T a:hover, .dropdown-T:hover .dropbtn {
     font-weight: bold;
     color: #BFBEBE !important;
     cursor: pointer;
@@ -63,7 +63,7 @@
     background-color: #ddd;
   }
   
-  .dropdown:hover .dropdown-content {
+  .dropdown-T:hover .dropdown-content {
     display: block;
   }
 
@@ -95,7 +95,7 @@
           font-family: Impact, Charcoal, sans-serif;
     }
 
-    .navbar a {
+    .navbar-T a {
       float: left;
       font-size: 1em;
       color: black;
@@ -112,7 +112,7 @@
       margin-right: 0%;
     }
 
-    .dropdown .dropbtn {
+    .dropdown-T .dropbtn {
       font-size: 12px;
       border: none;
       outline: none;

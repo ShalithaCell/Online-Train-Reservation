@@ -70,7 +70,7 @@
                                 return;
                         }
 
-                        var content = '<div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">'+reviewTitle+'</h2> <p> '+review+'</p></div></div>';
+                        var content = '<div class="ful-width review-parent form-inline-T font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">'+reviewTitle+'</h2> <p> '+review+'</p></div></div>';
 
                         document.getElementById("div_review_parent").innerHTML = document.getElementById("div_review_parent").innerHTML + content;
 
@@ -87,7 +87,7 @@
                                         title: 'Reviews',
                                         content: '' +
                                         '<form action="" class="formName">' +
-                                                        '<div style="font-size: 60%;" > <div id="div_review_parent"> <div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-parent form-inline font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div></div><div class="ful-width review-add form-inline font-Sego"> <h2 style="text-align: left;color: gray; margin-left: 1%;">Add Review</h2> <br><textarea id="txtareaTitle" placeholder="Enter Review" cols="30" rows="1"></textarea> <textarea id="txtareaReview" placeholder="Enter Description" cols="30" rows="5"></textarea> <div class="ful-width btn-left"> <button id="btnAddReview" class="button-addReview" style="margin-left: 2%;" onclick="addNewReview()"><i class="fas fa-plus"></i> &nbsp;Add</button> </div></div></div>'+
+                                                        '<div style="font-size: 60%;" > <div id="div_review_parent"> <div class="ful-width review-parent form-inline-T font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div><div class="ful-width review-parent form-inline-T font-Sego"> <div class="column-Review-left"> <div style="font-size: 4em;"> <i class="fas fa-user-tie"></i> </div><div> By <a href="" >John</a> </div></div><div class="column-Review-right"> <h2 id="review_1">My awesome review</h2> <p id="reviewDescription_1"> Train is good but was too much crowded due to wedding season and due to this no cleanliness was there and before blaming cleaning staff its the passengers who needs to take care for this. Groundnuts, plastics, paper, cups were thrown below the seat. </p></div></div></div><div class="ful-width review-add form-inline-T font-Sego"> <h2 style="text-align: left;color: gray; margin-left: 1%;">Add Review</h2> <br><textarea id="txtareaTitle" placeholder="Enter Review" cols="30" rows="1"></textarea> <textarea id="txtareaReview" placeholder="Enter Description" cols="30" rows="5"></textarea> <div class="ful-width btn-left"> <button id="btnAddReview" class="button-addReview" style="margin-left: 2%;" onclick="addNewReview()"><i class="fas fa-plus"></i> &nbsp;Add</button> </div></div></div>'+
                                         '</form>',
                                         buttons: {
                                                 
@@ -128,8 +128,8 @@
         <div style="height:100%">
                 <form action="">
                         <!--Search bar -->
-                        <div class="row">
-                                <div class="column-general round-coner font-Sego form-inline"
+                        <div class="row-T">
+                                <div class="column-general round-coner font-Sego form-inline-T"
                                         style="background-color:#3F51D4;">
                                         <div class="div-custom">
                                                 <label for="txtTrainFrom" class="color-white">From</label>
@@ -154,7 +154,7 @@
                 </form>
                 <div>
                         <!--Filter box-->
-                        <div class="row">
+                        <div class="row-T">
                                 <div class="column-first round-coner font-Sego"
                                         style="background-color:white; border-style:ridge;padding-bottom: 2% ">
                                         <h2>Refine Results</h2>
@@ -182,13 +182,13 @@
 
                                                 <div id="grpAvailable">
                                                         <h3>Availability</h3>
-                                                        <label class="container">All
+                                                        <label class="container-T">All
                                                                 <input type="radio" checked="checked"
                                                                         name="grpAvailable">
                                                                 <span class="checkmark"></span>
                                                         </label>
 
-                                                        <label class="container">Available
+                                                        <label class="container-T">Available
                                                                 <input type="radio" name="grpAvailable">
                                                                 <span class="checkmark"></span>
                                                         </label>
@@ -196,12 +196,12 @@
 
                                                 <div id="grpJType">
                                                         <h3>Journey Type</h3>
-                                                        <label class="container">Casual
+                                                        <label class="container-T">Casual
                                                                 <input type="radio" checked="checked" name="grpJType">
                                                                 <span class="checkmark"></span>
                                                         </label>
 
-                                                        <label class="container">Tour
+                                                        <label class="container-T">Tour
                                                                 <input type="radio" name="grpJType">
                                                                 <span class="checkmark"></span>
                                                         </label>
@@ -212,8 +212,8 @@
                                         </form>
                                 </div>
                                 <div class="column-two round-coner font-Sego" style="background-color:#EEEEEE;">
-                                        <div class="form-inline">
-                                                        <div class="row ful-width">
+                                        <div class="form-inline-T">
+                                                        <div class="row-T ful-width">
                                                 <div class="column-A">
                                                         <h3>Train Name</h3>
                                                 </div>
@@ -231,7 +231,7 @@
                                         <hr style="margin-top: -2%;">
                                         
                                         <div id="divTrainList">
-                                                <div id="divTrain_1" class="row round-coner custom-style-list margin-top-sm">
+                                                <div id="divTrain_1" class="row-T round-coner custom-style-list margin-top-sm">
                                                         <div class="column-train-detail-general">
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_1"><b>Ruhunu Kumari</b></label> <br>
@@ -250,11 +250,11 @@
                                                                 <fieldset id="fld_div_1_class_1" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_1">Class A</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_1">$ 10</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_1_Class_1_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_1_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>
@@ -262,11 +262,11 @@
                                                                 <fieldset id="fld_div_1_class_2" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_2">Class B</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_2">$ 8</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_1_Class_2_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_1_Class_2_availability" class="div-status-remains">10 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>
@@ -274,7 +274,7 @@
                                                 </div>
 
 
-                                                <div id="divTrain_2" class="row round-coner custom-style-list margin-top-sm">
+                                                <div id="divTrain_2" class="row-T round-coner custom-style-list margin-top-sm">
                                                         <div class="column-train-detail-general">
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_2"><b>Rajarata Rajina</b></label> <br>
@@ -293,11 +293,11 @@
                                                                 <fieldset id="fld_div_2_class_1" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_2">Class A</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_2">$ 10</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_2_Class_1_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_2_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>
@@ -305,11 +305,11 @@
                                                                 <fieldset id="fld_div_1_class_2" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_2">Class B</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_2">$ 8</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_2_Class_2_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_2_Class_2_availability" class="div-status-remains">10 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>
@@ -317,7 +317,7 @@
                                                 </div>
 
 
-                                                <div id="divTrain_3" class="row round-coner custom-style-list margin-top-sm">
+                                                <div id="divTrain_3" class="row-T round-coner custom-style-list margin-top-sm">
                                                         <div class="column-train-detail-general">
                                                                 <i class="fas fa-subway medium-font-size-icon"></i> <br>
                                                                 <label id="lblTrainName_3"><b>Sagarika</b></label> <br>
@@ -336,11 +336,11 @@
                                                                 <fieldset id="fld_div_3_class_1" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_3">Class A</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_3">$ 10</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_3_Class_1_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_3_Class_1_remains" class="div-status-remains">15 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>
@@ -348,11 +348,11 @@
                                                                 <fieldset id="fld_div_3_class_2" class="margin-top-sm">
                                                                         <legend class="legend-custom"><lable id="lgnd_3_2">Class B</lable></legend>
                                                                         <div class="style-price"><label id="lblTrain_3_2">$ 8</label></div>
-                                                                        <div class="div-details form-inline">
+                                                                        <div class="div-details form-inline-T">
                                                                                 <label id="lblTrain_3_Class_2_availability" class="div-status-available">Available</label>
                                                                                 <label id="lblTrain_3_Class_2_remains" class="div-status-remains">10 to Remaining(s)</label>
                                                                         </div>
-                                                                        <div class="center">
+                                                                        <div class="center-T">
                                                                                 <button onclick="RederectPayment()" class="button-sm" style="margin-left: 2%;">Book</button>
                                                                         </div>
                                                                 </fieldset>

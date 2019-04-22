@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+    
+            <!--Fontawesome-->
+            <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+            <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+            
+            <!--Navigation bar and footer-->
+            <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+            <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+        <script src="../Script/jquery-3.3.1.min.js"></script>
+        <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+
+        <title>BOOkit-Payment</title>
+        
+        <!--style sheets for this page only-->
+        <link href="../Style/Register.css" rel="stylesheet" type="text/css">
+
+        <!--jquery UI-->
+        <script src="../Script/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
+        <!--Jquery confirm-->
+        <script src="../Script/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
+
+        <!--Herder js file-->
+        <script src="../Script/Header.js"></script>
+
+        <script>
+                //Jquery function for load navigation to page
+                $(function () {
+                        $("#Header").html(getHeaderMD());
+                        $("#footerID").html(getFooter());
+                });
+
+                $(document).ready(function () {
+
+                        //-------------------------js methods-------------------------------------------
+
+
+                        //jquery ui calender
+                        $('#txtDate').datepicker({
+                                minDate: "0",
+                                maxDate: "12/31/2019",
+                                changeMonth: true,
+                                changeYear: true,
+                                showButtonPanel: true,
+                                dateFormat: "m/d/yy"
+                        });
+
+
+                        
+                });
+
+        </script>
+
+        
+        
+    </head>
+    <body>
+        <!--Navigation Bar -->
+        <div id="Header"></div>
+
+        <!--Page Content -->
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <h3>Welcome.</h3>
+                    <input type="submit" name="" value="Login"/><br/>
+                </div>
+                <div class="col-md-9 register-right">
+                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Auditor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Auditi</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Apply as a Auditor</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Phone Number *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                    <input type="submit" class="btnRegister"  value="Register"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h3  class="register-heading">Apply as a Auditi</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone Number*" value="" />
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Password *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                    </div>
+                                    <input type="submit" class="btnRegister"  value="Register"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer -->
+        <footer id="footerID"></footer>
+    </body>
+</html>

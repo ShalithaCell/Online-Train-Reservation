@@ -19,10 +19,10 @@
     height: 200px;
     background-color: #3F51D4;
 }
-.pull-right{
+.pull-right-T{
     float: right !important;
 }
-.pull-left{
+.pull-left-T{
     float: left !important;
 }
 .container-custom {
@@ -43,7 +43,7 @@
 
 
 /* Create three equal columns that floats next to each other */
-.column {
+.column-T {
     float: left;
     width: 32%;
     height: 150px;
@@ -79,7 +79,7 @@
 }
 
 /* The container */
-.container {
+.container-T {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -93,7 +93,7 @@
   }
   
   /* Hide the browser's default radio button */
-  .container input {
+  .container-T input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -111,12 +111,12 @@
   }
   
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+  .container-T:hover input ~ .checkmark {
     background-color: #ccc;
   }
   
   /* When the radio button is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+  .container-T input:checked ~ .checkmark {
     background-color: #2196F3;
   }
   
@@ -128,12 +128,12 @@
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .container input:checked ~ .checkmark:after {
+  .container-T input:checked ~ .checkmark:after {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .container .checkmark:after {
+  .container-T .checkmark:after {
        top: 9px;
       left: 9px;
       width: 8px;
@@ -142,7 +142,7 @@
       background: white;
   }
 
-  .form-inline {  
+  .form-inline-T {  
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -156,7 +156,7 @@
     font-size: 1.5em;
   }
 
-  .center{
+  .center-T{
     text-align: center;
   }
 
@@ -169,7 +169,7 @@
         width: 90%;
    }
 
-   .column {
+   .column-T {
     float: left;
     width: 32%;
     height: 150px;
@@ -188,7 +188,7 @@
 
 @media (max-width: 800px) {
     
-    .form-inline {
+    .form-inline-T {
       flex-direction: column;
       align-items: stretch;
     }

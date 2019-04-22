@@ -78,7 +78,7 @@ input[type=text] {
     margin-left: 15px;
   }
 
-  .button {
+  .button-T {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -112,7 +112,7 @@ input[type=text] {
   
 
   .txt1{
-    font-size: 27px;
+    font-size: 24px;
   }
 
   .image-suport{
@@ -311,7 +311,7 @@ body { font-family: sans-serif; }
         font-size: 7px;
     }
 
-    .container {
+    .container-T {
         display: block;
         position: relative;
         padding-left: 35px;
@@ -336,14 +336,14 @@ body { font-family: sans-serif; }
         padding-top: 3px;
     }
 
-    .column {
+    .column-T {
         float: left;
         width: 32%;
         height: 70px;
         font-size: 7px;
     }
 
-    .form-inline {
+    .form-inline-T {
         flex-direction: row;
         align-items: stretch;
     }

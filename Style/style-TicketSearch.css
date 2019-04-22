@@ -32,7 +32,7 @@
   }
   
   /* Clear floats after the columns */
-  .row:after {
+  .row-T:after {
     content: "";
     display: table;
     clear: both;
@@ -61,7 +61,7 @@
     width: 20%;
   }
 
-  .row{
+  .row-T{
     padding-bottom: 1%;
   }
 

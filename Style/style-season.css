@@ -1,15 +1,12 @@
-{
-	box-sizing: border-box;
-  }
-  
-  .column {
+
+  .column-T {
 	  
 	float: left;
 	padding: 10px;
 	height: 300px; 
   }
   
-  .left{
+  .left-T{
 	  font-family:calibri;
 	  color: gray;
 	  padding-left: 60px;
@@ -19,7 +16,7 @@
   }
   
   
-  .right {
+  .right-T {
 	  font-family:calibri;
 	  color:  grey;
 	  width: 40%;
