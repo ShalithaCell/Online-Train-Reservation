@@ -13,6 +13,7 @@
     <!--Navigation bar and footer-->
     <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
     <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+    <link rel="stylesheet" type="text/css" href="../Style/spinner.css" />
 
     <script src="../Script/jquery-3.3.1.min.js"></script>
     <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -33,6 +34,9 @@
     <script src="../Script/jquery-confirm.min.js"></script>
     <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
 
+    <!--moment js -->
+    <script src="../Script/moment.js"></script>
+
 
     <!--Herder js file-->
     <script src="../Script/Header.js"></script>
@@ -47,7 +51,7 @@
         $(document).ready(function () {
 
             //-------------------------js methods-------------------------------------------
-
+            $('#loader').hide();
 
             //jquery ui calender
             $('#txtDate').datepicker({
@@ -156,6 +160,111 @@
                     count++;
                 }
             }
+
+            if(count == 0){
+                Register();
+            }
+
+
+        }
+
+
+        /*function sendmail() {
+            $.ajax({
+                url: 'BIZ/logic.php',
+                type: 'post',
+                data: { "SendMail": $('#txtEmail_F').val()},
+                beforeSend: function(){
+                    $('#loader').show();
+                },
+                complete: function(){
+                    $('#loader').hide();
+                },
+                success: function(response) {
+                    alert(response);
+                }
+            });
+        }*/
+
+        function Register(){
+
+
+            //get user role
+            var isUserRoleFree = $('#Free-tab').attr('aria-selected');
+
+            //user object
+            var objUser = new Object();
+
+            if(isUserRoleFree){
+                objUser.Role = 2;
+                objUser.FirstName = $('#txtFirstName_F').val();
+                objUser.LastName = $('#txtLastName_F').val();
+                objUser.Email = $('#txtEmail_F').val();
+                objUser.Phone = $('#txtPhone_F').val();
+
+
+
+                objUser.DOB = moment($('#txtDOB_F').val()).format('YYYY-MM-DD');
+                var gender = $('#rdoGenderFree input:radio:checked').val();
+                objUser.Gender = gender;
+
+                $.ajax({
+                    url: 'BIZ/logic.php',
+                    type: 'post',
+                    data: { "EncryptData": $('#txtPassword_F').val()},
+                    success: function(response) {
+                        objUser.Password = response;
+                        //alert(response);
+
+                        $.ajax({
+                            url: 'BIZ/logic.php',
+                            type: 'post',
+                            data: { "Registration": JSON.stringify(objUser)},
+                            success: function(response) {
+                                console.log(response);
+                                alert(response); }
+                        });
+                    }
+                });
+
+
+
+
+
+            }else {
+                objUser.Role = 2;
+                objUser.FirstName = $('#txtFirstName_P').val();
+                objUser.LastName = $('#txtLastName_P').val();
+                objUser.Email = $('#txtEmail_P').val();
+                objUser.Phone = $('#txtPhone_P').val();
+                objUser.DOB = $('#txtDOB_P').val();
+
+                var gender = $('#rdoGenderPremium input:radio:checked').val();
+                objUser.Gender = gender;
+
+
+                $.ajax({
+                    url: 'BIZ/logic.php',
+                    type: 'post',
+                    data: { "EncryptData": $('#txtPassword_P').val()},
+                    success: function(response) {
+                        objUser.Password = response;
+                        //alert(response);
+
+                        $.ajax({
+                            url: 'BIZ/logic.php',
+                            type: 'post',
+                            data: { "Registration": JSON.stringify(objUser)},
+                            success: function(response) {
+                                console.log(response);
+                                alert(response); }
+                        });
+                    }
+                });
+
+
+            }
+
         }
 
     </script>
@@ -181,12 +290,12 @@
                 <div class="col-md-9 register-right">
                     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                aria-controls="home" aria-selected="true">Free</a>
+                            <a class="nav-link active" id="Free-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="free" aria-selected="true">Free</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                aria-controls="profile" aria-selected="false">Premium</a>
+                            <a class="nav-link" id="premium-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="premium" aria-selected="false">Premium</a>
                         </li>
                     </ul>
 
@@ -236,10 +345,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="radio-inline pad">
-                                            <input class="item-space" type="radio" name="optradio" checked>Male
-                                            <input class="item-space" type="radio" name="optradio">Female
-                                            <input class="item-space" type="radio" name="optradio">Other
+                                        <div class="radio-inline pad" id="rdoGenderFree">
+                                            <input class="item-space" type="radio" name="optradio" value="1" checked>Male
+                                            <input class="item-space" type="radio" name="optradio" value="2">Female
+                                            <input class="item-space" type="radio" name="optradio" value="3">Other
                                         </div>
                                     </div>
 
@@ -295,7 +404,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <div class="radio-inline pad">
+                                        <div class="radio-inline pad" id="rdoGenderPremium">
                                             <input class="item-space" type="radio" name="optradioP" checked>Male
                                             <input class="item-space" type="radio" name="optradioP">Female
                                             <input class="item-space" type="radio" name="optradioP">Other
@@ -313,7 +422,16 @@
 
             </div>
         </div>
+        <div class="showbox" id="loader">
+            <div class="loader-new">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div>
+        </div>
     </div>
+
+
     <!--Footer -->
     <footer id="footerID"></footer>
 </body>
