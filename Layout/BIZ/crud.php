@@ -18,11 +18,11 @@ class crud
 
         $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
 
-        //loop the result set
-        /*while ($row = mysqli_fetch_array($result)){
-            echo $row[0] . " - " . + $row[1];
-        }*/
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-        echo  $result;
+        mysqli_close($conn);
+
+        echo  $row["result"];
     }
 }

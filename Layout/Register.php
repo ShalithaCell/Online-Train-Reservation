@@ -37,6 +37,9 @@
     <!--moment js -->
     <script src="../Script/moment.js"></script>
 
+    <!--Toastr-->
+    <script src="../ExternalResources/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../ExternalResources/toastr/toastr.min.css" />
 
     <!--Herder js file-->
     <script src="../Script/Header.js"></script>
@@ -70,6 +73,13 @@
                     $(this).addClass('required');
             });
 
+            $('#myTabContent :password').on('input',function(e){
+                if($(this).val().length > 0)
+                    $(this).removeClass('required');
+                else
+                    $(this).addClass('required');
+            });
+
             $('#txtEmail_F').on('input',function(e){
                 if($(this).val().length > 0)
                     $(this).removeClass('required');
@@ -85,6 +95,29 @@
             });
 
         });
+
+        function isEmail(type) {
+
+            var email = type == 'F' ? $('#txtEmail_F').val() : $('#txtEmail_P').val();
+
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            var valid = regex.test(email);
+
+            if(valid){
+                return true;
+            }else {
+                if(type == 'F'){
+                    $('#txtEmail_F').addClass('required');
+                }else{
+                    $('#txtEmail_P').addClass('required');
+                }
+
+                toastr.warning('please enter valid email address !');
+                return  false;
+            }
+
+        }
 
         function checkrequiredFields(type){
             var count = 0;
@@ -162,10 +195,85 @@
             }
 
             if(count == 0){
-                Register();
+                return true;
+            }else {
+                toastr.warning('please fill in all required fields marked with an asterisk!');
+                return  false;
             }
 
+        }
 
+        function checkPassword(type) {
+            var isValid = false;
+
+            if(type == 'F') {
+
+                //check password Match
+                if($('#txtPassword_F').val() === $('#txtConfirmPassword_F').val()){
+                    isValid = true;
+                }else{
+                    $('#txtPassword_F').addClass('required');
+                    $('#txtConfirmPassword_F').addClass('required');
+
+                    toastr.warning('password does not match the confirm password!');
+                }
+
+
+
+            }else{
+
+                //check password Match
+                if($('#txtPassword_P').val() === $('#txtConfirmPassword_P').val()){
+                    isValid = true;
+                }else {
+                    $('#txtPassword_P').addClass('required');
+                    $('#txtConfirmPassword_P').addClass('required');
+                    toastr.warning('password does not match the confirm password!');
+                }
+            }
+
+            return isValid;
+        }
+
+        function checkPhone(type) {
+            var valied = false;
+            var isNumric = false;
+            if(type == 'F'){
+                if($('#txtPhone_F').val().length == 10){
+                    valied = true;
+                }else{
+                    $('#txtPhone_F').addClass('required');
+                    toastr.warning('phone number must be 10 digits !');
+                    valied = false;
+                }
+
+                isNumric = $.isNumeric( $('#txtPhone_F').val() );
+
+                if(!isNumric){
+                    $('#txtPhone_F').addClass('required');
+                    toastr.warning('phone number must be numeric !');
+                    valied = false;
+                }
+
+            }else{
+                if($('#txtPhone_P').val().length == 10){
+                    valied = true;
+                }else{
+                    $('#txtPhone_P').addClass('required');
+                    toastr.warning('phone number must be 10 digits !');
+                    valied = false;
+                }
+
+                isNumric = $.isNumeric( $('#txtPhone_P').val() );
+
+                if(!isNumric){
+                    $('#txtPhone_P').addClass('required');
+                    toastr.warning('phone number must be numeric !');
+                    valied = false;
+                }
+            }
+
+            return valied;
         }
 
 
@@ -189,8 +297,16 @@
         function Register(){
 
 
+
             //get user role
             var isUserRoleFree = $('#Free-tab').attr('aria-selected');
+            debugger;
+            var type = isUserRoleFree == 'true' ? 'F' : 'P';
+
+            //validation
+            if(!checkrequiredFields(type) || !checkPassword(type) || !isEmail(type) || !checkPhone(type)){
+                return;
+            }
 
             //user object
             var objUser = new Object();
@@ -220,6 +336,12 @@
                             url: 'BIZ/logic.php',
                             type: 'post',
                             data: { "Registration": JSON.stringify(objUser)},
+                            beforeSend: function(){
+                                $('#loader').show();
+                            },
+                            complete: function(){
+                                $('#loader').hide();
+                            },
                             success: function(response) {
                                 console.log(response);
                                 alert(response); }
@@ -353,7 +475,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="button" id="btnRegister_F" class="btnRegister" value="Register" onclick="checkrequiredFields('F')"/>
+                                        <input type="button" id="btnRegister_F" class="btnRegister" value="Register" onclick="Register()"/>
                                     </div>
 
                                 </div>
@@ -412,7 +534,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="submit" id="btnRegister_P" class="btnRegister" value="Register" onclick="checkrequiredFields('P')"/>
+                                        <input type="submit" id="btnRegister_P" class="btnRegister" value="Register" onclick="Register()"/>
                                     </div>
                                 </div>
                             </div>
