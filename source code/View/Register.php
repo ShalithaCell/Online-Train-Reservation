@@ -325,7 +325,7 @@
                 objUser.Gender = gender;
 
                 $.ajax({
-                    url: 'BIZ/logic.php',
+                    url: '../Controller/BIZ/logic.php',
                     type: 'post',
                     data: { "EncryptData": $('#txtPassword_F').val()},
                     success: function(response) {
@@ -333,7 +333,7 @@
                         //alert(response);
 
                         $.ajax({
-                            url: 'BIZ/logic.php',
+                            url: '../Controller/BIZ/logic.php',
                             type: 'post',
                             data: { "Registration": JSON.stringify(objUser)},
                             beforeSend: function(){
@@ -366,7 +366,7 @@
 
 
                 $.ajax({
-                    url: 'BIZ/logic.php',
+                    url: '../Controller/BIZ/logic.php',
                     type: 'post',
                     data: { "EncryptData": $('#txtPassword_P').val()},
                     success: function(response) {
@@ -374,7 +374,7 @@
                         //alert(response);
 
                         $.ajax({
-                            url: 'BIZ/logic.php',
+                            url: '../Controller/BIZ/logic.php',
                             type: 'post',
                             data: { "Registration": JSON.stringify(objUser)},
                             success: function(response) {

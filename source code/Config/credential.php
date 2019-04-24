@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'user' => 'SGComplainserver@gmail.com',
+    'user' => 'sliitproject.bookit@gmail.com',
     'pass' => 'mydongal'
 ];
 
