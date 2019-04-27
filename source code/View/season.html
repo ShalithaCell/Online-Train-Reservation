@@ -15,13 +15,22 @@
         <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
         <!--style sheets for this page only-->
-		<link rel = "stylesheet" href = "../style/style-season.css" >
+<!--		<link rel = "stylesheet" href = "../style/style-season.css" >-->
 
         <!--jquery-->
         <script src="../Script/jquery-3.3.1.min.js"></script>
         <!--jquery UI-->
         <script src="../Script/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
+	<!--mdb-->
+	<script src="../ExternalResources/MDB/js/popper.min.js"></script>
+	<link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+
+
+	<!--Boostrap-->
+	<link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
 
 
 
@@ -48,54 +57,20 @@
 	<!--Navigation Bar -->
 	<div id="Header"></div>
 
-<!--Page Content -->
-<div style="height:100%">
-		<h1><center>Student Season Forum</center></h1>
-		<div class="row">
-			<div class="column-T left-T" style="">
-			<form name="form1" action="SeasonDetails.html" target="_blank" method="post">
-				<h4>First Name</h4><input type = "name"  value = ""><hr/>
-				<h4>Last Name</h4><input type = "name"  value = ""><hr/>
-				<h4>NIC number</h4><input type = "text" value = "" maxlength = "10"><hr/>
-				<h4>E-mail</h4><input type = "email"  value = ""><hr/>
-	  
-				<br/><br/>
-			</div>
-		</div>
-		<center>
-			  <div class = "button" >
-			 <input type="submit" value="Submit" onclick ="alrt()"> </div></center>
-			<div class="column-T right-T" style="">
-				
-					<h4>Starting Station</h4><input type = "name" value = ""><hr/>
-					<h4>Ending Station</h4><input type = "name" value = ""><hr/>
-					<h4>School</h4><input type = "name" value = ""><hr/>
-					<h4>Season issuing month</h4>
-		<select name="Select Month">
-		 <form action="">
-			<option value = "January">January</option>
-			<option value = "February">February</option>
-			<option value = "March">March</option>
-			<option value = "April">April</option>
-			<option value = "May">May</option>
-			<option value = "June">June</option>
-			<option value = "July">July</option>
-			<option value = "August">August</option>
-			<option value = "September">September</option>
-			<option value = "October">October</option>
-			<option value = "November">November</option>
-			<option value ="December">December</option>
-			 </select>
-		<hr/>
-		</div>
-			
-</div>
+
 	
 
 <!--Footer -->
 <footer id="footerID"></footer>
+
+	<!--cannot read property 'addeventlistener' of null mdb
+    - This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+    -->
+	<script src="../ExternalResources/MDB/js/mdb.min.js"></script>
 			
 		
 </body>
+
+</html>
 
                          

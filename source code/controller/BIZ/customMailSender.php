@@ -3,7 +3,7 @@
 
 class customMailSender
 {
-    function sendMail($ReceverAddress){
+    function sendMail($objMailContent){
         require '../../Config/phpmailer/PHPMailerAutoload.php';
 
 
@@ -21,10 +21,10 @@ class customMailSender
         $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587;                                    // TCP port to connect to
 
-        $mail->setFrom('SGComplainserver@gmail.com', 'BOOKit');
-        $mail->addAddress($ReceverAddress);             // Name is optional
+        $mail->setFrom($credential['user'], 'BOOKit');
+        $mail->addAddress($objMailContent->getReceverAddress());             // Name is optional
 
-        $mail->addReplyTo('SGComplainserver@gmail.com', 'Information');
+        $mail->addReplyTo($credential['user'], 'Information');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
 
@@ -33,9 +33,9 @@ class customMailSender
 
         $mail->isHTML(true);                                  // Set email format to HTML
 
-        $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+        $mail->Subject = $objMailContent->getSubject();
+        $mail->Body    = $objMailContent->getBody();
+        $mail->AltBody = 'If you see this mail. please reload the page.';
 
         if(!$mail->send()) {
             echo 'Message could not be sent.';

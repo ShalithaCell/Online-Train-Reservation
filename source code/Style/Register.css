@@ -56,7 +56,7 @@
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #87CEFA	;
+    background: #005EF8	;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -113,4 +113,14 @@
 
 .required{
     border: solid 2px red;
+}
+
+.warning-red-message{
+    color: red !important;
+    font-size: 0.8em !important;
+}
+
+.disable-register{
+    cursor: not-allowed;
+    background: #7FB0FF;
 }

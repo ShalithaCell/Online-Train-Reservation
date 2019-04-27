@@ -16,6 +16,10 @@
     <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
     <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
 
+    <!--mdb-->
+    <script src="../ExternalResources/MDB/js/popper.min.js"></script>
+    <link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+
     <script src="../Script/jquery-3.3.1.min.js"></script>
     <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
@@ -97,6 +101,11 @@
 
 <!--Footer -->
 <footer id="footerID"></footer>
+
+<!--cannot read property 'addeventlistener' of null mdb
+- This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+-->
+<script src="../ExternalResources/MDB/js/mdb.min.js"></script>
 
 </body>
 </html>

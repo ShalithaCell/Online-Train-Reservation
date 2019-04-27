@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
 
+    <title>BOOkit-Payment</title>
+
     <!--Fontawesome-->
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
@@ -16,12 +18,17 @@
     <link rel="stylesheet" type="text/css" href="../Style/spinner.css" />
 
     <script src="../Script/jquery-3.3.1.min.js"></script>
+    <script src="../ExternalResources/MDB/js/popper.min.js"></script>
+
     <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
     <link href="../ExternalResources/DateTimePicker/bootstrap-datepicker.css" rel="stylesheet">
     <script src="../ExternalResources/DateTimePicker/bootstrap-datepicker.js"></script>
 
-    <title>BOOkit-Payment</title>
+
+
+    <!--mdb-->
+    <link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
 
     <!--style sheets for this page only-->
     <link href="../Style/Register.css" rel="stylesheet" type="text/css">
@@ -44,11 +51,14 @@
     <!--Herder js file-->
     <script src="../Script/Header.js"></script>
 
+    <!--register.js-->
+    <script src="../Script/Register.js"></script>
+
     <script>
         //Jquery function for load navigation to page
         $(function () {
             $("#Header").html(getHeaderMD());
-            $("#footerID").html(getFooter());
+            $("#footerID").html(getFooter());s
         });
 
         $(document).ready(function () {
@@ -66,25 +76,62 @@
                 dateFormat: "m/d/yy"
             });
 
-            $('#myTabContent :text').on('input',function(e){
+            $('#myTabContent :text').on('input',function(){
                 if($(this).val().length > 0)
                     $(this).removeClass('required');
                 else
                     $(this).addClass('required');
             });
 
-            $('#myTabContent :password').on('input',function(e){
+            $('#myTabContent :password').on('input',function(){
                 if($(this).val().length > 0)
                     $(this).removeClass('required');
                 else
                     $(this).addClass('required');
+
+                passwordStrenth($(this));
+
             });
 
-            $('#txtEmail_F').on('input',function(e){
+            $('#txtEmail_F').on('input',function(){
+
                 if($(this).val().length > 0)
                     $(this).removeClass('required');
                 else
                     $(this).addClass('required');
+
+                //check mail is exixts
+                if($(this).val().length > 0){
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'post',
+                        data: { "CheckEmailAddress": $(this).val()},
+                        success: function(response) {
+
+                            if(response == '1'){
+                                $('#txtEmail_F').siblings('.duplicate-mail').show();
+                                $('#btnRegister_F').prop("disabled",true).addClass('disable-register');
+                            }
+                            else
+                            {
+                                $('#txtEmail_F').siblings('.duplicate-mail').hide();
+                                $('#btnRegister_F').prop("disabled",false).removeClass('disable-register');
+                            }
+
+
+                        }
+                    });
+
+
+
+                    if(checkValiedEmailAddrss($(this).val())){
+                        $(this).siblings('.invalied-mail').hide();
+                    }else{
+                        $(this).siblings('.invalied-mail').show();
+                    }
+                }
+
             });
 
             $('#txtEmail_P').on('input',function(e){
@@ -92,302 +139,40 @@
                     $(this).removeClass('required');
                 else
                     $(this).addClass('required');
+
+                //check mail is exixts
+                if($(this).val().length > 0){
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'post',
+                        data: { "CheckEmailAddress": $(this).val()},
+                        success: function(response) {
+
+                            if(response == '1'){
+                                $('#txtEmail_P').siblings('.duplicate-mail').show();
+                                $('#btnRegister_P').prop("disabled",true).addClass('disable-register');
+                            }
+                            else
+                            {
+                                $('#txtEmail_P').siblings('.duplicate-mail').hide();
+                                $('#btnRegister_P').prop("disabled",false).removeClass('disable-register');
+                            }
+                        }
+                    });
+
+
+
+                    if(checkValiedEmailAddrss($(this).val())){
+                        $(this).siblings('.invalied-mail').hide();
+                    }else{
+                        $(this).siblings('.invalied-mail').show();
+                    }
+                }
+
             });
 
         });
-
-        function isEmail(type) {
-
-            var email = type == 'F' ? $('#txtEmail_F').val() : $('#txtEmail_P').val();
-
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
-            var valid = regex.test(email);
-
-            if(valid){
-                return true;
-            }else {
-                if(type == 'F'){
-                    $('#txtEmail_F').addClass('required');
-                }else{
-                    $('#txtEmail_P').addClass('required');
-                }
-
-                toastr.warning('please enter valid email address !');
-                return  false;
-            }
-
-        }
-
-        function checkrequiredFields(type){
-            var count = 0;
-
-            if(type == 'F'){
-                if($('#txtFirstName_F').val().length == 0){
-                    $('#txtFirstName_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtLastName_F').val().length == 0){
-                    $('#txtLastName_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtPassword_F').val().length == 0){
-                    $('#txtPassword_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtDOB_F').val().length == 0){
-                    $('#txtDOB_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtEmail_F').val().length == 0){
-                    $('#txtEmail_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtPhone_F').val().length == 0){
-                    $('#txtPhone_F').addClass('required');
-                    count++;
-                }
-
-                if($('#txtConfirmPassword_F').val().length == 0){
-                    $('#txtConfirmPassword_F').addClass('required');
-                    count++;
-                }
-            } else{
-                if($('#txtFirstName_P').val().length == 0){
-                    $('#txtFirstName_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtLastName_P').val().length == 0){
-                    $('#txtLastName_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtPassword_P').val().length == 0){
-                    $('#txtPassword_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtDOB_P').val().length == 0){
-                    $('#txtDOB_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtEmail_P').val().length == 0){
-                    $('#txtEmail_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtPhone_P').val().length == 0){
-                    $('#txtPhone_P').addClass('required');
-                    count++;
-                }
-
-                if($('#txtConfirmPassword_P').val().length == 0){
-                    $('#txtConfirmPassword_P').addClass('required');
-                    count++;
-                }
-            }
-
-            if(count == 0){
-                return true;
-            }else {
-                toastr.warning('please fill in all required fields marked with an asterisk!');
-                return  false;
-            }
-
-        }
-
-        function checkPassword(type) {
-            var isValid = false;
-
-            if(type == 'F') {
-
-                //check password Match
-                if($('#txtPassword_F').val() === $('#txtConfirmPassword_F').val()){
-                    isValid = true;
-                }else{
-                    $('#txtPassword_F').addClass('required');
-                    $('#txtConfirmPassword_F').addClass('required');
-
-                    toastr.warning('password does not match the confirm password!');
-                }
-
-
-
-            }else{
-
-                //check password Match
-                if($('#txtPassword_P').val() === $('#txtConfirmPassword_P').val()){
-                    isValid = true;
-                }else {
-                    $('#txtPassword_P').addClass('required');
-                    $('#txtConfirmPassword_P').addClass('required');
-                    toastr.warning('password does not match the confirm password!');
-                }
-            }
-
-            return isValid;
-        }
-
-        function checkPhone(type) {
-            var valied = false;
-            var isNumric = false;
-            if(type == 'F'){
-                if($('#txtPhone_F').val().length == 10){
-                    valied = true;
-                }else{
-                    $('#txtPhone_F').addClass('required');
-                    toastr.warning('phone number must be 10 digits !');
-                    valied = false;
-                }
-
-                isNumric = $.isNumeric( $('#txtPhone_F').val() );
-
-                if(!isNumric){
-                    $('#txtPhone_F').addClass('required');
-                    toastr.warning('phone number must be numeric !');
-                    valied = false;
-                }
-
-            }else{
-                if($('#txtPhone_P').val().length == 10){
-                    valied = true;
-                }else{
-                    $('#txtPhone_P').addClass('required');
-                    toastr.warning('phone number must be 10 digits !');
-                    valied = false;
-                }
-
-                isNumric = $.isNumeric( $('#txtPhone_P').val() );
-
-                if(!isNumric){
-                    $('#txtPhone_P').addClass('required');
-                    toastr.warning('phone number must be numeric !');
-                    valied = false;
-                }
-            }
-
-            return valied;
-        }
-
-
-        /*function sendmail() {
-            $.ajax({
-                url: 'BIZ/logic.php',
-                type: 'post',
-                data: { "SendMail": $('#txtEmail_F').val()},
-                beforeSend: function(){
-                    $('#loader').show();
-                },
-                complete: function(){
-                    $('#loader').hide();
-                },
-                success: function(response) {
-                    alert(response);
-                }
-            });
-        }*/
-
-        function Register(){
-
-
-
-            //get user role
-            var isUserRoleFree = $('#Free-tab').attr('aria-selected');
-            debugger;
-            var type = isUserRoleFree == 'true' ? 'F' : 'P';
-
-            //validation
-            if(!checkrequiredFields(type) || !checkPassword(type) || !isEmail(type) || !checkPhone(type)){
-                return;
-            }
-
-            //user object
-            var objUser = new Object();
-
-            if(isUserRoleFree){
-                objUser.Role = 2;
-                objUser.FirstName = $('#txtFirstName_F').val();
-                objUser.LastName = $('#txtLastName_F').val();
-                objUser.Email = $('#txtEmail_F').val();
-                objUser.Phone = $('#txtPhone_F').val();
-
-
-
-                objUser.DOB = moment($('#txtDOB_F').val()).format('YYYY-MM-DD');
-                var gender = $('#rdoGenderFree input:radio:checked').val();
-                objUser.Gender = gender;
-
-                $.ajax({
-                    url: '../Controller/BIZ/logic.php',
-                    type: 'post',
-                    data: { "EncryptData": $('#txtPassword_F').val()},
-                    success: function(response) {
-                        objUser.Password = response;
-                        //alert(response);
-
-                        $.ajax({
-                            url: '../Controller/BIZ/logic.php',
-                            type: 'post',
-                            data: { "Registration": JSON.stringify(objUser)},
-                            beforeSend: function(){
-                                $('#loader').show();
-                            },
-                            complete: function(){
-                                $('#loader').hide();
-                            },
-                            success: function(response) {
-                                console.log(response);
-                                alert(response); }
-                        });
-                    }
-                });
-
-
-
-
-
-            }else {
-                objUser.Role = 2;
-                objUser.FirstName = $('#txtFirstName_P').val();
-                objUser.LastName = $('#txtLastName_P').val();
-                objUser.Email = $('#txtEmail_P').val();
-                objUser.Phone = $('#txtPhone_P').val();
-                objUser.DOB = $('#txtDOB_P').val();
-
-                var gender = $('#rdoGenderPremium input:radio:checked').val();
-                objUser.Gender = gender;
-
-
-                $.ajax({
-                    url: '../Controller/BIZ/logic.php',
-                    type: 'post',
-                    data: { "EncryptData": $('#txtPassword_P').val()},
-                    success: function(response) {
-                        objUser.Password = response;
-                        //alert(response);
-
-                        $.ajax({
-                            url: '../Controller/BIZ/logic.php',
-                            type: 'post',
-                            data: { "Registration": JSON.stringify(objUser)},
-                            success: function(response) {
-                                console.log(response);
-                                alert(response); }
-                        });
-                    }
-                });
-
-
-            }
-
-        }
 
     </script>
 
@@ -430,36 +215,43 @@
                                     <div class="form-group">
                                         <input id="txtFirstName_F" type="text" class="form-control"
                                             placeholder="First Name *" value="" />
+
                                     </div>
                                     <div class="form-group">
-                                        <input id="txtLastName_F" type="text" class="form-control"
-                                            placeholder="Last Name *" value="" />
+                                        <input id="txtPhone_F" type="text" minlength="10" maxlength="10"
+                                               name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
+                                               value="" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         <input id="txtPassword_F" type="password" class="form-control"
                                             placeholder="Password *" value="" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="txtPasswordStrenth_F"></span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="input-group date" data-provide="datepicker">
-                                            <input type="text" class="form-control" id="txtDOB_F"
-                                                placeholder="Choose Date Of Birth *">
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                        </div>
+                                        <input id="txtEmail_F" type="email" class="form-control" placeholder="Email *"
+                                               value="" />
+                                        <span class="warning-red-message invalied-mail" id="spnInvalied_F" style="display: none">Invalied Email Address.</span>
+                                        <span class="warning-red-message duplicate-mail" id="spnDuplicate_F" style="display: none">This email address is already connected with BOOKit.</span>
                                     </div>
 
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="txtEmail_F" type="email" class="form-control" placeholder="Email *"
-                                            value="" />
+
+                                        <input id="txtLastName_F" type="text" class="form-control"
+                                               placeholder="Last Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input id="txtPhone_F" type="text" minlength="10" maxlength="10"
-                                            name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
-                                            value="" />
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" class="form-control" id="txtDOB_F"
+                                                   placeholder="Choose Date Of Birth *">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input id="txtConfirmPassword_F" type="password" class="form-control"
@@ -491,34 +283,39 @@
                                             placeholder="First Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input id="txtLastName_P" type="text" class="form-control"
-                                            placeholder="Last Name *" value="" />
+                                        <input id="txtPhone_P" type="text" minlength="10" maxlength="10"
+                                               name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
+                                               value="" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group input-group">
                                         <input id="txtPassword_P" type="password" class="form-control"
                                             placeholder="Password *" value="" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="txtPasswordStrenth_P"></span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="input-group date" data-provide="datepicker">
-                                            <input type="text" class="form-control" id="txtDOB_P"
-                                                placeholder="Choose Date Of Birth *">
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                        </div>
+                                        <input id="txtEmail_P" type="email" class="form-control" placeholder="Email *"
+                                               value="" />
+                                        <span class="warning-red-message invalied-mail" id="spnInvalied_P" style="display: none">Invalied Email Address.</span>
+                                        <span class="warning-red-message duplicate-mail" id="spnDuplicate_P" style="display: none">This email address is already connected with BOOKit.</span>
                                     </div>
 
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input id="txtEmail_P" type="email" class="form-control" placeholder="Email *"
-                                            value="" />
+                                        <input id="txtLastName_P" type="text" class="form-control"
+                                               placeholder="Last Name *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input id="txtPhone_P" type="text" minlength="10" maxlength="10"
-                                            name="txtEmpPhone" class="form-control" placeholder="Phone Number *"
-                                            value="" />
+                                        <div class="input-group date" data-provide="datepicker">
+                                            <input type="text" class="form-control" id="txtDOB_P"
+                                                   placeholder="Choose Date Of Birth *">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input id="txtConfirmPassword_P" type="password" class="form-control"
@@ -556,6 +353,12 @@
 
     <!--Footer -->
     <footer id="footerID"></footer>
+
+    <!--cannot read property 'addeventlistener' of null mdb
+- This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+-->
+    <script src="../ExternalResources/MDB/js/mdb.min.js"></script>
+
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <div style="max-width: 800px; width: 100%; background:#fff; margin: 0 auto; ">
-<div style="background: #fff; height: 60px; padding-top: 30px; text-align:center; padding-bottom: 25px;"><a href="%s" target="_blank"><img src="../../resources/iconfinder_train_1608956.png" width="50" border="0"></a></div>
+<div style="background: #fff; height: 60px; padding-top: 30px; text-align:center; padding-bottom: 25px;"><a href="%s" target="_blank"><img src="https://cdn1.imggmi.com/uploads/2019/4/26/48573e713fd8349f8d7a21d8be12cc10-full.png" width="50" border="0"></a></div>
 <div style="background: #F1F1F1;
 float: left;
 width: 100%;">
@@ -71,7 +71,7 @@ margin-bottom: 30px;">
 <p style="text-align: center;
 color: #CCCCCC;
 font-size: 13px;
-font-family: Arial, Helvetica, sans-serif;"><a href="https://www.facebook.com/" target="_blank"><img src="../../resources/FBIcon.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a> <a href="https://www.twitter.com/" target="_blank"><img src="../../resources/twitterpng.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a><a href="https://www.linkedin.com/" target="_blank"><img src="../../resources/linkedin.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a><a href="https://www.pinterest.com/" target="_blank"><img src="../../resources/pinterest.png" width="33" height="35" border="0" /></a></p>
+font-family: Arial, Helvetica, sans-serif;"><a href="https://www.facebook.com/" target="_blank"><img src="https://cdn1.imggmi.com/uploads/2019/4/26/b62803154e300c14e9c70dfc97f560ea-full.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a> <a href="https://www.twitter.com/" target="_blank"><img src="https://cdn1.imggmi.com/uploads/2019/4/26/9f33ac791fb18139059be6fde7ca2810-full.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a><a href="https://www.linkedin.com/" target="_blank"><img src="https://cdn1.imggmi.com/uploads/2019/4/26/2fcff2c04ac6c97a1cdd2d3aacfffce5-full.png" width="33" height="35" border="0" style="margin-right: 10px;" /></a><a href="https://www.pinterest.com/" target="_blank"><img src="https://cdn1.imggmi.com/uploads/2019/4/26/006893b1834004e8c76d7709390b8315-full.png" width="33" height="35" border="0" /></a></p>
 
 </div>
 </div>

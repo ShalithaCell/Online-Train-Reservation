@@ -16,6 +16,15 @@
 		 <!--jquery-->
 		 <script src="../Script/jquery-3.3.1.min.js"></script>
 
+		<!--mdb-->
+		<script src="../ExternalResources/MDB/js/popper.min.js"></script>
+		<link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+
+
+		<!--Boostrap-->
+		<link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+
 		 <!--jquery UI-->
 		 <script src="../Script/jquery-ui.min.js"></script>
 		 <link rel="stylesheet" href="../Style/jquery-ui.css" />
@@ -77,7 +86,7 @@
 									<li>Discription &nbsp&nbsp Time &nbsp&nbsp date &nbsp&nbsp <input type = "button" value = "view"></li>
 									<li>Discription &nbsp&nbsp Time &nbsp&nbsp date &nbsp&nbsp <input type = "button" value = "view"></li>
 									<li>Discription &nbsp&nbsp Time &nbsp&nbsp date &nbsp&nbsp <input type = "button" value = "view"></li>
-								</ol></h3></table>
+								</ol></h3></div></table>
 				
 							 <h3><u>Login Activities</u></h3>
 							<div class = "ab"><h3>First Login: Date</h3>
@@ -90,7 +99,13 @@
 
 		<footer id="footerID">
 
-			</footer>
+		</footer></div>
+
+		<!--cannot read property 'addeventlistener' of null mdb
+- This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+-->
+		<script src="../ExternalResources/MDB/js/mdb.min.js"></script>
+
  	</body>
 
  </html>	
