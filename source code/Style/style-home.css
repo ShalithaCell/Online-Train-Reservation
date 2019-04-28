@@ -1,123 +1,39 @@
 @charset "utf-8";
 /* CSS Document */
 
-
-.search-block{
+.child-block-style-T{
     background-color: #F1F9FF;
-    margin-left: 4%;
-    margin-right: 4%;
-    height: 294px;
-    margin-top: -60px;
 }
 
-.center-block-column{
-    text-align: center;
-    font-size: 26px;
-    font-weight: 700;
-    color: #333333;
+.ul-cus {
+    list-style-type: none;
 }
 
-.center-blick-column-second{
-    text-align: left;
-    font-size: 26px;
-    font-weight: 700;
-    color: #333333;
-    padding-left: 11px;
-    padding: 2px;
+.ul-cus li:before {
+    content: '\2014';
+    position: absolute;
+    margin-left: -20px;
 }
 
-#imgTrain{
-    width: 70%;
-    height: auto;
+.search-box-margin{
+    margin-left: 7% !important;
+    margin-right: 7% !important;
+    border-style: groove;
 }
 
-.white-space{
-    background-color: rebeccapurple;
-    margin-top: 0.8%;
+.half-font{
+    font-size: 1.5vw;
+    font-weight: 500;
 }
 
-
-input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 0px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #B2B2B2  ;
-  }
-
-  .home-radio-block{
+.cus-block-1{
     background-color: white;
-    height: 10%;
-    margin-top: 1%;
-    padding-left: 2%;
-    padding-top: 5px;
-  }
+}
 
-  .search-bar{
-    height: 10%;
-    background: white;
-    padding-left: 2%;
-  }
-
-  .search-bar-item{
-    width: 20%;
-  }
-
-  #btnExchange {
-    background-color: white;
-    color: #3F51D4;
-    padding: 13px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-    margin-left: 15px;
-  }
-
-  .button-T {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
-  /*DatePicker*/
-  [type="date"] {
-    background:#fff url("../resources/calendar_2.png")  97% 50% no-repeat ;
-    width: 100%;
-    padding: 12px 20px;
-    margin: 0px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #B2B2B2  ;
-  }
-  [type="date"]::-webkit-inner-spin-button {
-    display: none;
-  }
-  [type="date"]::-webkit-calendar-picker-indicator {
-    opacity: 0;
-    
-  }
-
-  
-
-  .txt1{
-    font-size: 24px;
-  }
-
-  .image-suport{
-    margin-left: 15%;
-  }
+.cus-font-weight{
+    font-size: 1.7vw;
+    font-weight: 600;
+}
 
   /*---------------------------carousel custom css---------------------------------*/
   * { box-sizing: border-box; }
@@ -209,144 +125,3 @@ body { font-family: sans-serif; }
 }
 
 
-  /*Responsive*/
-
-@media only screen and (max-width: 1440px){
-    .center-blick-column-second {
-        text-align: left;
-        font-size: 19px;
-        font-weight: 700;
-        color: #333333;
-        padding-left: 11px;
-        padding: 2px;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .txt1{
-        font-size: 18px;
-    }
-
-    .home-radio-block {
-        background-color: white;
-        height: 10%;
-        margin-top: 1%;
-        padding-left: 2%;
-        padding-top: 43px;
-    }
-
-    .center-blick-column-second {
-        text-align: left;
-        font-size: 16px;
-        font-weight: 700;
-        color: #333333;
-        padding-left: 11px;
-        padding: 2px;
-    }
-
-    .image-suport {
-        margin-left: 15%;
-        margin-top: 44px;
-    }
-    
-}
-
-@media only screen and (max-width: 400px) {
-    .txt1 {
-        font-size: 22px;
-    }
-
-    .image-suport {
-        margin-left: 15%;
-        margin-top: 100%;
-    }
-
-    .responsive-custom {
-        width: 78%;
-        height: auto;
-    }
-
-    #imgTrain {
-        width: 112%;
-        height: auto;
-    }
-}
-
-@media only screen and (max-width: 400px) {
-      
-    .search-block{
-        background-color: #F1F9FF;
-        margin-left: 4%;
-        margin-right: 4%;
-        height: 121px;
-        margin-top: 14px;
-    }
-
-    .center-block-column {
-        text-align: center;
-        font-size: 8px;
-        font-weight: 700;
-        color: #333333;
-    }
-    .center-blick-column-second {
-        text-align: left;
-        font-size: 6px;
-        font-weight: 700;
-        color: #333333;
-        padding-left: 11px;
-        padding: 2px;
-    }
-
-    .footer-icon-size {
-        font-size: 12px;
-        padding-left: 8px;
-    }
-
-    .white-space {
-        background-color: rebeccapurple;
-        margin-top: -25.2%;
-    }
-
-    .txt1{
-        font-size: 7px;
-    }
-
-    .container-T {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        font-size: 11px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .search-bar-item {
-        width: 91%;
-    }
-
-    .home-radio-block {
-        background-color: white;
-        height: 10%;
-        margin-top: 1%;
-        padding-left: 2%;
-        padding-top: 3px;
-    }
-
-    .column-T {
-        float: left;
-        width: 32%;
-        height: 70px;
-        font-size: 7px;
-    }
-
-    .form-inline-T {
-        flex-direction: row;
-        align-items: stretch;
-    }
-
-    
-  }
