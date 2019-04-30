@@ -136,10 +136,13 @@
                         <input type="text" id="form2" class="form-control">
                         <label for="form2" class="">From</label>
                     </div>
+                    <div class="md-form ml-2">
+                        <button class="btn"><i class="fas fa-exchange-alt"></i></button>
+                    </div>
                     <div class="md-form">
                         <i class="fa fa-diamond prefix"></i>
                         <input type="text" id="form2" class="form-control">
-                        <label for="form2" class="">From</label>
+                        <label for="form2" class="">To</label>
                     </div>
                     <div class="md-form">
                         <i class="fa fa-diamond prefix"></i>

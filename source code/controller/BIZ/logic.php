@@ -27,7 +27,7 @@
             $objMailContent->setReceverAddress($ReceverAddress);
             $objMailContent->setReceverName($ReceverName);
             $objMailContent->setSiteURL($configs['sitehomepage']);
-            $objMailContent->setRedirectURL($configs['siteurl'].'login.html?email='.$ReceverAddress);
+            $objMailContent->setRedirectURL($configs['siteurl'].'login.html?varificationMail='.$ReceverAddress);
             $objMailContent->setSubject("BOOKit User Account Verification");
 
 

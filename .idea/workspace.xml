@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
+      <change afterPath="$PROJECT_DIR$/source code/View/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/source code/resources/users.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Style/style-home.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Style/style-login.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/View/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/View/login.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,13 +33,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/source code/View/Home.php">
+        <entry file="file://$PROJECT_DIR$/source code/View/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="151">
+              <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Style/style-login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Script/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -41,44 +62,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Style/style-home.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            <state relative-caret-position="2010">
+              <caret line="134" selection-start-line="134" selection-end-line="134" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html">
+        <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3405">
-              <caret line="227" column="44" selection-start-line="227" selection-start-column="44" selection-end-line="227" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/rules.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="84" selection-start-line="21" selection-start-column="4" selection-end-line="28" selection-end-column="84" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/season.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" selection-start-line="65" selection-end-line="68" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/station.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="84" selection-start-line="29" selection-start-column="4" selection-end-line="36" selection-end-column="84" />
+            <state relative-caret-position="2610">
+              <caret line="174" column="88" selection-start-line="174" selection-start-column="88" selection-end-line="174" selection-end-column="88" />
             </state>
           </provider>
         </entry>
@@ -124,9 +118,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -157,11 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Layout/BIZ/CryptoHelper.php" />
-        <option value="$PROJECT_DIR$/Layout/BIZ/AES.php" />
-        <option value="$PROJECT_DIR$/Config/settings.php" />
-        <option value="$PROJECT_DIR$/Config/credential.php" />
-        <option value="$PROJECT_DIR$/Style/Register.css" />
         <option value="$PROJECT_DIR$/Style/style-custom.css" />
         <option value="$PROJECT_DIR$/Style/spinner.css" />
         <option value="$PROJECT_DIR$/Layout/BIZ/customMailSender.php" />
@@ -195,7 +184,6 @@
         <option value="$PROJECT_DIR$/source code/View/aboutUs.html" />
         <option value="$PROJECT_DIR$/source code/View/contactUs.html" />
         <option value="$PROJECT_DIR$/source code/View/Error.php" />
-        <option value="$PROJECT_DIR$/source code/View/login.html" />
         <option value="$PROJECT_DIR$/source code/View/pakage.html" />
         <option value="$PROJECT_DIR$/source code/View/payment.html" />
         <option value="$PROJECT_DIR$/source code/View/reset.html" />
@@ -207,22 +195,30 @@
         <option value="$PROJECT_DIR$/source code/View/userAccount.html" />
         <option value="$PROJECT_DIR$/source code/Style/style-home.css" />
         <option value="$PROJECT_DIR$/source code/View/Home.php" />
+        <option value="$PROJECT_DIR$/source code/Script/login.js" />
+        <option value="$PROJECT_DIR$/source code/View/logine.html" />
+        <option value="$PROJECT_DIR$/source code/ExternalResources/animate/animate.min.css" />
+        <option value="$PROJECT_DIR$/source code/ExternalResources/animate/hamburgers.min.css" />
+        <option value="$PROJECT_DIR$/source code/Style/style-login.css" />
+        <option value="$PROJECT_DIR$/source code/View/login.html" />
+        <option value="$PROJECT_DIR$/source code/View/login.php" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-1920" />
-    <option name="y" value="-247" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="160" />
+    <option name="y" value="113" />
+    <option name="width" value="960" />
+    <option name="height" value="546" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -239,7 +235,7 @@
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Style" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -258,7 +254,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,13 +261,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/source code/resources" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/source code/resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/source code/View/TestingPages" />
       <recent name="$PROJECT_DIR$/source code/resources" />
@@ -293,7 +291,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.Home.php">
+  <component name="RunManager" selected="JavaScript Debug.login.php">
     <configuration name="Home.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8888/Online-Train-Reservation/source code/View/Home.php">
       <method v="2" />
     </configuration>
@@ -303,6 +301,9 @@
     <configuration name="Register.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8888/Online-Train-Reservation/source code/View/Register.php">
       <method v="2" />
     </configuration>
+    <configuration name="login.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8888/Online-Train-Reservation/source code/View/login.php">
+      <method v="2" />
+    </configuration>
     <configuration name="logic.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/Layout/BIZ/logic.php">
       <method v="2" />
     </configuration>
@@ -310,10 +311,12 @@
       <item itemvalue="JavaScript Debug.NewHeaderFooter.html" />
       <item itemvalue="JavaScript Debug.Register.php" />
       <item itemvalue="JavaScript Debug.Home.php" />
+      <item itemvalue="JavaScript Debug.login.php" />
       <item itemvalue="PHP Script.logic.php" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.login.php" />
         <item itemvalue="JavaScript Debug.Home.php" />
         <item itemvalue="JavaScript Debug.Register.php" />
         <item itemvalue="JavaScript Debug.NewHeaderFooter.html" />
@@ -346,6 +349,10 @@
       <workItem from="1556374024932" duration="4543000" />
       <workItem from="1556419197737" duration="2675000" />
       <workItem from="1556425666660" duration="1771000" />
+      <workItem from="1556427769940" duration="58000" />
+      <workItem from="1556437506044" duration="85000" />
+      <workItem from="1556474918347" duration="1519000" />
+      <workItem from="1556586868682" duration="3387000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -358,12 +365,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70532000" />
+    <option name="totallyTimeSpent" value="75581000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="-247" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13258786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17689823" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -374,12 +382,12 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49893504" visible="true" weight="0.32871288" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49840257" weight="0.32871288" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32876712" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" visible="true" weight="0.32871288" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" weight="0.32871288" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" weight="0.32871288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -445,11 +453,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="redesign home page" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Script/moment.js" />
-    <entry file="file://$PROJECT_DIR$/ExternalResources/toastr/toastr.min..js" />
-    <entry file="file://$PROJECT_DIR$/ExternalResources/toastr/toastr.min.css" />
-    <entry file="file://$PROJECT_DIR$/ExternalResources/toastr/toastr.min.js" />
-    <entry file="file://$PROJECT_DIR$/Layout/Register.php" />
     <entry file="file://$PROJECT_DIR$/Config/config.php" />
     <entry file="file://$PROJECT_DIR$/Style/Register.css" />
     <entry file="file://$PROJECT_DIR$/Style/style-custom.css" />
@@ -527,13 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="174" column="88" selection-start-line="174" selection-start-column="88" selection-end-line="174" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/Style/Register.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1830">
@@ -600,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="31" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/contactUs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -645,18 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="84" selection-start-line="22" selection-start-column="4" selection-end-line="29" selection-end-column="84" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#2;n#div#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/pakage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -668,6 +645,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3405">
           <caret line="227" column="44" selection-start-line="227" selection-start-column="44" selection-end-line="227" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" selection-start-line="29" selection-start-column="4" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -689,6 +673,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="84" selection-start-line="29" selection-start-column="4" selection-end-line="36" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="144" column="54" selection-start-line="144" selection-start-column="54" selection-end-line="144" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2610">
+          <caret line="174" column="88" selection-start-line="174" selection-start-column="88" selection-end-line="174" selection-end-column="88" />
         </state>
       </provider>
     </entry>
@@ -720,20 +725,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-home.css">
+    <entry file="file://$PROJECT_DIR$/source code/Script/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        <state relative-caret-position="590">
+          <caret line="59" column="11" lean-forward="true" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/Home.php">
+    <entry file="file://$PROJECT_DIR$/source code/View/logine.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="23" column="77" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/ExternalResources/animate/animate.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="52592" selection-start-line="10" selection-start-column="52592" selection-end-line="10" selection-end-column="52592" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/ExternalResources/animate/hamburgers.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="21991" selection-start-line="6" selection-start-column="21991" selection-end-line="6" selection-end-column="21991" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="63" selection-start-line="3" selection-start-column="63" selection-end-line="3" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
         </state>
       </provider>
     </entry>
