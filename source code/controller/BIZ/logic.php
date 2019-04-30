@@ -7,50 +7,7 @@
 
     $configs = include('../../Config/settings.php');
 
-
-
-    function sendVerificationMail($ReceverAddress, $ReceverName){
-
-        try{
-            global $configs;
-
-
-
-            $objMail = new customMailSender();
-            $objMailContent = new EmailContent();
-
-            //read template
-            $fileContent = file_get_contents("../../resources/EmailTemplates/verifyemail.txt");
-
-
-
-            $objMailContent->setReceverAddress($ReceverAddress);
-            $objMailContent->setReceverName($ReceverName);
-            $objMailContent->setSiteURL($configs['sitehomepage']);
-            $objMailContent->setRedirectURL($configs['siteurl'].'login.html?varificationMail='.$ReceverAddress);
-            $objMailContent->setSubject("BOOKit User Account Verification");
-
-
-
-            //$fileContent = sprintf($fileContent,$objMailContent->getSiteURL(), $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL());
-
-            $fileContent = sprintf($fileContent,"First", $objMailContent->getSiteURL(), "HomeURLSet", $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL(), "homeURL");
-
-
-
-            $objMailContent->setBody($fileContent);
-
-            $result = $objMail->sendMail($objMailContent);
-
-            echo $result;
-        }
-        catch (Exception $exception){
-            echo  $exception;
-        }
-
-
-    }
-
+    //begin <Encryption method>
     function EncryptData($Data){
 
         global $configs;
@@ -82,6 +39,53 @@
 
     }
 
+    //end <Encryption method>
+
+    //begin <user registration methods>
+    function sendVerificationMail($ReceverAddress, $ReceverName){
+
+        try{
+            global $configs;
+
+
+
+            $objMail = new customMailSender();
+            $objMailContent = new EmailContent();
+
+            //read template
+            $fileContent = file_get_contents("../../resources/EmailTemplates/verifyemail.txt");
+
+
+
+            $objMailContent->setReceverAddress($ReceverAddress);
+            $objMailContent->setReceverName($ReceverName);
+            $objMailContent->setSiteURL($configs['sitehomepage']);
+            $objMailContent->setRedirectURL($configs['siteurl'].'login.php?varificationMail='.$ReceverAddress);
+            $objMailContent->setSubject("BOOKit User Account Verification");
+
+
+
+            //$fileContent = sprintf($fileContent,$objMailContent->getSiteURL(), $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL());
+
+            $fileContent = sprintf($fileContent,"First", $objMailContent->getSiteURL(), "HomeURLSet", $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL(), "homeURL");
+
+
+
+            $objMailContent->setBody($fileContent);
+
+            $result = $objMail->sendMail($objMailContent);
+
+            echo $result;
+        }
+        catch (Exception $exception){
+            echo  $exception;
+        }
+
+
+    }
+
+
+
     function Register($userData){
 
         $user = json_decode($userData);   //decode json
@@ -103,12 +107,26 @@
         $objCRUD->addNewUser($objUser);
     }
 
+    function verificationAccount($email){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->verificationAccountByEmail($email);
+
+        echo  $result;
+    }
+
+    //end <user registration methods>
+
+
+
     function checkEmailIsExixts($Email){
         $objCRUD = new crud();  // crud operation object
 
         echo $objCRUD->checkMailIsExists($Email);
     }
 
+
+    //begin <fetch each ajax calls>
 
     if(isset($_POST['Registration'])){
         Register($_POST['Registration']);
@@ -130,5 +148,12 @@
         checkEmailIsExixts($_POST['CheckEmailAddress']);
     }
 
+    if(isset($_POST['verificationEmail'])){
+        //echo $_POST['EncryptData'];
+        verificationAccount($_POST['verificationEmail']);
+    }
+
+
+    //end <fetch each ajax calls>
 
 ?>

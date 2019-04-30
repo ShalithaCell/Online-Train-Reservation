@@ -27,6 +27,10 @@
     <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
 
 
+    <!--Jquery confirm-->
+    <script src="../Script/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
     <script src="../Script/login.js"></script>
     <link rel="stylesheet" type="text/css" href="../Style/style-login.css"  >
 
@@ -37,12 +41,43 @@
             $('#Header').html(getHeaderLG());
             $('#footerID').html(getFooter());
 
-            var varificationMail = readQueryString()["varificationMail"];
-            if(me != null){
-                alert(me);
+            var verificationMail = readQueryString()["varificationMail"];
+            if(verificationMail != null){
+                $.ajax({
+                    url: '../Controller/BIZ/logic.php',
+                    type: 'post',
+                    data: { "verificationEmail": verificationMail},
+                    success: function(response) {
+
+                        if(response == 'true'){
+                            displayVerificationMessage(verificationMail);
+                        }
+
+                    }
+                });
             }
 
         });
+
+        function displayVerificationMessage(email) {
+            $.confirm({
+                title: 'Congratulations!',
+                content: 'Your BOOKit account is Verified.\nYou are now a verified Bookit user('+email+'). You can now book unlimited Train Tickets with Bookit account.Also you ' +
+                    'eligible for our mass discount offers.stay tuned with us.\n',
+                type: 'blue',
+                columnClass: 'medium',
+                typeAnimated: true,
+                theme: 'supervan',
+                buttons: {
+                    ok: {
+                        text: 'OK',
+                        btnClass: 'btn-green',
+                        action: function(){
+                        }
+                    }
+                }
+            });
+        }
 
 
         function readQueryString() {
@@ -61,6 +96,8 @@
             }
             return vars;
         }
+
+
 
     </script>
 
@@ -82,7 +119,7 @@
                         <img src="../resources/user.png" alt="IMG">
                     </div>
 
-                    <form class="login100-form validate-form">
+                    <div class="login100-form validate-form">
 					<span class="login100-form-title">
 						Member Login
 					</span>
@@ -102,9 +139,10 @@
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                         </div>
+                        <span class="text-danger ml-3">Incorrect username or password</span>
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn">
+                            <button class="login100-form-btn" onclick="displayVerificationMessage('shalithax@gmail.com')">
                                 Login
                             </button>
                         </div>
@@ -124,7 +162,7 @@
                                 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3004,22 +3004,22 @@
 
 @font-face {
     font-family: Poppins-Regular;
-    src: url('../fonts/poppins/Poppins-Regular.ttf');
+    src: url('../ExternalResources/font/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: Poppins-Bold;
-    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    src: url('../ExternalResources/font/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: Poppins-Medium;
-    src: url('../fonts/poppins/Poppins-Medium.ttf');
+    src: url('../ExternalResources/font/Poppins-Medium.ttf');
 }
 
 @font-face {
     font-family: Montserrat-Bold;
-    src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+    src: url('../ExternalResources/font/Montserrat-Bold.ttf');
 }
 
 /*//////////////////////////////////////////////////////////////////

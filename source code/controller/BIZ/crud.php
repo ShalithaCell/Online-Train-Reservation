@@ -41,4 +41,20 @@ class crud
         return  $row["result"];
 
     }
+
+    function verificationAccountByEmail($email){
+        global $conn;
+
+        $sql_query = "CALL SP_VERIFICATION_ACCOUNT('". mysqli_real_escape_string( $conn ,$email) ."')";
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        mysqli_close($conn);
+
+        return  $row["result"];
+
+    }
 }
