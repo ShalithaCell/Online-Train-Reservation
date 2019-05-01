@@ -37,6 +37,14 @@
     <script>
 
         //Jquery function for load nevigation to page
+
+        $(document).ready(function () {
+            //hide warning messages
+            $('#spnPassWarning').hide();
+            $('#spnReqWarning').hide();
+        });
+
+
         $(function () {
             $('#Header').html(getHeaderLG());
             $('#footerID').html(getFooter());
@@ -97,6 +105,66 @@
             return vars;
         }
 
+        function setSessionData($email) {
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getUserByEmail": $email},
+                success: function(response) {
+                    var userObj = $.parseJSON(response);
+
+                    if(sessionStorage){
+                        // Store data
+                        sessionStorage.setItem("UserID", userObj["UserID"]);
+                        sessionStorage.setItem("RoleID", userObj["FK_RoleID"]);
+                        sessionStorage.setItem("FirstName", userObj["FirstName"]);
+                        sessionStorage.setItem("LastName", userObj["LastName"]);
+                        sessionStorage.setItem("Email", userObj["Email"]);
+                        sessionStorage.setItem("Gender", userObj["FK_GenderID"]);
+                        sessionStorage.setItem("ContactNo", userObj["ContactNo"]);
+                        sessionStorage.setItem("DOB", userObj["DOB"]);
+                        sessionStorage.setItem("DOB", userObj["DOB"]);
+
+                        alert(sessionStorage.getItem("UserID"));
+                    } else{
+                        alert("Sorry, your browser do not support session storage.Please try another browser.");
+                    }
+
+                }
+            });
+        }
+
+        function authenticateUser() {
+            var email = $('#txtEmail').val();
+            var password = $('#txtPassword').val();
+
+            if(email.length == 0 || password.length == 0){
+                $('#spnReqWarning').show();
+                return;
+            }
+
+            var data = {     // create object
+                AuthEmail    : email,
+                AuthPassword    : password
+
+            }
+
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'post',
+                data: data,
+                success: function(response) {
+                    var ss = $.parseJSON(response);
+                    //alert(ss["auth"]);
+
+                    if(ss["auth"] == 'true'){
+                        setSessionData(email);
+                    }
+
+                }
+            });
+        }
+
 
 
     </script>
@@ -125,7 +193,7 @@
 					</span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                            <input class="input100" type="text" name="email" placeholder="Email">
+                            <input class="input100" type="text" id="txtEmail" name="email" placeholder="Email">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -133,16 +201,17 @@
                         </div>
 
                         <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                            <input class="input100" type="password" name="pass" placeholder="Password">
+                            <input class="input100" type="password" id="txtPassword" name="pass" placeholder="Password">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
                         </div>
-                        <span class="text-danger ml-3">Incorrect username or password</span>
+                        <span class="text-danger ml-3" id="spnPassWarning">Incorrect username or password</span>
+                        <span class="text-danger ml-3" id="spnReqWarning">Fill all fields.</span>
 
                         <div class="container-login100-form-btn">
-                            <button class="login100-form-btn" onclick="displayVerificationMessage('shalithax@gmail.com')">
+                            <button class="login100-form-btn" onclick="authenticateUser()">
                                 Login
                             </button>
                         </div>

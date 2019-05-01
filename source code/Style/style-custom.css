@@ -33,6 +33,14 @@
     background-color: #3F51D4;
 }
 
+.font-md-T{
+    font-size: 2vw;
+}
+
+.font-xs-5T{
+    font-size: .5vw;
+}
+
 
 /* Create three equal columns that floats next to each other */
 .column-T {

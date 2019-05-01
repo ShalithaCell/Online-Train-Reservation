@@ -57,4 +57,97 @@ class crud
         return  $row["result"];
 
     }
+
+    function  authenticateUserLogin($email, $password){
+        global $conn;
+
+        $sql_query = "CALL SP_CHECK_USER_LOGIN('". mysqli_real_escape_string( $conn ,$email) ."','". mysqli_real_escape_string( $conn ,$password) ."')";
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+
+    }
+
+    function getUserByEmail($email){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_USER_BY_EMAIL('". mysqli_real_escape_string( $conn ,$email) ."')";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+
+    }
+
+    function getUserByID($userID){
+        global $conn;
+
+
+        $sql_query = "CALL GET_USER_BY_ID('". mysqli_real_escape_string( $conn ,$userID) ."')";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+
+    }
+
+    function  getUserListForAdminPanel(){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_USERS_FOR_ADMIN_VIEW()";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        // Associative array
+        //$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $array;
+    }
+
+    function  getAllRoles($currentUserRoleID){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_ALL_ROLES('".$currentUserRoleID."')";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        // Associative array
+        //$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $array;
+    }
+
 }

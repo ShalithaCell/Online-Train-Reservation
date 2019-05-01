@@ -270,7 +270,7 @@ function Register(){
     var objUser = new Object();
 
     if(isUserRoleFree){
-        objUser.Role = 2;
+        objUser.Role = 4;
         objUser.FirstName = $('#txtFirstName_F').val();
         objUser.LastName = $('#txtLastName_F').val();
         objUser.Email = $('#txtEmail_F').val();
@@ -314,7 +314,7 @@ function Register(){
 
 
     }else {
-        objUser.Role = 2;
+        objUser.Role = 3;
         objUser.FirstName = $('#txtFirstName_P').val();
         objUser.LastName = $('#txtLastName_P').val();
         objUser.Email = $('#txtEmail_P').val();

@@ -24,6 +24,22 @@
 
     }
 
+    function EncryptDataForBackend($Data){
+
+        global $configs;
+
+        $imputKey = $configs['vector'];
+        $blockSize = 256;
+        $aes = new AES($Data, $imputKey, $blockSize);
+
+        $enc = $aes->encrypt();
+
+
+
+        return $enc;
+
+    }
+
     function DecryptData($Data){
         global $configs;
 
@@ -115,9 +131,72 @@
         echo  $result;
     }
 
+    function AuthenticateUserLogin($email, $password){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->authenticateUserLogin($email, EncryptDataForBackend($password));
+
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+
+    }
+
+    function getUserByEmail($email){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getUserByEmail($email);
+
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function getUserByID($userID){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getUserByID($userID);
+
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+
     //end <user registration methods>
 
+    //begin <admin panel methods
 
+    function getUsersForAdmin(){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getUserListForAdminPanel();
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+
+    }
+
+    function getRoles($RoleID){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getAllRoles($RoleID);
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    //end <admin panel methods>
 
     function checkEmailIsExixts($Email){
         $objCRUD = new crud();  // crud operation object
@@ -153,7 +232,30 @@
         verificationAccount($_POST['verificationEmail']);
     }
 
+    if(isset($_POST['AuthEmail']) && isset($_POST['AuthPassword'])){
+        //echo $_POST['ReceverAddress'].$_POST['ReceverName'];
+        AuthenticateUserLogin($_POST['AuthEmail'],$_POST['AuthPassword']);
+    }
 
+    if(isset($_GET['userList'])){
+        //echo $_POST['EncryptData'];
+        getUsersForAdmin();
+    }
+
+    if(isset($_GET['getUserByEmail'])){
+        //echo $_POST['EncryptData'];
+        getUserByEmail($_GET['getUserByEmail']);
+    }
+
+    if(isset($_GET['getUserByID'])){
+        //echo $_POST['EncryptData'];
+        getUserByID($_GET['getUserByID']);
+    }
+
+    if(isset($_GET['getRoles'])){
+        //echo $_POST['EncryptData'];
+        getRoles($_GET['getRoles']);
+    }
     //end <fetch each ajax calls>
 
 ?>
