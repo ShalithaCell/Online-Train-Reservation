@@ -204,6 +204,28 @@
         echo $objCRUD->checkMailIsExists($Email);
     }
 
+    function updateUserByAdmin($userObject){
+        $user = json_decode($userObject);   //decode json
+
+        $objUser = new user(); // user object
+
+        //set user details
+        $objUser->setUserName($user->UserID);
+        $objUser->setFirstName($user->FirstName);
+        $objUser->setLastName($user->LastName);
+        $objUser->setRoleID($user->Role);
+        $objUser->setPhone($user->Phone);
+        $objUser->setDOB($user->DOB);
+        $objUser->setGender($user->Gender);
+        $objUser->setIsActive($user->isActive);
+
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->updateUserByAdmin($objUser);
+
+        echo  $result["result"];
+    }
+
 
     //begin <fetch each ajax calls>
 
@@ -256,6 +278,12 @@
         //echo $_POST['EncryptData'];
         getRoles($_GET['getRoles']);
     }
+
+    if(isset($_POST['updateUserByAdmin'])){
+        //echo $_POST['EncryptData'];
+        updateUserByAdmin($_POST['updateUserByAdmin']);
+    }
+
     //end <fetch each ajax calls>
 
 ?>

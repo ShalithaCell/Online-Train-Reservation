@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Script/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Script/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Style/style-custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Model/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Model/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/View/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/adminPanel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/View/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/controller/BIZ/crud.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/controller/BIZ/crud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/controller/BIZ/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/controller/BIZ/logic.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,26 +33,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="113" column="56" lean-forward="true" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="56" />
+            <state relative-caret-position="409">
+              <caret line="130" column="51" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/Register.php">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1601">
+              <caret line="47" column="2" lean-forward="true" selection-start-line="47" selection-start-column="2" selection-end-line="49" selection-end-column="79" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="316" column="24" selection-start-line="316" selection-start-column="24" selection-end-line="316" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="2056">
+              <caret line="307" column="19" lean-forward="true" selection-start-line="292" selection-start-column="16" selection-end-line="307" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -63,30 +60,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="210" column="39" selection-start-line="210" selection-start-column="39" selection-end-line="210" selection-end-column="39" />
+            <state relative-caret-position="139">
+              <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="311" column="1" selection-start-line="311" selection-start-column="1" selection-end-line="311" selection-end-column="1" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Style/style-custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="8" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -106,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="249" column="31" selection-start-line="249" selection-start-column="20" selection-end-line="249" selection-end-column="31" />
+            <state relative-caret-position="256">
+              <caret line="219" column="45" selection-start-line="219" selection-start-column="37" selection-end-line="219" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -115,8 +103,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="94" column="87" selection-start-line="94" selection-start-column="87" selection-end-line="94" selection-end-column="87" />
+            <state relative-caret-position="486">
+              <caret line="161" column="71" lean-forward="true" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Model/user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -168,8 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Layout/BIZ/logic.php" />
-        <option value="$PROJECT_DIR$/Config/config.php" />
         <option value="$PROJECT_DIR$/Script/moment.js" />
         <option value="$PROJECT_DIR$/ExternalResources/toastr/toastr.min..js" />
         <option value="$PROJECT_DIR$/ExternalResources/toastr/toastr.min.css" />
@@ -215,9 +210,11 @@
         <option value="$PROJECT_DIR$/source code/Style/style-admin.css" />
         <option value="$PROJECT_DIR$/source code/Script/Register.js" />
         <option value="$PROJECT_DIR$/source code/View/Register.php" />
-        <option value="$PROJECT_DIR$/source code/View/login.php" />
+        <option value="$PROJECT_DIR$/source code/Model/user.php" />
         <option value="$PROJECT_DIR$/source code/Controller/BIZ/crud.php" />
         <option value="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" />
+        <option value="$PROJECT_DIR$/source code/View/login.php" />
+        <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
         <option value="$PROJECT_DIR$/source code/View/adminPanel.php" />
       </list>
     </option>
@@ -235,7 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,14 +267,7 @@
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalResources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalResources" type="462c0819:PsiDirectoryNode" />
-              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -296,6 +285,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,7 +389,8 @@
       <workItem from="1556638759569" duration="4082000" />
       <workItem from="1556682793832" duration="2887000" />
       <workItem from="1556688553967" duration="13688000" />
-      <workItem from="1556712128810" duration="10458000" />
+      <workItem from="1556712128810" duration="12734000" />
+      <workItem from="1556759979315" duration="2396000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -412,13 +403,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107374000" />
+    <option name="totallyTimeSpent" value="112046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15105008" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15347335" />
       <window_info id="Structure" order="1" sideWeight="0.50136983" side_tool="true" weight="0.15105008" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -500,7 +491,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="redesign home page" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/user.php" />
     <entry file="file://$PROJECT_DIR$/Layout/BIZ/customMailSender.php" />
     <entry file="file://$PROJECT_DIR$/Config/credential.php" />
     <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/AES.php">
@@ -511,13 +501,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/register1.html" />
-    <entry file="file://$PROJECT_DIR$/source code/Model/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/Config/phpmailer/class.smtp.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -774,31 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/TicketSearch.html">
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="88" selection-start-line="30" selection-start-column="88" selection-end-line="30" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="316" column="24" selection-start-line="316" selection-start-column="24" selection-end-line="316" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/Register.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="94" column="87" selection-start-line="94" selection-start-column="87" selection-end-line="94" selection-end-column="87" />
+        <state relative-caret-position="570">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -812,35 +774,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/login.php">
+    <entry file="file://$PROJECT_DIR$/source code/View/TicketSearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="113" column="56" lean-forward="true" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="56" />
+        <state relative-caret-position="450">
+          <caret line="30" column="88" selection-start-line="30" selection-start-column="88" selection-end-line="30" selection-end-column="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
+    <entry file="file://$PROJECT_DIR$/source code/Model/user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="8" />
+        <state relative-caret-position="315">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="161" column="71" lean-forward="true" selection-start-line="161" selection-start-column="71" selection-end-line="161" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1601">
+          <caret line="47" column="2" lean-forward="true" selection-start-line="47" selection-start-column="2" selection-end-line="49" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Script/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2056">
+          <caret line="307" column="19" lean-forward="true" selection-start-line="292" selection-start-column="16" selection-end-line="307" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="130" column="51" selection-start-line="130" selection-start-column="51" selection-end-line="130" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="249" column="31" selection-start-line="249" selection-start-column="20" selection-end-line="249" selection-end-column="31" />
+        <state relative-caret-position="256">
+          <caret line="219" column="45" selection-start-line="219" selection-start-column="37" selection-end-line="219" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="311" column="1" selection-start-line="311" selection-start-column="1" selection-end-line="311" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="210" column="39" selection-start-line="210" selection-start-column="39" selection-end-line="210" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="139">
+          <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
         </state>
       </provider>
     </entry>

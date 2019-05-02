@@ -150,4 +150,21 @@ class crud
         return $array;
     }
 
+    function updateUserByAdmin($objUser){
+        global $conn;
+        $sql_query = "CALL SP_UPDATE_USER_BY_ADMIN('". mysqli_real_escape_string($conn, $objUser->getUserName()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getRoleID()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getFirstName()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getLastName()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getGender()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getPhone()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getDOB()) ."',
+                    '". mysqli_real_escape_string($conn, $objUser->getIsActive()) ."')";
+
+        $result = mysqli_query($conn, $sql_query);
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+    }
+
 }

@@ -125,7 +125,12 @@
                         sessionStorage.setItem("DOB", userObj["DOB"]);
                         sessionStorage.setItem("DOB", userObj["DOB"]);
 
-                        alert(sessionStorage.getItem("UserID"));
+                        if(userObj["FK_RoleID"] == "1" || userObj["FK_RoleID"] == "2"){
+                            window.location.replace("adminPanel.php");
+                        }else{
+                            window.location.replace("Home.php");
+                        }
+
                     } else{
                         alert("Sorry, your browser do not support session storage.Please try another browser.");
                     }

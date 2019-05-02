@@ -14,6 +14,23 @@ class user
     protected $Password;
     protected $GenderName;
     protected $Gender;
+    protected $isActive;
+
+    /**
+     * @return mixed
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
 
     /**
      * @return mixed
