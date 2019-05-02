@@ -167,4 +167,27 @@ class crud
         return $row;
     }
 
+    function  getTrainListForAdminPanel(){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_TRAIN_DETAILS_FOR_ADMINPANEL()";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        // Associative array
+        //$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $array;
+    }
+
 }

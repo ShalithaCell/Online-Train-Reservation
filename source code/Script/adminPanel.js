@@ -51,9 +51,66 @@ function LoadUserTable() {
 
         dom: 'lrtip',
         initComplete: function () {
+            $('#tblUsers').DataTable().columns.adjust();
         }
     });
 }
+
+//load trains
+function LoadTrainTable() {
+    //$.fn.dataTable.moment('M/D/YYYY h:mm:ss A');
+    table = $('#tblTrains').DataTable({
+        "ajax": {
+            "type": "GET",
+            "url": "../Controller/BIZ/logic.php",
+            "contentType": "application/json; charset=utf-8",
+            "dataType": "json",
+            data: { "trainListForAdminPanel": "test"},
+            "beforeSend": function (request) {
+                //$('#loader').show();
+            },
+            "dataSrc": function (json) {
+                $('#loader').hide();
+                var result = (JSON.stringify(json));
+                //console.log(result);
+                return JSON.parse(result);
+            },
+            "fnDrawCallback": function (oSettings) {
+                $('#loader').hide();
+            },
+        },
+        "fixedHeader": {
+            "header": true
+        },
+        "scrollY": "500px",
+        "scrollCollapse": true,
+        "deferRender": true,
+        pageLength: 10,
+        "order": [[0, "asc"]],
+        columns: [
+            { 'data': 'TrainID'},
+            { 'data': 'TrainCode' },
+            { 'data': 'TrainName' },
+            { 'data': 'NoOfSeats' },
+            { 'data': 'IsRegularRun' },
+            { 'data': 'isActive' },
+            { 'data': null, 'render': function (data, type, row) {
+                    return '<button type= "button" class="btn btn-info btn-header" style="font-size: .5vw;" onclick="viewUser(' + data.TrainID + ');"><i class="fas fa-eye" aria-hidden="true"></i> Edit</button>'
+                }
+            },
+            { 'data': null, 'render': function (data, type, row) {
+                    return '<button type= "button" class="btn btn-danger btn-header" style="font-size: .5vw;" onclick="viewUser(' + data.TrainID + ');"><i class="fas fa-trash-alt" aria-hidden="true"></i> Remove</button>'
+                }
+            }
+        ],
+
+        dom: 'lrtip',
+        initComplete: function () {
+            $('#tblTrains').DataTable().columns.adjust();
+        }
+    });
+}
+
 
 function viewUser(userID) {
 

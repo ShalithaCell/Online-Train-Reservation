@@ -196,6 +196,18 @@
         echo $jsonResult;
     }
 
+    function getTrainListForAdminPanel(){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getTrainListForAdminPanel();
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+
     //end <admin panel methods>
 
     function checkEmailIsExixts($Email){
@@ -262,6 +274,11 @@
     if(isset($_GET['userList'])){
         //echo $_POST['EncryptData'];
         getUsersForAdmin();
+    }
+
+    if(isset($_GET['trainListForAdminPanel'])){
+        //echo $_POST['EncryptData'];
+        getTrainListForAdminPanel();
     }
 
     if(isset($_GET['getUserByEmail'])){

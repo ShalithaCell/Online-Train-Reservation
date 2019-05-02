@@ -68,6 +68,24 @@
 
         $(document).ready(function () {
             LoadUserTable();
+            LoadTrainTable();
+
+            $('.cls-users').click(function(){
+                setTimeout(function(){
+                    // enable click after 1 second
+                    $('#tblUsers').DataTable().ajax.reload();
+                },200); // 1 second delay
+
+            });
+
+            $('.cls-trains').click(function(){
+                setTimeout(function(){
+                    // enable click after 1 second
+                    $('#tblTrains').DataTable().ajax.reload();
+                },200); // 1 second delay
+
+            });
+
         });
 
     </script>
@@ -90,8 +108,8 @@
             <div class=" w-100">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fas fa-train font-md-T ml-2"></i> &nbsp; </br>Trains</a>
+                        <a class="nav-item nav-link active cls-users" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
+                        <a class="nav-item nav-link cls-trains" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fas fa-train font-md-T ml-2"></i> &nbsp; </br>Trains</a>
                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
                         <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
                     </div>
@@ -141,13 +159,11 @@
                                     <table class="table" id="tblTrains">
                                         <thead class="black white-text">
                                         <tr>
-                                            <th scope="col">UserID</th>
-                                            <th scope="col">First name</th>
-                                            <th scope="col">Last name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Role</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">Locked</th>
+                                            <th scope="col">TrainID</th>
+                                            <th scope="col">Train Code</th>
+                                            <th scope="col">Train Name</th>
+                                            <th scope="col"># of Seats</th>
+                                            <th scope="col">Regular Running</th>
                                             <th scope="col">Active</th>
                                             <th scope="col" class="no-sort">Edit</th>
                                             <th scope="col" class="no-sort">Remove</th>
