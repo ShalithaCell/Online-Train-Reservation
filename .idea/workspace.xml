@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/associated files/DB_Scripts/TRS_DB_Scripts.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/Model/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Model/user.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/View/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/adminPanel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/View/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/login.php" afterDir="false" />
@@ -390,7 +391,7 @@
       <workItem from="1556682793832" duration="2887000" />
       <workItem from="1556688553967" duration="13688000" />
       <workItem from="1556712128810" duration="12734000" />
-      <workItem from="1556759979315" duration="2396000" />
+      <workItem from="1556759979315" duration="2551000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -403,13 +404,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112046000" />
+    <option name="totallyTimeSpent" value="112201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15347335" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15347335" />
       <window_info id="Structure" order="1" sideWeight="0.50136983" side_tool="true" weight="0.15105008" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -424,7 +424,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" weight="0.32739726" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" visible="true" weight="0.32739726" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" weight="0.32871288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
