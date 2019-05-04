@@ -18,7 +18,7 @@ section .section-title {
 }
 
 #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-    color: #f3f3f3;
+    /*color: #f3f3f3;*/
     background-color: transparent;
     border-color: transparent transparent #f3f3f3;
     border-bottom: 4px solid !important;
@@ -39,3 +39,7 @@ section .section-title {
 .no-sort::after { display: none!important; }
 
 .no-sort { pointer-events: none!important; cursor: default!important; }
+
+.margin-80-T{
+    margin-left: 80%;
+}

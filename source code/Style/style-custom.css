@@ -41,6 +41,18 @@
     font-size: .5vw;
 }
 
+.color-black-T-blue{
+    color: black !important;
+}
+
+.display-hide-T{
+    display: none !important;
+}
+
+.display-show-T{
+    display: block !important;
+}
+
 
 /* Create three equal columns that floats next to each other */
 .column-T {

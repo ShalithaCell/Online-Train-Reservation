@@ -45,6 +45,7 @@
     <script src="../ExternalResources/toastr/toastr.min.js"></script>
     <link rel="stylesheet" href="../ExternalResources/toastr/toastr.min.css" />
 
+
     <script src="../Script/adminPanel.js"></script>
 
     <script>
@@ -86,6 +87,7 @@
 
             });
 
+
         });
 
     </script>
@@ -122,6 +124,7 @@
                             <div class="card w-100 mb-3">
                                 <div class="card-header text-muted">
                                     List of Users
+
                                 </div>
                                 <div class="card-body">
                                     <table class="table" id="tblUsers">
@@ -154,6 +157,7 @@
                             <div class="card w-100 mb-3">
                                 <div class="card-header text-muted">
                                     List of Trains
+                                    <button type="button" class="btn btn-default margin-80-T" onclick="AddNewTrain()">New Train</button>
                                 </div>
                                 <div class="card-body">
                                     <table class="table" id="tblTrains">

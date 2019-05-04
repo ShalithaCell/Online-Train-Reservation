@@ -367,3 +367,120 @@ function displayEditUserWindow(userObj) {
         }
     });
 }
+
+//global value for select tab index
+var selectedTabIndex = 1;
+var previousTab = 1;
+
+function AddNewTrain() {
+    $.confirm({
+        theme: 'modern',
+        columnClass: 'large',
+        title: 'Add New Train',
+        content: '' +
+            '<ul class="nav nav-tabs traniTab" id="myTab" role="tablist">'+
+            '<li class="nav-item">'+
+            '<a class="nav-link active color-black-T" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"'+
+            'aria-selected="true">Train</a>'+
+                '</li>'+
+                '<li class="nav-item">'+
+            '<a class="nav-link color-black-T" id="profile-tab" data-toggle="tab" href="#details" role="tab" aria-controls="profile"'+
+            'aria-selected="false">Profile</a>'+
+                '</li>'+
+                '<li class="nav-item">'+
+            '<a class="nav-link color-black-T" id="contact-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="contact"'+
+            'aria-selected="false">Contact</a>'+
+                '</li>'+
+                '</ul>'+
+            '<div class="tab-content " id="myTabContent">'+
+                '<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">' +
+                    '' +'<div class="row">'+
+                        '<div class="col-md-6">'+
+                        '<div class="form-group">' +
+                        '<label class="float-left">Train name</label>' +
+                        '<input type="text" placeholder="Train name" class="name form-control" id="txtTrainName" required />' +
+                        '<span class="text-danger req-field">please fill out this field</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '<div class="col-md-6">'+
+                        '<div class="form-group">' +
+                        '<label class="float-left">Train code</label>' +
+                        '<input type="text" placeholder="Train code" class="form-control traincode" id="txtTrainCode" required />' +
+                        '<span class="text-danger req-field">please fill out this field</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '<div class="col-md-12">' +
+                        '<div class="form-group" id="mcestyle">' +
+                        '<label class="float-left">Discription</label>' +
+                                '<div class="form-group">'+
+                            '<textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>'+
+                            '</div>'+
+                        '<span class="text-danger req-field">please fill out this field</span>'+
+                        '</div>'+
+                        '</div>'+
+                        '</div>'+
+            '   </div>'+
+                '<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie'+
+                    'locavore, accusamus mcsweeneys marfa nulla single-origin coffee squid. Exercitation +1 labore velit,'+
+                    'blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'+
+                    'Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum'+
+                    'PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS'+
+                    'stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>'+
+                '<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape'+
+                    'wayfarers, ethical wes anderson tofu before they sold out mcsweeneys organic lomo retro fanny pack'+
+                    'lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard'+
+                    'locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify'+
+                    'squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie'+
+                    'etsy retro mlkshk vice blog. Scenester cred you probably havent heard of them, vinyl craft beer blog</div>'+
+        '</div>',
+        buttons: {
+            cancel: function () {
+                btnClass: 'btn-warning savebtn display-hide-T'
+                //close
+            },
+            Save: {
+                text: 'Save',
+                btnClass: 'btn-green savebtn display-hide-T',
+                action: function () {
+
+
+                }
+            },
+            previous: {
+                text: 'Previous',
+                btnClass: 'btn-yelllow prebtn display-hide-T',
+                action: function () {
+
+
+                }
+            },
+            Next: {
+                text: 'Next',
+                btnClass: 'btn-blue nxtbtn',
+                action: function () {
+
+
+                }
+            }
+
+        },
+        contentLoaded: function(data, status, xhr){
+            $('#loader').show();
+        },
+        onContentReady: function () {
+            // bind to events
+            $('#loader').hide();
+
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                //e.target // activated tab
+                selectedTabIndex = ( $(e.target).closest('li').index() + 1 );
+
+                // previous tab
+                previousTab = ( $(e.relatedTarget).closest('li').index() + 1 );
+
+
+            });
+
+        }
+    });
+}
