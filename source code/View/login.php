@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -42,6 +46,12 @@
             //hide warning messages
             $('#spnPassWarning').hide();
             $('#spnReqWarning').hide();
+        });
+
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                authenticateUser();
+            }
         });
 
 
@@ -105,6 +115,8 @@
             return vars;
         }
 
+
+
         function setSessionData($email) {
             $.ajax({
                 url: '../Controller/BIZ/logic.php',
@@ -113,26 +125,33 @@
                 success: function(response) {
                     var userObj = $.parseJSON(response);
 
-                    if(sessionStorage){
-                        // Store data
-                        sessionStorage.setItem("UserID", userObj["UserID"]);
-                        sessionStorage.setItem("RoleID", userObj["FK_RoleID"]);
-                        sessionStorage.setItem("FirstName", userObj["FirstName"]);
-                        sessionStorage.setItem("LastName", userObj["LastName"]);
-                        sessionStorage.setItem("Email", userObj["Email"]);
-                        sessionStorage.setItem("Gender", userObj["FK_GenderID"]);
-                        sessionStorage.setItem("ContactNo", userObj["ContactNo"]);
-                        sessionStorage.setItem("DOB", userObj["DOB"]);
-                        sessionStorage.setItem("DOB", userObj["DOB"]);
+                    if(userObj["FK_RoleID"] == "1" || userObj["FK_RoleID"] == "2"){
 
-                        if(userObj["FK_RoleID"] == "1" || userObj["FK_RoleID"] == "2"){
-                            window.location.replace("adminPanel.php");
-                        }else{
-                            window.location.replace("Home.php");
+
+                        var data = {     // create object
+                            UserID    : userObj["UserID"],
+                            RoleID : userObj["FK_RoleID"],
+                            FirstName :  userObj["FirstName"],
+                            LastName : userObj["LastName"],
+                            Email : userObj["Email"],
+                            Gender : userObj["FK_GenderID"],
+                            ContactNo : userObj["ContactNo"],
+                            DOB : userObj["DOB"]
+
                         }
 
-                    } else{
-                        alert("Sorry, your browser do not support session storage.Please try another browser.");
+                        $.ajax({
+                            url: 'sessionWorker.php',
+                            type: 'post',
+                            data: { "setSession": JSON.stringify(data)},
+                            success: function(response) {
+                                window.location.href = "adminPanel.php";
+
+                            }
+                        });
+
+                    }else{
+                        window.location.href = "Home.php";
                     }
 
                 }
@@ -159,11 +178,18 @@
                 type: 'post',
                 data: data,
                 success: function(response) {
+
+                    //console.log(response);
+
                     var ss = $.parseJSON(response);
                     //alert(ss["auth"]);
 
                     if(ss["auth"] == 'true'){
+                        //console.log(response);
+                        $('#spnPassWarning').hide();
                         setSessionData(email);
+                    }else{
+                        $('#spnPassWarning').show();
                     }
 
                 }

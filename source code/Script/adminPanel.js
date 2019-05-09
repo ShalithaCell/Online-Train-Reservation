@@ -370,12 +370,67 @@ function displayEditUserWindow(userObj) {
 
 //global value for select tab index
 var selectedTabIndex = 1;
+var selectedTabHref = 'home-tab';
+var nextTabHref = 'profile-tab';
 var previousTab = 1;
+var previousTabHref = 'schedule-tab';
 
 function AddNewTrain() {
+
+    //get all classes
+    $.ajax({
+        url: '../Controller/BIZ/logic.php',
+        type: 'get',
+        data: { "getActiveActiveClasses": "test"},
+        success: function(response) {
+            var result = (JSON.stringify(response));
+            console.log(result);
+            var jsonResult =  JSON.parse(result);
+            ImplementNewTrain(jsonResult);
+        }
+    });
+
+
+}
+
+function ImplementNewTrain(jsonResult) {
+
+    var content = '';
+
+
+    var obj = jQuery.parseJSON(jsonResult);
+
+    $.each(obj, function (index, value) {
+
+        content += '<div class="row train-classes">' +
+            '<div class="col-md-3">' +
+            '<label ></label>' +
+            '<div class="custom-control custom-checkbox mt-2">\n' +
+            '    <input type="checkbox" class="custom-control-input chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
+            '    <label class="custom-control-label" for="defaultUnchecked"> '+value["Description"].toString()+' </label>\n' +
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm2"># of Compartments</label>\n' +
+            '<input type="number" class="form-control no-compartments">'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm3"># of Seats per Compartment</label>\n' +
+            '<input type="number" class="form-control seat-compartment">'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm3">Price per Compartment</label>\n' +
+            '<input type="number" class="form-control price-compatment">'+
+            '</div>'+
+            '</div>';
+
+        //console.log(value["ClassID"].toString());
+    });
+    //debugger;
+
     $.confirm({
         theme: 'modern',
-        columnClass: 'large',
+        columnClass: 'col-md-12',
         title: 'Add New Train',
         content: '' +
             '<ul class="nav nav-tabs traniTab" id="myTab" role="tablist">'+
@@ -385,10 +440,10 @@ function AddNewTrain() {
                 '</li>'+
                 '<li class="nav-item">'+
             '<a class="nav-link color-black-T" id="profile-tab" data-toggle="tab" href="#details" role="tab" aria-controls="profile"'+
-            'aria-selected="false">Profile</a>'+
+            'aria-selected="false">Details</a>'+
                 '</li>'+
                 '<li class="nav-item">'+
-            '<a class="nav-link color-black-T" id="contact-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="contact"'+
+            '<a class="nav-link color-black-T" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="contact"'+
             'aria-selected="false">Contact</a>'+
                 '</li>'+
                 '</ul>'+
@@ -411,22 +466,27 @@ function AddNewTrain() {
                         '</div>'+
                         '<div class="col-md-12">' +
                         '<div class="form-group" id="mcestyle">' +
-                        '<label class="float-left">Discription</label>' +
+                        '<label class="float-left">Description</label>' +
                                 '<div class="form-group">'+
-                            '<textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>'+
+                            '<textarea class="form-control rounded-0" id="txtDescription" rows="3"></textarea>'+
                             '</div>'+
-                        '<span class="text-danger req-field">please fill out this field</span>'+
+                        '<span id="descReq" class="text-danger req-field">please fill out this field</span>'+
                         '</div>'+
                         '</div>'+
                         '</div>'+
             '   </div>'+
-                '<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie'+
-                    'locavore, accusamus mcsweeneys marfa nulla single-origin coffee squid. Exercitation +1 labore velit,'+
-                    'blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.'+
-                    'Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum'+
-                    'PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS'+
-                    'stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>'+
-                '<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape'+
+                '<div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="profile-tab">' +
+                '<div >' +
+                        '<div class="card mt-1 ml-1 mr-1" style="width: 100%;">\n' +
+                        '  <div class="card-header"> Class Details'+
+                        '  </div>' +
+                        '  <div class="card-body classDetailBody">' +
+                           /* +content+*/
+                        '  </div>\n' +
+                        '</div>'+
+                '</div> ' +
+                '</div>'+
+                '<div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape'+
                     'wayfarers, ethical wes anderson tofu before they sold out mcsweeneys organic lomo retro fanny pack'+
                     'lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard'+
                     'locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify'+
@@ -438,20 +498,55 @@ function AddNewTrain() {
                 btnClass: 'btn-warning savebtn display-hide-T'
                 //close
             },
-            Save: {
-                text: 'Save',
-                btnClass: 'btn-green savebtn display-hide-T',
-                action: function () {
-
-
-                }
-            },
             previous: {
                 text: 'Previous',
                 btnClass: 'btn-yelllow prebtn display-hide-T',
                 action: function () {
 
+                    switch (selectedTabIndex) {
+                        case 1:
+                            $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 1;
+                            selectedTabHref = 'home';
+                            previousTabHref = 'home'
+                            nextTabHref = 'profile';
 
+                            break;
+
+                        case 2:
+                            $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                            selectedTabIndex = 1;
+                            selectedTabHref = 'home';
+                            previousTabHref = 'home'
+                            nextTabHref = 'profile';
+                            $('#home-tab').tab('show');
+                            break;
+                        case 3:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                            selectedTabIndex = 2;
+                            selectedTabHref = 'profile';
+                            previousTabHref = 'home'
+                            nextTabHref = 'schedule';
+                            $('#profile-tab').tab('show');
+                            break;
+                        default:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#home-tab').tab('show');
+                    }
+
+                    //$("a[href='#'+previousTabHref+']'").trigger('click');
+                    return false;
                 }
             },
             Next: {
@@ -459,11 +554,56 @@ function AddNewTrain() {
                 btnClass: 'btn-blue nxtbtn',
                 action: function () {
 
+                    switch (selectedTabIndex) {
+                        case 1:
+                            if(trainPageRequired()){
+                                $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                                $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                                selectedTabIndex = 2;
+                                selectedTabHref = 'profile';
+                                previousTabHref = 'home'
+                                nextTabHref = 'schedule';
+                                $('#profile-tab').tab('show');
+                            }
+
+                            break;
+
+                        case 2:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#schedule-tab').tab('show');
+                            break;
+                        default:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#profile-tab').tab('show');
+                    }
+
+                    return false;
+
+                }
+            },
+            Save: {
+                text: 'Save',
+                btnClass: 'btn-green savebtn display-hide-T',
+                action: function () {
+
 
                 }
             }
 
         },
+
         contentLoaded: function(data, status, xhr){
             $('#loader').show();
         },
@@ -471,12 +611,48 @@ function AddNewTrain() {
             // bind to events
             $('#loader').hide();
 
+            $('.jconfirm-buttons').addClass('form-inline');
+
+            $('.req-field').each(function() {
+                $(this).hide();
+            });
+
             $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
                 //e.target // activated tab
                 selectedTabIndex = ( $(e.target).closest('li').index() + 1 );
 
+                switch (selectedTabIndex) {
+                    case 1:
+                        selectedTabHref = 'home';
+                        previousTabHref = 'home';
+                        $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                        break;
+                    case 2:
+                        selectedTabHref = 'profile';
+                        previousTabHref = 'home';
+                        $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                        break;
+                    case 3:
+                        selectedTabHref = 'schedule';
+                        previousTabHref = 'profile';
+                        $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                        break;
+                    default:
+                        selectedTabHref = 'home';
+                        previousTabHref = 'home';
+                }
+
                 // previous tab
-                previousTab = ( $(e.relatedTarget).closest('li').index() + 1 );
+                //previousTab = ( $(e.relatedTarget).closest('li').index() + 1 );
+                
+                $('.classDetailBody').html(content);
+
 
 
             });

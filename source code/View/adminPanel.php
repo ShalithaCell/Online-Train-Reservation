@@ -1,3 +1,23 @@
+<?php
+include "sessionWorker.php";
+session_start();
+
+//echo "<script type='text/javascript'>alert(".$_SESSION['RoleID'].");</script>";
+//echo '<script>console.log('.$_SESSION['RoleID'].')</script>';
+if(isset($_SESSION['RoleID'])){
+    if($_SESSION['RoleID'] == '1' || $_SESSION['RoleID'] == '2'){
+
+    }else {
+        header("Location: home.php");
+    }
+}else{
+    header("Location: login.php");
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,15 +75,28 @@
             $('#footerID').html(getFooter());
             $('#loader').hide();
 
+            //check id logged as admin
+            /*$.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "ifAdmin": "test"},
+                success: function(response) {
+
+                    if(response != true){
+                        window.location.replace("login.php");
+                    }
+                }
+            });*/
+
             //get roleId logged user
-            if(sessionStorage.getItem("RoleID")== null){
+            /*if(sessionStorage.getItem("RoleID")== null){
                 //redirect to login page
                 window.location.replace("login.php");
             }else{
                 if(sessionStorage.getItem("RoleID") == '3' || sessionStorage.getItem("RoleID") == '4'){ //site users
                     window.location.replace("Home.php");
                 }
-            }
+            }*/
 
         });
 
@@ -89,6 +122,39 @@
 
 
         });
+
+        function trainPageRequired() {
+
+            var success = true;
+
+            var trainName = $('#txtTrainName').val();
+            var trainCode = $('#txtTrainCode').val();
+            var trainDescription = $('#txtDescription').val();
+
+            if(trainName.length == 0){
+                $('#txtTrainName').siblings('.req-field').show();
+                success =  false;
+            }else{
+                $('#txtTrainName').siblings('.req-field').hide();
+            }
+
+            if(trainCode.length == 0){
+                $('#txtTrainCode').siblings('.req-field').show();
+                success =  false;
+            }else{
+                $('#txtTrainCode').siblings('.req-field').hide();
+            }
+
+            if(trainDescription.length == 0){
+                $('#descReq').show();
+                success =  false;
+            }else{
+                $('#descReq').hide();
+            }
+
+            return success;
+
+        }
 
     </script>
 

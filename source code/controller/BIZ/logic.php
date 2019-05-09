@@ -4,6 +4,9 @@
     include '../../Model/user.php';
     include '../../Model/EmailContent.php';
     include 'crud.php';
+    include '../../View/sessionWorker.php';
+
+    session_start();
 
     $configs = include('../../Config/settings.php');
 
@@ -98,6 +101,18 @@
         }
 
 
+    }
+
+    function checkIfAdmin(){
+        if(isset($_SESSION)){
+            if($_SESSION['RoleID'] == '3' || $_SESSION['RoleID'] == '4'){
+                echo true;
+            }else{
+                echo false;
+            }
+        }else{
+            echo false;
+        }
     }
 
 
@@ -238,8 +253,24 @@
         echo  $result["result"];
     }
 
+    function getActiveActiveClasses(){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getAllActiveClasses();
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
 
     //begin <fetch each ajax calls>
+
+    if(isset($_GET['ifAdmin'])){
+        //echo $_POST['EncryptData'];
+        checkIfAdmin();
+    }
 
     if(isset($_POST['Registration'])){
         Register($_POST['Registration']);
@@ -299,6 +330,11 @@
     if(isset($_POST['updateUserByAdmin'])){
         //echo $_POST['EncryptData'];
         updateUserByAdmin($_POST['updateUserByAdmin']);
+    }
+
+    if(isset($_GET['getActiveActiveClasses'])){
+        //echo $_POST['EncryptData'];
+        getActiveActiveClasses($_GET['getActiveActiveClasses']);
     }
 
     //end <fetch each ajax calls>

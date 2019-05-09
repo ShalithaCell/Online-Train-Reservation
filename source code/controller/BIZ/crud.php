@@ -79,7 +79,7 @@ class crud
         $sql_query = "CALL SP_GET_USER_BY_EMAIL('". mysqli_real_escape_string( $conn ,$email) ."')";
 
 
-        $result = mysqli_query($conn, $sql_query);
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
 
         // Associative array
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -189,5 +189,29 @@ class crud
 
         return $array;
     }
+
+    function  getAllActiveClasses(){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_ALL_ACTIVE_CLASSES()";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        // Associative array
+        //$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $array;
+    }
+
 
 }
