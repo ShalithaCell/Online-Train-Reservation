@@ -6,7 +6,6 @@
     include 'crud.php';
     include '../../View/sessionWorker.php';
 
-    session_start();
 
     $configs = include('../../Config/settings.php');
 
@@ -20,8 +19,6 @@
         $aes = new AES($Data, $imputKey, $blockSize);
 
         $enc = $aes->encrypt();
-
-
 
         echo $enc;
 
@@ -59,6 +56,21 @@
     }
 
     //end <Encryption method>
+
+    //begin <system methods>
+
+    function generateRandomString() {
+        $length = 15;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    //end <system methods>
 
     //begin <user registration methods>
     function sendVerificationMail($ReceverAddress, $ReceverName){
@@ -186,6 +198,66 @@
 
     //end <user registration methods>
 
+
+    //begin <user management>
+
+    function resetPassword($email){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getUserByEmail($email);
+
+        $token = generateRandomString();
+
+        $objCRUD->updateTokenRecords($result["UserID"], '1', $token);
+
+
+        sendResetPaswordMail($result["Email"], $result["FirstName"], $token);
+
+    }
+
+    function sendResetPaswordMail($ReceverAddress, $ReceverName, $tokenNo){
+        try{
+            global $configs;
+
+
+
+            $objMail = new customMailSender();
+            $objMailContent = new EmailContent();
+
+            //read template
+            $fileContent = file_get_contents("../../resources/EmailTemplates/resetPassword.txt");
+
+
+
+            $objMailContent->setReceverAddress($ReceverAddress);
+            $objMailContent->setReceverName($ReceverName);
+            $objMailContent->setSiteURL($configs['sitehomepage']);
+            $objMailContent->setRedirectURL($configs['siteurl'].'reset.php?token='.$tokenNo);
+            $objMailContent->setSubject("BOOKit User Account Password Reset");
+
+
+
+            //$fileContent = sprintf($fileContent,$objMailContent->getSiteURL(), $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL());
+
+            $fileContent = sprintf($fileContent,"First", $objMailContent->getSiteURL(), "HomeURLSet", $objMailContent->getReceverName(), $objMailContent->getRedirectURL(), $objMailContent->getSiteURL(), "homeURL");
+
+
+
+            $objMailContent->setBody($fileContent);
+
+            $result = $objMail->sendMail($objMailContent);
+
+            echo $result;
+        }
+        catch (Exception $exception){
+            echo  $exception;
+        }
+    }
+
+
+    //end <user management>
+
+
     //begin <admin panel methods
 
     function getUsersForAdmin(){
@@ -303,38 +375,35 @@
     }
 
     if(isset($_GET['userList'])){
-        //echo $_POST['EncryptData'];
         getUsersForAdmin();
     }
 
     if(isset($_GET['trainListForAdminPanel'])){
-        //echo $_POST['EncryptData'];
         getTrainListForAdminPanel();
     }
 
     if(isset($_GET['getUserByEmail'])){
-        //echo $_POST['EncryptData'];
         getUserByEmail($_GET['getUserByEmail']);
     }
 
     if(isset($_GET['getUserByID'])){
-        //echo $_POST['EncryptData'];
         getUserByID($_GET['getUserByID']);
     }
 
     if(isset($_GET['getRoles'])){
-        //echo $_POST['EncryptData'];
         getRoles($_GET['getRoles']);
     }
 
     if(isset($_POST['updateUserByAdmin'])){
-        //echo $_POST['EncryptData'];
         updateUserByAdmin($_POST['updateUserByAdmin']);
     }
 
     if(isset($_GET['getActiveActiveClasses'])){
-        //echo $_POST['EncryptData'];
         getActiveActiveClasses($_GET['getActiveActiveClasses']);
+    }
+
+    if(isset($_POST['PasswordReset'])){
+        resetPassword($_POST['PasswordReset']);
     }
 
     //end <fetch each ajax calls>

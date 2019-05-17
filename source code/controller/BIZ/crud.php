@@ -213,5 +213,43 @@ class crud
         return $array;
     }
 
+    function  updateTokenRecords($userID, $type, $token){
+        global $conn;
+
+
+        //perverting Query fail: Commands out of sync; you can't run this command now
+        while($conn->more_results())
+        {
+            $conn->next_result();
+            if($res = $conn->store_result())
+            {
+                $res->free();
+            }
+        }
+
+
+        $sql_query = "CALL SP_RESET_USER_PASSWORD('".$userID."','".$type."','".$token."');";
+
+        //echo $sql_query;
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+
+    }
+
+    function updateUserPassword($user, $Password){
+        global $conn;
+
+        $sql_query = "CALL SP_RESET_USER_PASSWORD_BY_TOKEN('".$user."','".$Password."');";
+
+        //echo $sql_query;
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+    }
+
+
+
 
 }
+
+?>

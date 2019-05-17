@@ -38,14 +38,78 @@ session_start();
     <script src="../Script/login.js"></script>
     <link rel="stylesheet" type="text/css" href="../Style/style-login.css"  >
 
+    <link rel="stylesheet" type="text/css" href="../Style/spinner.css" />
+
     <script>
 
         //Jquery function for load nevigation to page
 
         $(document).ready(function () {
             //hide warning messages
+            $('#loader').hide();
             $('#spnPassWarning').hide();
             $('#spnReqWarning').hide();
+
+            $('.txtPasswordReset').on("click",function(){
+                $.confirm({
+                    title: 'Forgot your password?',
+                    content: 'Email address you use to log in to your account \n' +
+                        'We\'ll send you an email with instructions to choose a new password.' +
+                        '<div class="form-group input-group">\n' +
+                        '          <input class="form-control reset-email" placeholder="Email" name="email" type="email" required="">\n' +
+                        '        </div>',
+                    type: 'blue',
+                    columnClass: 'medium',
+                    typeAnimated: true,
+                    theme: 'supervan',
+                    backgroundDismiss: true,
+                    buttons: {
+                        send: {
+                            text: 'Send',
+                            btnClass: 'btn-green col-md-8',
+                            action: function () {
+
+                                var email = $('.reset-email').val();
+
+                                if(email.length == 0){
+                                    $.alert('Please enter valied email address!');
+                                    return false;
+                                }else{
+                                    if(!isEmail(email)){
+                                        $.alert('Please enter valied email address!');
+                                        return false;
+                                    }
+                                }
+
+
+                                $.ajax({
+                                    url: '../Controller/BIZ/logic.php',
+                                    type: 'post',
+                                    data: { "PasswordReset": email},
+                                    beforeSend: function(){
+                                        $('#loader').show();
+                                    },
+                                    complete: function(){
+                                        $('#loader').hide();
+                                    },
+                                    success: function(response) {
+
+                                        if(response == '1'){
+                                            $.alert('Please check your inbox !');
+
+                                        }else{
+                                            alert(response);
+                                        }
+
+                                    }
+                                });
+
+                            }
+                        }
+                    }
+                });
+            });
+
         });
 
         $(document).on('keypress',function(e) {
@@ -53,6 +117,20 @@ session_start();
                 authenticateUser();
             }
         });
+
+        function isEmail(email) {
+
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+            var valid = regex.test(email);
+
+            if(valid){
+                return true;
+            }else {
+                return  false;
+            }
+
+        }
 
 
         $(function () {
@@ -198,6 +276,9 @@ session_start();
 
 
 
+
+
+
     </script>
 
 
@@ -251,7 +332,7 @@ session_start();
 						<span class="txt1">
 							Forgot
 						</span>
-                            <a class="txt2" href="#">
+                            <a class="txtPasswordReset" href="javascript:void(0)" >
                                 Username / Password?
                             </a>
                         </div>
@@ -266,7 +347,13 @@ session_start();
                 </div>
             </div>
         </div>
-
+        <div class="showbox" id="loader">
+            <div class="loader-new">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div>
+        </div>
     </div>
 
     <footer id="footerID">

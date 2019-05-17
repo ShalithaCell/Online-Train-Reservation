@@ -68,6 +68,10 @@
     clear: both;
 }
 
+.border-color-error{
+    border: 1px solid red !important;
+}
+
 
 .remove-underline{
     text-decoration: none;
@@ -172,6 +176,8 @@
     margin-top: 1%;
   }
 
+
+
 @media only screen and (max-width: 479px){
     .container-custom {
         width: 90%;
@@ -201,3 +207,5 @@
       align-items: stretch;
     }
   }
+
+

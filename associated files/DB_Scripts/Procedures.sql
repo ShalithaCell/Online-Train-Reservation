@@ -1,12 +1,30 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USERS_FOR_ADMIN_VIEW`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_USER_BY_ID`(in _UserID int)
 BEGIN
-	select UserID, FirstName, LastName, Email, R.Description as Role, G.Description as Gender,
-		case when U.isLocked = '1' then 'YES' else 'NO' end as Locked, 
-        case when U.isActive = '1' then 'YES' else 'NO' end as Active
-	from users as U
-    inner join role as R on U.FK_RoleID = R.RoleID
-    inner join gender as G on U.FK_GenderID = G.GenderID;
+	select * from users where UserID = _UserID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
+in _password nvarchar(500)
+)
+BEGIN
+
+	if exists(select * from users where Email = _userEmail and Password = _password)
+    then
+		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
+        then
+			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
+			select 'true' as auth,'false' as locked;
+		else	
+			select 'true' as auth,'true' as locked;
+		end if;
+	else
+		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
+		select 'false' as auth,'false' as locked;
+	end if;
+
 END$$
 DELIMITER ;
 
@@ -79,32 +97,34 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_USER_BY_ID`(in _UserID int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ACTIVE_CLASSES`()
 BEGIN
-	select * from users where UserID = _UserID;
+	select * from trainClasses where isActive = '1';
 END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
-in _password nvarchar(500)
-)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_TRAIN_DETAILS_FOR_ADMINPANEL`()
 BEGIN
+	select T.TrainID, T.TrainCode, T.TrainName, 
+			case when T.IsRegularRun = '1' then 'YES' else 'NO' end as IsRegularRun,
+            sum(D.NoOfSeats) as NoOfSeats,
+            case when T.isActive = '1' then 'YES' else 'NO' end as isActive
+    from train as T
+    inner join trainClassDetails as D on T.TrainID = D.FK_TrainID
+    group by T.TrainID;
+END$$
+DELIMITER ;
 
-	if exists(select * from users where Email = _userEmail and Password = _password)
-    then
-		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
-        then
-			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
-			select 'true' as auth,'false' as locked;
-		else	
-			select 'true' as auth,'true' as locked;
-		end if;
-	else
-		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
-		select 'false' as auth,'false' as locked;
-	end if;
-
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USERS_FOR_ADMIN_VIEW`()
+BEGIN
+	select UserID, FirstName, LastName, Email, R.Description as Role, G.Description as Gender,
+		case when U.isLocked = '1' then 'YES' else 'NO' end as Locked, 
+        case when U.isActive = '1' then 'YES' else 'NO' end as Active
+	from users as U
+    inner join role as R on U.FK_RoleID = R.RoleID
+    inner join gender as G on U.FK_GenderID = G.GenderID;
 END$$
 DELIMITER ;
 
@@ -112,6 +132,14 @@ DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER_BY_EMAIL`(in _email nvarchar(200))
 BEGIN
 	select * from users where  Email = _email limit 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_RESET_USER_PASSWORD`(in _userID int, in _type int, in _token varchar(15))
+BEGIN
+	insert into tokenRecord(FK_TypeID, Token, FK_userID, sendDate, ExpireDate)
+    values (_type, _token, _userID, now(),DATE_ADD(now(), INTERVAL 2 HOUR));
 END$$
 DELIMITER ;
 
