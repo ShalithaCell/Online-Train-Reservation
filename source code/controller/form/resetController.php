@@ -6,9 +6,13 @@ include '../BIZ/logic.php';
 
 function resetuserPassword($token,$password,$confirmPassword){
 
-    $encryptedPassoword = EncryptDataForBackend($token);
+    $encryptedPassoword = EncryptDataForBackend($password);
 
-    echo $encryptedPassoword;
+    $result = resetUserPasswordByToken($token,$encryptedPassoword);
+
+    if($result == true){
+        header('Location: '.'../../View/UserMessages.php?type=reset');
+    }
 
 }
 

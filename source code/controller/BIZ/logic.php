@@ -5,6 +5,7 @@
     include '../../Model/EmailContent.php';
     include 'crud.php';
     include '../../View/sessionWorker.php';
+    include 'ChromePhp.php';
 
 
     $configs = include('../../Config/settings.php');
@@ -163,6 +164,7 @@
 
         $result = $objCRUD->authenticateUserLogin($email, EncryptDataForBackend($password));
 
+        //ChromePhp::log(EncryptDataForBackend($password));
 
         //to Json
         $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
@@ -252,6 +254,14 @@
         catch (Exception $exception){
             echo  $exception;
         }
+    }
+
+    function resetUserPasswordByToken($token, $password){
+        $objCRUD = new crud();  // crud operation object
+    
+        $result = $objCRUD->updateUserPassword($token, $password);
+    
+        return true;
     }
 
 

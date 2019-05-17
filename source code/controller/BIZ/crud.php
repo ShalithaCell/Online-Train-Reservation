@@ -237,10 +237,10 @@ class crud
 
     }
 
-    function updateUserPassword($user, $Password){
+    function updateUserPassword($token, $Password){
         global $conn;
 
-        $sql_query = "CALL SP_RESET_USER_PASSWORD_BY_TOKEN('".$user."','".$Password."');";
+        $sql_query = "CALL SP_RESET_USER_PASSWORD_BY_TOKEN('".$token."','".$Password."');";
 
         //echo $sql_query;
 

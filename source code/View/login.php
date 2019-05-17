@@ -251,6 +251,7 @@ session_start();
 
             }
 
+
             $.ajax({
                 url: '../Controller/BIZ/logic.php',
                 type: 'post',

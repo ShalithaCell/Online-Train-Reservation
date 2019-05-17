@@ -94,8 +94,9 @@ class AES {
      */
     public function encrypt() {
 
-        if ($this->validateParams()) { 
-            return trim(openssl_encrypt($this->data, $this->method, $this->key, $this->options));
+        if ($this->validateParams()) {
+
+            return trim(openssl_encrypt($this->data, $this->method, $this->key, $this->options, '2232313575834683'));
         } else {
             throw new Exception('Invlid params!');
         }
