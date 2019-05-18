@@ -58,7 +58,9 @@
   }
 
   .div-custom{
-    width: 30%;
+    /* width: 30%; */
+    margin-left: 22%;
+
   }
 
   .div-custom-2{
@@ -71,7 +73,7 @@
 
 
   .button-search {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 9px 32px;
@@ -80,6 +82,7 @@
     display: inline-block;
     font-size: 1em;
     margin: 4px 2px;
+    margin-left: 1%;
     cursor: pointer;
     width: 30%;
     font-weight: bold;
@@ -151,8 +154,3 @@
     cursor: pointer;
     text-align: center;
   }
-  
-
-
-
-

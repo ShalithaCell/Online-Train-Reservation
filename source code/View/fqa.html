@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+
+        <!--Fontawesome-->
+        <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+        <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+        
+        <!--Navigation bar and footer-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+        <!--style sheets for this page only-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-faq.css" />
+
+
+   
+        <!--jquery-->
+        <script src="../Script/jquery-3.3.1.min.js"></script>
+        <!--jquery UI-->
+        <script src="../Script/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
+        <!--Jquery confirm-->
+        <script src="../Script/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
+
+        <!--Custom combo box plugins-->
+        <script src="../Script/custom-combo.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-combo.css" />
+
+        <!--Herder js file-->
+        <script src="../Script/Header.js"></script>
+
+        <!--mdb-->
+        <script src="../ExternalResources/MDB/js/popper.min.js"></script>
+        <link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+
+
+        <!--Boostrap-->
+        <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    
+
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+                        
+
+        <script>
+                //Jquery function for load navigation to page
+                $(function () {
+                        $("#Header").html(getHeaderMD());
+                        $("#footerID").html(getFooter());
+                });
+
+                
+            $( document ).ready(function() {
+                const items = document.querySelectorAll(".accordion a");
+
+                function toggleAccordion(){
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('active');
+                }
+
+                items.forEach(item => item.addEventListener('click', toggleAccordion));
+            });
+
+        </script>
+
+       
+
+        <title>BOOkit-Train Details</title>
+</head>
+
+<body>
+        <!--Navigation Bar -->
+        <div id="Header"></div>
+
+        <!--Page Content -->
+        <div class="">
+        
+            <div class="container">
+
+                <h2 class="align0">Frequently Asked Questions</h2><br>
+
+                <!-- Search form -->
+                <div class="active-cyan-4 mb-4">
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            
+                <div class="accordion">
+                <div class="accordion-item">
+                    <a>Why is the moon sometimes out during the day?</a>
+                    <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>Why is the sky blue?</a>
+                    <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>Will we ever discover aliens?</a>
+                    <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>How much does the Earth weigh?</a>
+                    <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>How do airplanes stay up?</a>
+                    <div class="content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!--Footer -->
+        <footer id="footerID"></footer>
+
+        <!--cannot read property 'addeventlistener' of null mdb
+- This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+-->
+        <script src="../ExternalResources/MDB/js/mdb.min.js"></script>
+
+</body>
+
+</html>
