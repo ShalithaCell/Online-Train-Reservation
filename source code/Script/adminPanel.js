@@ -112,6 +112,60 @@ function LoadTrainTable() {
 }
 
 
+//load trains
+function LoadStationTable() {
+    //$.fn.dataTable.moment('M/D/YYYY h:mm:ss A');
+    table = $('#tblStations').DataTable({
+        "ajax": {
+            "type": "GET",
+            "url": "../Controller/BIZ/logic.php",
+            "contentType": "application/json; charset=utf-8",
+            "dataType": "json",
+            data: { "getAllStations": "test"},
+            "beforeSend": function (request) {
+                //$('#loader').show();
+            },
+            "dataSrc": function (json) {
+                $('#loader').hide();
+                var result = (JSON.stringify(json));
+                console.log(result);
+                return JSON.parse(result);
+            },
+            "fnDrawCallback": function (oSettings) {
+                $('#loader').hide();
+            },
+        },
+        "fixedHeader": {
+            "header": true
+        },
+        "scrollY": "500px",
+        "scrollCollapse": true,
+        "deferRender": true,
+        pageLength: 10,
+        "order": [[0, "asc"]],
+        columns: [
+            { 'data': 'StationID'},
+            { 'data': 'Description' },
+            { 'data': 'DistanceFromMainStationKM' },
+            { 'data': 'Active' },
+            { 'data': null, 'render': function (data, type, row) {
+                    return '<button type= "button" class="btn btn-info btn-header" style="font-size: .5vw;" onclick="editStation(' + data.StationID + ');"><i class="fas fa-eye" aria-hidden="true"></i> Edit</button>'
+                }
+            },
+            { 'data': null, 'render': function (data, type, row) {
+                    return '<button type= "button" class="btn btn-danger btn-header" style="font-size: .5vw;" onclick="removeStation(' + data.StationID + ',\''+ data.Description +'\');"><i class="fas fa-trash-alt" aria-hidden="true"></i> Remove</button>'
+                }
+            }
+        ],
+
+        dom: 'lrtip',
+        initComplete: function () {
+            $('#tblStations').DataTable().columns.adjust();
+        }
+    });
+}
+
+
 function viewUser(userID) {
 
     var userObj = {
@@ -136,6 +190,235 @@ function checkValiedEmailAddrss(emailAddress) {
 
         return  false;
     }
+}
+
+function addNewStation() {
+    $.confirm({
+        theme: 'modern',
+        columnClass: 'large',
+        title: 'Add New Station',
+        content: '' +
+            '<div class="row">'+
+            '<div class="col-md-12">'+
+            '<div class="form-group">' +
+            '<label class="float-left">Station name *</label>' +
+            '<input type="text" placeholder="Station name" class="name form-control" id="txtStationName" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '<div class="form-group mt-4">' +
+            '<label class="float-left">Dintance from Main Station *</label>' +
+            '<input type="number" placeholder="Distance" class="form-control distance" id="txtDinstance" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '<div class="form-group mt-4">' +
+            '<label class="float-left">Description</label>' +
+            '<textarea placeholder="Description" row="6" class="form-control distance" id="txtDescription" required />' +
+            '</div>'+
+            '</div>'+
+            '</div>',
+        buttons: {
+            cancel: function () {
+                //close
+            },
+            Save: {
+                text: 'Save',
+                btnClass: 'btn-blue',
+                action: function () {
+
+                    var valied = 0;
+
+                    if($('#txtStationName').val().length == 0){
+                        this.$content.find('.name').siblings('.req-field').show();
+                        valied += 1;
+                    }else{
+                        this.$content.find('.name').siblings('.req-field').hide();
+                    }
+
+                    if($('#txtDinstance').val().length == 0){
+                        this.$content.find('.distance').siblings('.req-field').show();
+                        valied += 1;
+                    }else{
+                        this.$content.find('.distance').siblings('.req-field').hide();
+                    }
+
+                    if(valied > 0)
+                        return false;
+
+
+                    data = {station : $('#txtStationName').val(), Distance : $('#txtDinstance').val() , Description : $('#txtDescription').val()};
+
+                    console.log(data);
+
+                    //updateing
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "saveStaion": JSON.stringify(data)},
+                        beforeSend: function(){
+
+                        },
+                        complete: function(){
+
+                        },
+                        success: function(response) {
+                            if(response == 'true'){
+                                toastr.success('New station added successfully.', 'successfully');
+                                $("#tblStations").dataTable().fnDestroy();
+
+                                LoadStationTable();
+                                return true;
+                            }
+                            else{
+                                toastr.error('Something went wrong.please try again', 'Error');
+                                return  false;
+                            }
+                        }
+                    });
+
+
+                }
+            },
+
+        },
+        contentLoaded: function(data, status, xhr){
+            $('#loader').show();
+        },
+        onContentReady: function () {
+            // bind to events
+            $('#loader').hide();
+
+            //hide all warning messages
+            $('.req-field').each(function() {
+                $(this).hide();
+            });
+
+        }
+    });
+}
+
+function editStation(stationID) {
+    $.confirm({
+        theme: 'modern',
+        columnClass: 'large',
+        title: 'Update Station',
+        content: '' +
+            '<div class="row">'+
+            '<div class="col-md-12">'+
+            '<div class="form-group">' +
+            '<label class="float-left">Station name *</label>' +
+            '<input type="text" placeholder="Station name" class="name form-control" id="txtStationName" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '<div class="form-group mt-4">' +
+            '<label class="float-left">Dintance from Main Station *</label>' +
+            '<input type="number" placeholder="Distance" class="form-control distance" id="txtDinstance" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '<div class="form-group mt-4">' +
+            '<label class="float-left">Description</label>' +
+            '<textarea placeholder="Description" row="6" class="form-control distance" id="txtDescription" required />' +
+            '</div>'+
+            '</div>'+
+            '</div>',
+        buttons: {
+            cancel: function () {
+                //close
+            },
+            Save: {
+                text: 'Save',
+                btnClass: 'btn-blue',
+                action: function () {
+
+                    var valied = 0;
+
+                    if($('#txtStationName').val().length == 0){
+                        this.$content.find('.name').siblings('.req-field').show();
+                        valied += 1;
+                    }else{
+                        this.$content.find('.name').siblings('.req-field').hide();
+                    }
+
+                    if($('#txtDinstance').val().length == 0){
+                        this.$content.find('.distance').siblings('.req-field').show();
+                        valied += 1;
+                    }else{
+                        this.$content.find('.distance').siblings('.req-field').hide();
+                    }
+
+                    if(valied > 0)
+                        return false;
+
+
+                    data = {stationid : stationID ,station : $('#txtStationName').val(), Distance : $('#txtDinstance').val() , Description : $('#txtDescription').val()};
+
+                    //console.log(data);
+
+                    //updating
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "updateStation": JSON.stringify(data)},
+                        beforeSend: function(){
+
+                        },
+                        complete: function(){
+
+                        },
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 'true'){
+                                toastr.success('Station updated successfully.', 'successfully');
+                                $("#tblStations").dataTable().fnDestroy();
+
+                                LoadStationTable();
+                                return true;
+                            }
+                            else{
+                                toastr.error('Something went wrong.please try again', 'Error');
+                                return  false;
+                            }
+                        }
+                    });
+
+
+                }
+            },
+
+        },
+        contentLoaded: function(data, status, xhr){
+            $('#loader').show();
+        },
+        onContentReady: function () {
+            // bind to events
+            $('#loader').hide();
+
+            //hide all warning messages
+            $('.req-field').each(function() {
+                $(this).hide();
+            });
+
+            //loading details
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getStation": stationID},
+                beforeSend: function(){
+
+                },
+                complete: function(){
+
+                },
+                success: function(response) {
+                    var Obj = $.parseJSON(response);
+                    $('#txtStationName').val(Obj["Description"]);
+                    $('#txtDinstance').val(Obj["DistanceFromMainStation"]);
+                    $('#txtDescription').val(Obj["DescriptionLong"]);
+                }
+            });
+
+
+        }
+    });
 }
 
 
@@ -368,6 +651,45 @@ function displayEditUserWindow(userObj) {
     });
 }
 
+function removeStation(stationID, station) {
+    $.confirm({
+        theme: 'material',
+        content: 'Are you sure want to remove '+station+' station ?',
+        buttons: {
+            Yes: {
+                text: 'Yes',
+                action: function(){
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "removeStation": stationID},
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 'true'){
+                                toastr.success('Station Removed Successfully', 'successfully');
+                                $("#tblStations").dataTable().fnDestroy();
+
+                                LoadStationTable();
+                                return true;
+                            }else{
+                                toastr.error('Something went wrong.please try again', 'Error');
+                                return  true;
+                            }
+                        }
+                    });
+                }
+
+            },
+            No: {
+                text: 'No',
+                action: function(){
+                }
+            }
+        }
+    });
+}
+
 //global value for select tab index
 var selectedTabIndex = 1;
 var selectedTabHref = 'home-tab';
@@ -403,11 +725,11 @@ function ImplementNewTrain(jsonResult) {
     $.each(obj, function (index, value) {
 
         content += '<div class="row train-classes">' +
-            '<div class="col-md-3">' +
+            '<div class="col-md-2">' +
             '<label ></label>' +
-            '<div class="custom-control custom-checkbox mt-2">\n' +
-            '    <input type="checkbox" class="custom-control-input chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
-            '    <label class="custom-control-label" for="defaultUnchecked"> '+value["Description"].toString()+' </label>\n' +
+            '<div class="form-check mt-2">\n' +
+            '    <input type="checkbox" class="form-check-input font-md-T chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
+            '    <label class="form-check-label" for="defaultUnchecked"> '+value["Description"].toString()+' </label>\n' +
             '</div>'+
             '</div>'+
             '<div class="col-md-3">' +
@@ -421,6 +743,13 @@ function ImplementNewTrain(jsonResult) {
             '<div class="col-md-3">' +
             '<label for="exampleForm3">Price per Compartment</label>\n' +
             '<input type="number" class="form-control price-compatment">'+
+            '</div>'+
+            '<div class="col-md-1">' +
+            '<label ></label>' +
+            '<div class="form-check mt-2">\n' +
+            '    <input type="checkbox" class="form-check-input font-md-T chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
+            '    <label class="form-check-label" for="defaultUnchecked">A/C</label>\n' +
+            '</div>'+
             '</div>'+
             '</div>';
 
@@ -444,7 +773,7 @@ function ImplementNewTrain(jsonResult) {
                 '</li>'+
                 '<li class="nav-item">'+
             '<a class="nav-link color-black-T" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="contact"'+
-            'aria-selected="false">Contact</a>'+
+            'aria-selected="false">Schedule</a>'+
                 '</li>'+
                 '</ul>'+
             '<div class="tab-content " id="myTabContent">'+

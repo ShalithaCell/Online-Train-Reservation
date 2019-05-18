@@ -1,6 +1,6 @@
 <?php
 include "sessionWorker.php";
-session_start();
+//session_start();
 
 //echo "<script type='text/javascript'>alert(".$_SESSION['RoleID'].");</script>";
 //echo '<script>console.log('.$_SESSION['RoleID'].')</script>';
@@ -25,7 +25,7 @@ if(isset($_SESSION['RoleID'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
-    <title>BOOkit-Home</title>
+    <title>BOOkit-Admin Panel</title>
 
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css">
     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
@@ -103,6 +103,7 @@ if(isset($_SESSION['RoleID'])){
         $(document).ready(function () {
             LoadUserTable();
             LoadTrainTable();
+            LoadStationTable();
 
             $('.cls-users').click(function(){
                 setTimeout(function(){
@@ -116,6 +117,14 @@ if(isset($_SESSION['RoleID'])){
                 setTimeout(function(){
                     // enable click after 1 second
                     $('#tblTrains').DataTable().ajax.reload();
+                },200); // 1 second delay
+
+            });
+
+            $('.cls-station').click(function(){
+                setTimeout(function(){
+                    // enable click after 1 second
+                    $('#tblStations').DataTable().ajax.reload();
                 },200); // 1 second delay
 
             });
@@ -178,7 +187,7 @@ if(isset($_SESSION['RoleID'])){
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active cls-users" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
                         <a class="nav-item nav-link cls-trains" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><i class="fas fa-train font-md-T ml-2"></i> &nbsp; </br>Trains</a>
-                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
+                        <a class="nav-item nav-link cls-station" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"><i class="fas fa-warehouse font-md-T ml-2"></i> &nbsp; </br>Stations</a>
                         <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false"><i class="fas fa-users font-md-T ml-2"></i> &nbsp; </br>Users</a>
                     </div>
                 </nav>
@@ -250,7 +259,33 @@ if(isset($_SESSION['RoleID'])){
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                        Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                        <div class="row">
+                            <div class="card w-100 mb-3">
+                                <div class="card-header text-muted">
+                                    List of Stations
+                                    <button type="button" class="btn btn-default margin-70-T" onclick="addNewStation()">New Station</button>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table" id="tblStations">
+                                        <thead class="black white-text">
+                                        <tr>
+                                            <th scope="col">StationID</th>
+                                            <th scope="col">Station Name</th>
+                                            <th scope="col">Distance From Main Station</th>
+                                            <th scope="col">Active</th>
+                                            <th scope="col" class="no-sort">Edit</th>
+                                            <th scope="col" class="no-sort">Remove</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
                         Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.

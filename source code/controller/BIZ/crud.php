@@ -248,6 +248,64 @@ class crud
     }
 
 
+    function getAllStations(){
+        global $conn;
+
+        $sql_query = "SELECT StationID,Description,DescriptionLong,DistanceFromMainStation, CONCAT(DistanceFromMainStation, ' KM') as DistanceFromMainStationKM,isActive, case when isActive = '1' then 'YES' else 'NO' end as Active FROM station;";
+
+        //echo $sql_query;
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+
+        return $array;
+    }
+
+    function addNewStation($station, $discriptionLong, $Distance){
+        global $conn;
+
+        $sql_query = "CALL SP_NEW_STATION('".$station."','".$discriptionLong."','".$Distance."');";
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+    }
+
+    function getStationByID($stationID){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_STATION_BY_ID('". mysqli_real_escape_string( $conn ,$stationID) ."')";
+
+
+        $result = mysqli_query($conn, $sql_query);
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+    }
+
+    function UpdateStation($stationID, $station, $discriptionLong, $Distance){
+        global $conn;
+
+        $sql_query = "CALL SP_UPDATE_STATION('".$stationID."','".$station."','".$discriptionLong."','".$Distance."');";
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+    }
+
+    function RemoveStation($stationID){
+        global $conn;
+
+        $sql_query = "DELETE FROM station WHERE StationID = '".$stationID."';";
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+    }
 
 
 }

@@ -304,8 +304,66 @@
         echo $jsonResult;
     }
 
+    function getStationsForAdminPanel(){
+        $objCRUD = new crud();  // crud operation object
 
-    //end <admin panel methods>
+        $result = $objCRUD->getAllStations();
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function addNewStation($objStaion){
+        $objCRUD = new crud();  // crud operation object
+
+        $jsonObj = json_decode($objStaion);   //decode json
+
+        //ChromePhp::log($jsonObj);
+
+        $objCRUD->addNewStation($jsonObj->station, $jsonObj->Description, $jsonObj->Distance );
+
+        echo 'true';
+    }
+
+    function getStation($stationID){
+        $objCRUD = new crud();  // crud operation object
+
+        //ChromePhp::log($jsonObj);
+
+        $result = $objCRUD->getStationByID($stationID);
+
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function updateStation($station){
+        $objCRUD = new crud();  // crud operation object
+
+        $obj = json_decode($station);   //decode json
+
+        //ChromePhp::log($jsonObj);
+
+        $objCRUD->UpdateStation($obj->stationid, $obj->station, $obj->Description, $obj->Distance);
+
+        echo 'true';
+    }
+
+    function removeStation($stationID){
+        $objCRUD = new crud();  // crud operation object
+
+        //ChromePhp::log($jsonObj);
+
+        $objCRUD->RemoveStation($stationID);
+
+        echo 'true';
+    }
+
+
+
+//end <admin panel methods>
 
     function checkEmailIsExixts($Email){
         $objCRUD = new crud();  // crud operation object
@@ -345,6 +403,8 @@
 
         echo $jsonResult;
     }
+
+
 
 
     //begin <fetch each ajax calls>
@@ -416,6 +476,26 @@
         resetPassword($_POST['PasswordReset']);
     }
 
-    //end <fetch each ajax calls>
+    if(isset($_GET['getAllStations'])){
+        getStationsForAdminPanel();
+    }
+
+    if(isset($_GET['saveStaion'])){
+        addNewStation($_GET['saveStaion']);
+    }
+
+    if(isset($_GET['getStation'])){
+        getStation($_GET['getStation']);
+    }
+
+    if(isset($_GET['updateStation'])){
+        updateStation($_GET['updateStation']);
+    }
+
+    if(isset($_GET['removeStation'])){
+        removeStation($_GET['removeStation']);
+    }
+
+//end <fetch each ajax calls>
 
 ?>
