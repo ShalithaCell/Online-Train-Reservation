@@ -128,7 +128,7 @@ function LoadStationTable() {
             "dataSrc": function (json) {
                 $('#loader').hide();
                 var result = (JSON.stringify(json));
-                console.log(result);
+                //console.log(result);
                 return JSON.parse(result);
             },
             "fnDrawCallback": function (oSettings) {
@@ -365,7 +365,7 @@ function editStation(stationID) {
 
                         },
                         success: function(response) {
-                            console.log(response);
+                            //console.log(response);
                             if(response == 'true'){
                                 toastr.success('Station updated successfully.', 'successfully');
                                 $("#tblStations").dataTable().fnDestroy();
@@ -706,7 +706,7 @@ function AddNewTrain() {
         data: { "getActiveActiveClasses": "test"},
         success: function(response) {
             var result = (JSON.stringify(response));
-            console.log(result);
+            //console.log(result);
             var jsonResult =  JSON.parse(result);
             ImplementNewTrain(jsonResult);
         }
@@ -815,13 +815,63 @@ function ImplementNewTrain(jsonResult) {
                         '</div>'+
                 '</div> ' +
                 '</div>'+
-                '<div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape'+
-                    'wayfarers, ethical wes anderson tofu before they sold out mcsweeneys organic lomo retro fanny pack'+
-                    'lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard'+
-                    'locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify'+
-                    'squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie'+
-                    'etsy retro mlkshk vice blog. Scenester cred you probably havent heard of them, vinyl craft beer blog</div>'+
-        '</div>',
+                '<div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="contact-tab">' +
+                    '<div >' +
+                    '<div class="card mt-1 ml-1 mr-1" style="width: 100%;">\n' +
+                    '  <div class="card-header"> Schedule'+
+                    '  </div>' +
+                    '  <div class="card-body clsSchedule" rown="1">' +
+                    /* +content+*/
+                            '<div class="" id="divRout">' +
+                                '<div class="row onerow donotremove">' +
+                                    '<div class="col-md-1">' +
+                                        '<label ></label>\n' +
+                                        '<label class="form-control numberlist mt-3" num="1">1</label>'+
+                                    '</div>' +
+                                    '<div class="col-md-2">' +
+                                        '<label for="validationCustom03">From:</label>\n' +
+                                        '      <select class="form-control form-control-lg ddl-station ddl-from" name="category" id="validationCustom03" >\n' +
+                                        '        <option value="0">Choose... </option>\n' +
+
+
+                                        '      </select>'+
+                                    '</div>'+
+                                    '<div class="col-md-2">' +
+                                        '<label >Time :</label>\n' +
+                                        '<input type="number" min="0" max="24" class="form-control mt-2 from-time">'+
+                                    '</div>'+
+                                    '<div class="col-md-2">' +
+                                        '<label for="validationCustom03">To:</label>\n' +
+                                        '      <select class="form-control form-control-lg ddl-station ddl-to" name="category" id="validationCustom03" >\n' +
+                                        '        <option value="0">Choose... </option>\n' +
+
+
+                                        '      </select>'+
+
+                                    '</div>'+
+                                    '<div class="col-md-2">' +
+                                    '<label >Time :</label>\n' +
+                                    '<input type="number" id="exampleForm2" min="0" max="24" class="form-control mt-2 to-time">'+
+                                    '</div>'+
+                                    '<div class="col-md-1">'+
+                                        '<label ></label>\n' +
+                                        '<button type="button" id="row_1" class="btn btn-danger btn-sm mt-3" onclick="removeSheduleRow(\'row_'+ 1 +'\')">\n' +
+                                        '          <span class="fas fa-window-close"></span>' +
+                                        '        </button>'+
+                                    '</div>'+
+                                    '<div class="col-md-1">'+
+                                        '<label ></label>\n' +
+                                        '<button type="button"  class="btn btn-primary btn-sm mt-3 cls-plus" onclick="shuduleNewRow(this,event);">\n' +
+                                            '          <span class="fas fa-plus"></span>' +
+                                            '        </button>'+
+                                    '</div>'+
+                                ' </div>'+
+                            '</div>'+
+                    '  </div>\n' +
+                    '</div>'+
+                    '</div> ' +
+                '</div>'+
+                '</div>',
         buttons: {
             cancel: function () {
                 btnClass: 'btn-warning savebtn display-hide-T'
@@ -926,6 +976,86 @@ function ImplementNewTrain(jsonResult) {
                 text: 'Save',
                 btnClass: 'btn-green savebtn display-hide-T',
                 action: function () {
+                    //collect train details
+                    var trainName = $('#txtTrainName').val();
+                    var trainCode = $('#txtTrainCode').val();
+                    var trainDescrition = $('#txtDescription').val();
+
+                    var trainClassArray = new Array();
+                    var trainScheduleArray = new Array();
+                    var trainArray = new Array();
+
+                    //collect class details
+                    $('.classDetailBody').find('.train-classes').each(function () {
+                        if($(this).find('.chkClass').prop('checked') == true){
+                            if(($(this).find('.no-compartments').val().length != 0) &&  ($(this).find('.seat-compartment').val().length != 0) && ($(this).find('.price-compatment').val().length != 0)){
+                                data = {
+                                  class : $(this).find('.chkClass').attr('classid'),
+                                    noOfCompartment : $(this).find('.no-compartments').val(),
+                                    Seats : $(this).find('.seat-compartment').val(),
+                                    Price : $(this).find('.price-compatment').val()
+                                };
+
+                                trainClassArray.push(data);
+                            }
+                        }
+                    });
+
+                    //collect schedule
+                    $('.clsSchedule').find('.onerow').each(function () {
+                        if($(this).find('.ddl-from').val() != "0" && $(this).find('.ddl-to').val() != "0" && $(this).find('.from-time').val() != "" && $(this).find('.to-time').val() != ""){
+                            data = {
+                                from : $(this).find('.ddl-from').val(),
+                                To : $(this).find('.ddl-to').val(),
+                                FromTime : $(this).find('.from-time').val(),
+                                ToTime : $(this).find('.to-time').val()
+                            };
+
+                            trainScheduleArray.push(data);
+                        }
+                    });
+
+                    if(trainName == '' || trainCode == '' || trainDescrition == ''){
+                        $.alert('Please fill train details.');
+                        return false;
+                    }
+
+                    if(trainClassArray.length == 0){
+                        $.alert('Please fill train class details.');
+                        return false;
+                    }
+
+                    if(trainScheduleArray.length == 0){
+                        $.alert('Please fill train schedule details.');
+                        return false;
+                    }
+
+                    //console.log('trainClassArray = '+JSON.stringify(trainClassArray));
+                    //console.log('trainScheduleArray = '+JSON.stringify(trainScheduleArray));
+
+                    var train = {
+                        name : trainName,
+                        code : trainCode,
+                        description : trainDescrition
+                    };
+
+                    trainArray.push(train);
+
+                    var newTrainDetail = {
+                        train : trainArray,
+                        class : trainClassArray,
+                        schedule : trainScheduleArray
+                    };
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "addNewTrain": JSON.stringify(newTrainDetail)},
+                        success: function(response) {
+
+                        }
+                    });
+
 
 
                 }
@@ -980,12 +1110,130 @@ function ImplementNewTrain(jsonResult) {
                 // previous tab
                 //previousTab = ( $(e.relatedTarget).closest('li').index() + 1 );
                 
-                $('.classDetailBody').html(content);
+
+            });
+
+            $('.classDetailBody').html(content);
 
 
+            //fill dropdowns
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getAllStations": "test"},
+                success: function(response) {
+                    var result = (JSON.stringify(response));
+                    var objResult =  JSON.parse(result);
 
+                    var obj = jQuery.parseJSON(objResult);
+
+                    $.each(obj, function (index, value) {
+
+                        $('.ddl-station').each(function () {
+                            $(this).append('<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>');
+                        })
+
+
+                        //console.log(value["ClassID"].toString());
+                    });
+                }
             });
 
         }
     });
+}
+
+function shuduleNewRow(event){
+
+
+    $.ajax({
+        url: '../Controller/BIZ/logic.php',
+        type: 'get',
+        data: { "getAllStations": "test"},
+        success: function(response) {
+            var result = (JSON.stringify(response));
+            var objResult =  JSON.parse(result);
+
+            var obj = jQuery.parseJSON(objResult);
+
+
+            var number = Number($('.clsSchedule').attr('rown'))+1;
+
+            $('.clsSchedule').attr('rown',number);
+
+            var options = '';
+
+            $.each(obj, function (index, value) {
+
+
+                options += '<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>';
+
+                //console.log(value["ClassID"].toString());
+            });
+
+            var sheduleContent = '<div class="row onerow">' +
+                '<div class="col-md-1">' +
+                '<label ></label>\n' +
+                '<label class="form-control numberlist mt-3" num="'+number+'">'+number+'</label>'+
+                '</div>' +
+                '<div class="col-md-2">' +
+                '<label for="validationCustom03">From:</label>\n' +
+                '      <select class="form-control form-control-lg ddl-from" name="category" id="validationCustom03" required>\n' +
+                '        <option value="0">Choose... </option>\n' +
+                options+
+                '      </select>'+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label >Time :</label>\n' +
+                '<input type="number" id="exampleForm2" min="0" max="24" class="form-control mt-2 from-time">'+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label for="validationCustom03">To:</label>\n' +
+                '      <select class="form-control form-control-lg ddl-to" name="category" id="validationCustom03" required>\n' +
+                '        <option value="0">Choose... </option>\n' +
+                options+
+                '      </select>'+
+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label >Time :</label>\n' +
+                '<input type="number" id="exampleForm2" min="0" max="24" class="form-control mt-2 to-time">'+
+                '</div>'+
+                '<div class="col-md-1">'+
+                '<label ></label>\n' +
+                '<button type="button" id="row_'+number+'" class="btn btn-danger btn-sm mt-3" onclick="removeSheduleRow(\'row_'+ number +'\')">\n' +
+                '          <span class="fas fa-window-close"></span>' +
+                '        </button>'+
+                '</div>'+
+                '<div class="col-md-1">'+
+                '<label ></label>\n' +
+                '<button type="button"  class="btn btn-primary btn-sm mt-3 cls-plus" onclick="shuduleNewRow(this,event)">\n' +
+                '          <span class="fas fa-plus"></span>' +
+                '        </button>'+
+                '</div>'+
+                ' </div>';
+
+            $('#divRout').append(sheduleContent);
+        }
+    });
+
+
+}
+
+function removeSheduleRow(event) {
+    console.log($('#'+event).attr('id'));
+
+    if($('#'+event).closest('.onerow').hasClass('donotremove'))
+        return;
+
+    $('#'+event).closest('.onerow').remove();
+
+    var x = 1;
+
+    $('.numberlist').each(function () {
+        $(this).html(x++);
+    })
+
+    $('.clsSchedule').attr('rown',x-1);
+
 }

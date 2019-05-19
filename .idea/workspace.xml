@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/Script/adminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/adminPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Style/style-admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/adminPanel.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,17 +36,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="575">
+              <caret line="255" column="49" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="353" column="13" selection-start-line="353" selection-start-column="13" selection-end-line="353" selection-end-column="13" />
+            <state relative-caret-position="389">
+              <caret line="369" column="45" lean-forward="true" selection-start-line="369" selection-start-column="45" selection-end-line="369" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -55,26 +54,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3464">
-              <caret line="278" column="40" lean-forward="true" selection-start-line="278" selection-start-column="40" selection-end-line="278" selection-end-column="40" />
+            <state relative-caret-position="1065">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2059">
-              <caret line="268" column="72" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="750" column="88" lean-forward="true" selection-start-line="750" selection-start-column="88" selection-end-line="750" selection-end-column="88" />
+            <state relative-caret-position="346">
+              <caret line="1054" selection-start-line="1054" selection-end-line="1054" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -83,7 +73,17 @@
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Config/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -100,7 +100,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/reset.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="735">
               <caret line="49" column="2" lean-forward="true" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="26" />
             </state>
           </provider>
@@ -161,6 +161,8 @@
       <find>showbox</find>
       <find>dr</find>
       <find>SP_RESET_USER_PASSWORD_BY_TOKEN</find>
+      <find>addNewStation</find>
+      <find>saveStaion</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -233,17 +235,15 @@
         <option value="$PROJECT_DIR$/source code/View/UserMessages.php" />
         <option value="$PROJECT_DIR$/source code/Style/style-admin.css" />
         <option value="$PROJECT_DIR$/source code/View/adminPanel.php" />
-        <option value="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" />
         <option value="$PROJECT_DIR$/source code/Controller/BIZ/crud.php" />
         <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
+        <option value="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1280" />
-    <option name="y" value="-280" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -252,7 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,13 +274,8 @@
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Script" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Style" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="BIZ" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -297,6 +291,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -421,7 +416,8 @@
       <workItem from="1557940847908" duration="22672000" />
       <workItem from="1558071791644" duration="91000" />
       <workItem from="1558097558953" duration="10548000" />
-      <workItem from="1558143778640" duration="26893000" />
+      <workItem from="1558143778640" duration="27239000" />
+      <workItem from="1558229485252" duration="19922000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -434,13 +430,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230651000" />
+    <option name="totallyTimeSpent" value="250919000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-280" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.1485623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15015975" />
       <window_info id="Structure" order="1" sideWeight="0.50136983" side_tool="true" weight="0.15105008" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -818,13 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/openssl/openssl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -849,6 +838,27 @@
     <entry file="file://$PROJECT_DIR$/source code/Style/reset.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4020">
+          <caret line="268" column="72" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/reset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="2" lean-forward="true" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source code/Style/style-custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -870,52 +880,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/reset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="49" column="2" lean-forward="true" selection-start-line="49" selection-start-column="2" selection-end-line="49" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="1" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="353" column="13" selection-start-line="353" selection-start-column="13" selection-end-line="353" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2059">
-          <caret line="268" column="72" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="72" />
+        <state relative-caret-position="575">
+          <caret line="255" column="49" selection-start-line="255" selection-start-column="46" selection-end-line="255" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3464">
-          <caret line="278" column="40" lean-forward="true" selection-start-line="278" selection-start-column="40" selection-end-line="278" selection-end-column="40" />
+        <state relative-caret-position="1065">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="750" column="88" lean-forward="true" selection-start-line="750" selection-start-column="88" selection-end-line="750" selection-end-column="88" />
+        <state relative-caret-position="346">
+          <caret line="1054" selection-start-line="1054" selection-end-line="1054" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -924,7 +913,15 @@
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="369" column="45" lean-forward="true" selection-start-line="369" selection-start-column="45" selection-end-line="369" selection-end-column="45" />
         </state>
       </provider>
     </entry>

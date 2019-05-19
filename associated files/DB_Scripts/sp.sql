@@ -6,41 +6,6 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
-in _password nvarchar(500)
-)
-BEGIN
-
-	if exists(select * from users where Email = _userEmail and Password = _password)
-    then
-		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
-        then
-			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
-			select 'true' as auth,'false' as locked;
-		else	
-			select 'true' as auth,'true' as locked;
-		end if;
-	else
-		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
-		select 'false' as auth,'false' as locked;
-	end if;
-
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_EMAIL_IS_EXIXTS`(in _Email nvarchar(200))
-BEGIN
-if exists(select * from users where Email = _Email)
-then
-	select '1' as result;
-else
-	select '0' as result;
-end if;
-END$$
-DELIMITER ;
-
-DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEW_USER`(
 in _FirstName varchar(100),
 in _LastName varchar(100),
@@ -89,6 +54,61 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_EMAIL_IS_EXIXTS`(in _Email nvarchar(200))
+BEGIN
+if exists(select * from users where Email = _Email)
+then
+	select '1' as result;
+else
+	select '0' as result;
+end if;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_RESET_TOKEN_VALIED`(in _token nvarchar(15))
+BEGIN
+	if exists(select * from tokenRecord where Token = _token and ExpireDate > now())
+    then
+		select 'true' as result;
+	else
+		select 'false' as result;
+	end if;
+        
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
+in _password nvarchar(500)
+)
+BEGIN
+
+	if exists(select * from users where Email = _userEmail and Password = _password)
+    then
+		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
+        then
+			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
+			select 'true' as auth,'false' as locked;
+		else	
+			select 'true' as auth,'true' as locked;
+		end if;
+	else
+		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
+		select 'false' as auth,'false' as locked;
+	end if;
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ACTIVE_CLASSES`()
+BEGIN
+	select * from trainClasses where isActive = '1';
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ROLES`(in _RoleID int)
 BEGIN
 	select * from role where isActive = '1' and RoleID >= _RoleID;
@@ -97,9 +117,11 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ACTIVE_CLASSES`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_STATION_BY_ID`(in _stationID int)
 BEGIN
-	select * from trainClasses where isActive = '1';
+	select *
+    from station
+    where  StationID = _stationID;
 END$$
 DELIMITER ;
 
@@ -136,10 +158,40 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_NEW_STATION`(in _Description nvarchar(200)
+, in _DescriptionLong nvarchar(1000)
+, in _Distance decimal(12,2))
+BEGIN
+	insert into station (Description, DescriptionLong,DistanceFromMainStation,isActive )
+    values (_Description, _DescriptionLong, _Distance, '1');
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_RESET_USER_PASSWORD`(in _userID int, in _type int, in _token varchar(15))
 BEGIN
 	insert into tokenRecord(FK_TypeID, Token, FK_userID, sendDate, ExpireDate)
     values (_type, _token, _userID, now(),DATE_ADD(now(), INTERVAL 2 HOUR));
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_RESET_USER_PASSWORD_BY_TOKEN`(in _token nvarchar(15), in _password nvarchar(100))
+BEGIN
+	update users set Password  = _password where  UserID = (
+															select FK_userID 
+															from tokenRecord 
+                                                            where Token = _token);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UPDATE_STATION`(in _stationID int, in _station nvarchar(50), in _Description nvarchar(1000), in _Distance decimal(12,2))
+BEGIN
+	update station set Description = _station,
+						DescriptionLong = _Description,
+                        DistanceFromMainStation = _Distance
+			where StationID = _stationID;
 END$$
 DELIMITER ;
 

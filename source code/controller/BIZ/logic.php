@@ -361,6 +361,23 @@
         echo 'true';
     }
 
+    function addNewTrain($trainDetails){
+        $jsonResult = json_decode($trainDetails);   //decode json
+
+        ChromePhp::log($jsonResult);
+
+        /*
+        $jsonObjTrain = $jsonResult['train'];
+        $jsonObjClass = $jsonResult['class'];
+        $jsonObjSchedule = $jsonResult['schedule'];
+
+        ChromePhp::log($jsonObjTrain);
+        ChromePhp::log($jsonObjClass);
+        ChromePhp::log($jsonObjSchedule);
+
+        */
+    }
+
 
 
 //end <admin panel methods>
@@ -494,6 +511,10 @@
 
     if(isset($_GET['removeStation'])){
         removeStation($_GET['removeStation']);
+    }
+
+    if(isset($_GET['addNewTrain'])){
+        addNewTrain($_GET['addNewTrain']);
     }
 
 //end <fetch each ajax calls>
