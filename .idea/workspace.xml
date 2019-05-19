@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
-      <change beforePath="$PROJECT_DIR$/associated files/DB_Scripts/TRS.sql.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/associated files/DB_Scripts/sp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/associated files/DB_Scripts/sp.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source code/Script/adminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/adminPanel.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1470">
-              <caret line="374" column="13" selection-start-line="374" selection-start-column="13" selection-end-line="374" selection-end-column="13" />
+            <state relative-caret-position="450">
+              <caret line="386" selection-start-line="386" selection-end-line="386" />
             </state>
           </provider>
         </entry>
@@ -54,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="375" lean-forward="true" selection-start-line="375" selection-end-line="375" />
+            <state relative-caret-position="738">
+              <caret line="404" column="28" lean-forward="true" selection-start-line="404" selection-start-column="28" selection-end-line="404" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -63,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7200">
-              <caret line="717" lean-forward="true" selection-start-line="717" selection-end-line="717" />
+            <state relative-caret-position="198">
+              <caret line="1216" column="21" lean-forward="true" selection-start-line="1216" selection-start-column="21" selection-end-line="1216" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -72,6 +70,8 @@
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -236,14 +236,14 @@
         <option value="$PROJECT_DIR$/source code/Style/style-admin.css" />
         <option value="$PROJECT_DIR$/source code/View/adminPanel.php" />
         <option value="$PROJECT_DIR$/source code/Controller/BIZ/crud.php" />
-        <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
         <option value="$PROJECT_DIR$/source code/Controller/BIZ/logic.php" />
+        <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
       </list>
     </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -417,7 +417,7 @@
       <workItem from="1558071791644" duration="91000" />
       <workItem from="1558097558953" duration="10548000" />
       <workItem from="1558143778640" duration="27239000" />
-      <workItem from="1558229485252" duration="29189000" />
+      <workItem from="1558229485252" duration="33426000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -430,10 +430,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260186000" />
+    <option name="totallyTimeSpent" value="264423000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.15015975" />
@@ -451,7 +451,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" visible="true" weight="0.16435644" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" weight="0.16435644" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" weight="0.32871288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -894,24 +894,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
+    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1470">
-          <caret line="374" column="13" selection-start-line="374" selection-start-column="13" selection-end-line="374" selection-end-column="13" />
+        <state relative-caret-position="738">
+          <caret line="404" column="28" lean-forward="true" selection-start-line="404" selection-start-column="28" selection-end-line="404" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
+    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/logic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="375" lean-forward="true" selection-start-line="375" selection-end-line="375" />
+        <state relative-caret-position="450">
+          <caret line="386" selection-start-line="386" selection-end-line="386" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7200">
-          <caret line="717" lean-forward="true" selection-start-line="717" selection-end-line="717" />
+        <state relative-caret-position="198">
+          <caret line="1216" column="21" lean-forward="true" selection-start-line="1216" selection-start-column="21" selection-end-line="1216" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -919,6 +919,8 @@
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>

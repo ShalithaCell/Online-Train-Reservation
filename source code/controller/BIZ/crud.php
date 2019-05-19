@@ -79,12 +79,7 @@ class crud
         $sql_query = "CALL SP_GET_USER_BY_EMAIL('". mysqli_real_escape_string( $conn ,$email) ."')";
 
 
-        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
 
-        // Associative array
-        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-
-        return $row;
 
     }
 
@@ -396,6 +391,21 @@ class crud
 
 
 
+    }
+
+    function getTrainByID($trainID){
+        global $conn;
+
+
+        $sql_query = "SELECT * FROM train WHERE TrainID = '".$trainID."';";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
     }
 
 }

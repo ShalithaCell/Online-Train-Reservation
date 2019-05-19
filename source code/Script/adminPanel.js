@@ -95,7 +95,7 @@ function LoadTrainTable() {
             { 'data': 'IsRegularRun' },
             { 'data': 'isActive' },
             { 'data': null, 'render': function (data, type, row) {
-                    return '<button type= "button" class="btn btn-info btn-header" style="font-size: .5vw;" onclick="viewUser(' + data.TrainID + ');"><i class="fas fa-eye" aria-hidden="true"></i> Edit</button>'
+                    return '<button type= "button" class="btn btn-info btn-header" style="font-size: .5vw;" onclick="viewTrain(' + data.TrainID + ');"><i class="fas fa-eye" aria-hidden="true"></i> Edit</button>'
                 }
             },
             { 'data': null, 'render': function (data, type, row) {
@@ -1148,6 +1148,474 @@ function ImplementNewTrain(jsonResult) {
     });
 }
 
+
+function viewTrain(trainID) {
+
+    //get all classes
+    $.ajax({
+        url: '../Controller/BIZ/logic.php',
+        type: 'get',
+        data: { "getActiveActiveClasses": "test"},
+        success: function(response) {
+            var result = (JSON.stringify(response));
+            //console.log(result);
+            var jsonResult =  JSON.parse(result);
+            UpdateTrain(jsonResult,trainID);
+        }
+    });
+
+
+}
+
+
+function UpdateTrain(jsonResult, trainID) {
+
+    var content = '';
+
+
+    var obj = jQuery.parseJSON(jsonResult);
+
+    $.each(obj, function (index, value) {
+
+        content += '<div class="row train-classes">' +
+            '<div class="col-md-2">' +
+            '<label ></label>' +
+            '<div class="form-check mt-2">\n' +
+            '    <input type="checkbox" class="form-check-input font-md-T chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
+            '    <label class="form-check-label" for="defaultUnchecked"> '+value["Description"].toString()+' </label>\n' +
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm2"># of Compartments</label>\n' +
+            '<input type="number" class="form-control no-compartments">'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm3"># of Seats per Compartment</label>\n' +
+            '<input type="number" class="form-control seat-compartment">'+
+            '</div>'+
+            '<div class="col-md-3">' +
+            '<label for="exampleForm3">Price per Compartment</label>\n' +
+            '<input type="number" class="form-control price-compatment">'+
+            '</div>'+
+            '<div class="col-md-1">' +
+            '<label ></label>' +
+            '<div class="form-check mt-2">\n' +
+            '    <input type="checkbox" class="form-check-input font-md-T chkClass" classID="'+ value["ClassID"].toString() +'" id="chk'+value["ClassID"].toString()+'">\n' +
+            '    <label class="form-check-label" for="defaultUnchecked">A/C</label>\n' +
+            '</div>'+
+            '</div>'+
+            '</div>';
+
+        //console.log(value["ClassID"].toString());
+    });
+    //debugger;
+
+    $.confirm({
+        theme: 'modern',
+        columnClass: 'col-md-12',
+        title: 'Update Train',
+        content: '' +
+            '<ul class="nav nav-tabs traniTab" upadateID="0" id="myTab" role="tablist">'+
+            '<li class="nav-item">'+
+            '<a class="nav-link active color-black-T" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"'+
+            'aria-selected="true">Train</a>'+
+            '</li>'+
+            '<li class="nav-item">'+
+            '<a class="nav-link color-black-T" id="profile-tab" data-toggle="tab" href="#details" role="tab" aria-controls="profile"'+
+            'aria-selected="false">Details</a>'+
+            '</li>'+
+            '<li class="nav-item">'+
+            '<a class="nav-link color-black-T" id="schedule-tab" data-toggle="tab" href="#schedule" role="tab" aria-controls="contact"'+
+            'aria-selected="false">Schedule</a>'+
+            '</li>'+
+            '</ul>'+
+            '<div class="tab-content " id="myTabContent">'+
+            '<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">' +
+            '' +'<div class="row">'+
+            '<div class="col-md-6">'+
+            '<div class="form-group">' +
+            '<label class="float-left">Train name</label>' +
+            '<input type="text" placeholder="Train name" class="name form-control" id="txtTrainName" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-6">'+
+            '<div class="form-group">' +
+            '<label class="float-left">Train code</label>' +
+            '<input type="text" placeholder="Train code" class="form-control traincode" id="txtTrainCode" required />' +
+            '<span class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-12">' +
+            '<div class="form-group" id="mcestyle">' +
+            '<label class="float-left">Description</label>' +
+            '<div class="form-group">'+
+            '<textarea class="form-control rounded-0" id="txtDescription" rows="3"></textarea>'+
+            '</div>'+
+            '<span id="descReq" class="text-danger req-field">please fill out this field</span>'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '   </div>'+
+            '<div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="profile-tab">' +
+            '<div >' +
+            '<div class="card mt-1 ml-1 mr-1" style="width: 100%;">\n' +
+            '  <div class="card-header"> Class Details'+
+            '  </div>' +
+            '  <div class="card-body classDetailBody">' +
+            /* +content+*/
+            '  </div>\n' +
+            '</div>'+
+            '</div> ' +
+            '</div>'+
+            '<div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="contact-tab">' +
+            '<div >' +
+            '<div class="card mt-1 ml-1 mr-1" style="width: 100%;">\n' +
+            '  <div class="card-header"> Schedule'+
+            '  </div>' +
+            '  <div class="card-body clsSchedule" rown="1">' +
+            /* +content+*/
+            '<div class="" id="divRout">' +
+            '<div class="row onerow donotremove">' +
+            '<div class="col-md-1">' +
+            '<label ></label>\n' +
+            '<label class="form-control numberlist mt-3" num="1">1</label>'+
+            '</div>' +
+            '<div class="col-md-2">' +
+            '<label for="validationCustom03">From:</label>\n' +
+            '      <select class="form-control form-control-lg ddl-station ddl-from" name="category" id="validationCustom03" >\n' +
+            '        <option value="0">Choose... </option>\n' +
+
+
+            '      </select>'+
+            '</div>'+
+            '<div class="col-md-2">' +
+            '<label >Time :</label>\n' +
+            '<input type="number" min="0" max="24" class="form-control mt-2 from-time">'+
+            '</div>'+
+            '<div class="col-md-2">' +
+            '<label for="validationCustom03">To:</label>\n' +
+            '      <select class="form-control form-control-lg ddl-station ddl-to" name="category" id="validationCustom03" >\n' +
+            '        <option value="0">Choose... </option>\n' +
+
+
+            '      </select>'+
+
+            '</div>'+
+            '<div class="col-md-2">' +
+            '<label >Time :</label>\n' +
+            '<input type="number" id="exampleForm2" min="0" max="24" class="form-control mt-2 to-time">'+
+            '</div>'+
+            '<div class="col-md-1">'+
+            '<label ></label>\n' +
+            '<button type="button" id="row_1" class="btn btn-danger btn-sm mt-3" onclick="removeSheduleRow(\'row_'+ 1 +'\')">\n' +
+            '          <span class="fas fa-window-close"></span>' +
+            '        </button>'+
+            '</div>'+
+            '<div class="col-md-1">'+
+            '<label ></label>\n' +
+            '<button type="button"  class="btn btn-primary btn-sm mt-3 cls-plus" onclick="shuduleNewRow(this,event);">\n' +
+            '          <span class="fas fa-plus"></span>' +
+            '        </button>'+
+            '</div>'+
+            ' </div>'+
+            '</div>'+
+            '  </div>\n' +
+            '</div>'+
+            '</div> ' +
+            '</div>'+
+            '</div>',
+        buttons: {
+            cancel: function () {
+                btnClass: 'btn-warning savebtn display-hide-T'
+                //close
+            },
+            previous: {
+                text: 'Previous',
+                btnClass: 'btn-yelllow prebtn display-hide-T',
+                action: function () {
+
+                    switch (selectedTabIndex) {
+                        case 1:
+                            $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 1;
+                            selectedTabHref = 'home';
+                            previousTabHref = 'home'
+                            nextTabHref = 'profile';
+
+                            break;
+
+                        case 2:
+                            $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                            selectedTabIndex = 1;
+                            selectedTabHref = 'home';
+                            previousTabHref = 'home'
+                            nextTabHref = 'profile';
+                            $('#home-tab').tab('show');
+                            break;
+                        case 3:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                            $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                            selectedTabIndex = 2;
+                            selectedTabHref = 'profile';
+                            previousTabHref = 'home'
+                            nextTabHref = 'schedule';
+                            $('#profile-tab').tab('show');
+                            break;
+                        default:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#home-tab').tab('show');
+                    }
+
+                    //$("a[href='#'+previousTabHref+']'").trigger('click');
+                    return false;
+                }
+            },
+            Next: {
+                text: 'Next',
+                btnClass: 'btn-blue nxtbtn',
+                action: function () {
+
+                    switch (selectedTabIndex) {
+                        case 1:
+                            if(trainPageRequired()){
+                                $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                                $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                                selectedTabIndex = 2;
+                                selectedTabHref = 'profile';
+                                previousTabHref = 'home'
+                                nextTabHref = 'schedule';
+                                $('#profile-tab').tab('show');
+                            }
+
+                            break;
+
+                        case 2:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#schedule-tab').tab('show');
+                            break;
+                        default:
+                            $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                            $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                            selectedTabIndex = 3;
+                            selectedTabHref = 'schedule';
+                            previousTabHref = 'profile'
+                            nextTabHref = 'schedule';
+                            $('#profile-tab').tab('show');
+                    }
+
+                    return false;
+
+                }
+            },
+            Save: {
+                text: 'Save',
+                btnClass: 'btn-green savebtn display-hide-T',
+                action: function () {
+                    //collect train details
+                    var trainName = $('#txtTrainName').val();
+                    var trainCode = $('#txtTrainCode').val();
+                    var trainDescrition = $('#txtDescription').val();
+
+                    var trainClassArray = new Array();
+                    var trainScheduleArray = new Array();
+                    var trainArray = new Array();
+
+                    //collect class details
+                    $('.classDetailBody').find('.train-classes').each(function () {
+                        if($(this).find('.chkClass').prop('checked') == true){
+                            if(($(this).find('.no-compartments').val().length != 0) &&  ($(this).find('.seat-compartment').val().length != 0) && ($(this).find('.price-compatment').val().length != 0)){
+                                data = {
+                                    class : $(this).find('.chkClass').attr('classid'),
+                                    noOfCompartment : $(this).find('.no-compartments').val(),
+                                    Seats : $(this).find('.seat-compartment').val(),
+                                    Price : $(this).find('.price-compatment').val()
+                                };
+
+                                trainClassArray.push(data);
+                            }
+                        }
+                    });
+
+                    //collect schedule
+                    $('.clsSchedule').find('.onerow').each(function () {
+                        if($(this).find('.ddl-from').val() != "0" && $(this).find('.ddl-to').val() != "0" && $(this).find('.from-time').val() != "" && $(this).find('.to-time').val() != ""){
+                            data = {
+                                from : $(this).find('.ddl-from').val(),
+                                To : $(this).find('.ddl-to').val(),
+                                FromTime : $(this).find('.from-time').val(),
+                                ToTime : $(this).find('.to-time').val()
+                            };
+
+                            trainScheduleArray.push(data);
+                        }
+                    });
+
+                    if(trainName == '' || trainCode == '' || trainDescrition == ''){
+                        $.alert('Please fill train details.');
+                        return false;
+                    }
+
+                    if(trainClassArray.length == 0){
+                        $.alert('Please fill train class details.');
+                        return false;
+                    }
+
+                    if(trainScheduleArray.length == 0){
+                        $.alert('Please fill train schedule details.');
+                        return false;
+                    }
+
+                    //console.log('trainClassArray = '+JSON.stringify(trainClassArray));
+                    //console.log('trainScheduleArray = '+JSON.stringify(trainScheduleArray));
+
+                    var train = {
+                        name : trainName,
+                        code : trainCode,
+                        description : trainDescrition
+                    };
+
+                    trainArray.push(train);
+
+                    var newTrainDetail = {
+                        train : trainArray,
+                        class : trainClassArray,
+                        schedule : trainScheduleArray
+                    };
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "addNewTrain": JSON.stringify(newTrainDetail)},
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 'true'){
+                                toastr.success('Train Added successfully.', 'successfully');
+                                $("#tblTrains").dataTable().fnDestroy();
+
+                                LoadTrainTable();
+                                return true;
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        },
+
+        contentLoaded: function(data, status, xhr){
+            $('#loader').show();
+        },
+        onContentReady: function () {
+            // bind to events
+            $('#loader').hide();
+
+            $('.jconfirm-buttons').addClass('form-inline');
+
+            $('.req-field').each(function() {
+                $(this).hide();
+            });
+
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                //e.target // activated tab
+                selectedTabIndex = ( $(e.target).closest('li').index() + 1 );
+
+                switch (selectedTabIndex) {
+                    case 1:
+                        selectedTabHref = 'home';
+                        previousTabHref = 'home';
+                        $('.prebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                        break;
+                    case 2:
+                        selectedTabHref = 'profile';
+                        previousTabHref = 'home';
+                        $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.savebtn').removeClass('display-show-T').addClass('display-hide-T');
+                        $('.nxtbtn').removeClass('display-hide-T').addClass('display-show-T');
+                        break;
+                    case 3:
+                        selectedTabHref = 'schedule';
+                        previousTabHref = 'profile';
+                        $('.prebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.savebtn').removeClass('display-hide-T').addClass('display-show-T');
+                        $('.nxtbtn').removeClass('display-show-T').addClass('display-hide-T');
+                        break;
+                    default:
+                        selectedTabHref = 'home';
+                        previousTabHref = 'home';
+                }
+
+                // previous tab
+                //previousTab = ( $(e.relatedTarget).closest('li').index() + 1 );
+
+
+            });
+
+            $('.classDetailBody').html(content);
+
+
+            //fill dropdowns
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getAllStations": "test"},
+                success: function(response) {
+                    var result = (JSON.stringify(response));
+                    var objResult =  JSON.parse(result);
+
+                    var obj = jQuery.parseJSON(objResult);
+
+                    $.each(obj, function (index, value) {
+
+                        $('.ddl-station').each(function () {
+                            $(this).append('<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>');
+                        })
+
+
+                        //console.log(value["ClassID"].toString());
+                    });
+                }
+            });
+
+
+            //fill train details
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getTrainByID": trainID},
+                success: function(response) {
+                    var objResult =  JSON.parse(response);
+
+                    $('.traniTab').attr('upadateID', objResult["TrainID"]);
+
+                }
+            });
+
+        }
+    });
+}
+
+
 function shuduleNewRow(event){
 
 
@@ -1221,8 +1689,6 @@ function shuduleNewRow(event){
             $('#divRout').append(sheduleContent);
         }
     });
-
-
 }
 
 function removeSheduleRow(event) {

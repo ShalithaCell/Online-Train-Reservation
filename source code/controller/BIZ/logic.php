@@ -375,6 +375,21 @@
         echo $result;
     }
 
+    function getTrainByID($trainID){
+
+        $objCRUD = new crud();  // crud operation object
+
+        //ChromePhp::log($jsonObj);
+
+        $result = $objCRUD->getTrainByID($trainID);
+
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+
+        echo $jsonResult;
+    }
+
+
 
 
 //end <admin panel methods>
@@ -513,6 +528,11 @@
     if(isset($_GET['addNewTrain'])){
         addNewTrain($_GET['addNewTrain']);
     }
+
+    if(isset($_GET['getTrainByID'])){
+        getTrainByID($_GET['getTrainByID']);
+    }
+
 
 //end <fetch each ajax calls>
 
