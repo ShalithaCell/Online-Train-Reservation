@@ -1052,11 +1052,16 @@ function ImplementNewTrain(jsonResult) {
                         type: 'get',
                         data: { "addNewTrain": JSON.stringify(newTrainDetail)},
                         success: function(response) {
+                            console.log(response);
+                            if(response == 'true'){
+                                toastr.success('Train Added successfully.', 'successfully');
+                                $("#tblTrains").dataTable().fnDestroy();
 
+                                LoadTrainTable();
+                                return true;
+                            }
                         }
                     });
-
-
 
                 }
             }

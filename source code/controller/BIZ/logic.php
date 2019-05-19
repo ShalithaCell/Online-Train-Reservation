@@ -362,20 +362,17 @@
     }
 
     function addNewTrain($trainDetails){
-        $jsonResult = json_decode($trainDetails);   //decode json
+        $objCRUD = new crud();  // crud operation object
+        $result = $objCRUD->insertNewTrain($trainDetails);
 
-        ChromePhp::log($jsonResult);
+        //ChromePhp::log($jsonResult);
 
-        /*
-        $jsonObjTrain = $jsonResult['train'];
-        $jsonObjClass = $jsonResult['class'];
-        $jsonObjSchedule = $jsonResult['schedule'];
+        //ChromePhp::log($jsonResult["train"][0]["name"]);
 
-        ChromePhp::log($jsonObjTrain);
-        ChromePhp::log($jsonObjClass);
-        ChromePhp::log($jsonObjSchedule);
 
-        */
+
+        //ChromePhp::log($result);
+        echo $result;
     }
 
 

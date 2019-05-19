@@ -1,4 +1,14 @@
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEW_TRAIN`(in _code nvarchar(100), in _name nvarchar(100), in _description nvarchar(500))
+BEGIN
+	insert into train(TrainCode, TrainName, Description,IsRegularRun, isActive)
+    values (_code, _name, _description, '1', '1');
+    
+    SELECT TrainID from train order by TrainID desc limit 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_USER_BY_ID`(in _UserID int)
 BEGIN
 	select * from users where UserID = _UserID;
@@ -54,18 +64,6 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_EMAIL_IS_EXIXTS`(in _Email nvarchar(200))
-BEGIN
-if exists(select * from users where Email = _Email)
-then
-	select '1' as result;
-else
-	select '0' as result;
-end if;
-END$$
-DELIMITER ;
-
-DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_RESET_TOKEN_VALIED`(in _token nvarchar(15))
 BEGIN
 	if exists(select * from tokenRecord where Token = _token and ExpireDate > now())
@@ -75,6 +73,18 @@ BEGIN
 		select 'false' as result;
 	end if;
         
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_EMAIL_IS_EXIXTS`(in _Email nvarchar(200))
+BEGIN
+if exists(select * from users where Email = _Email)
+then
+	select '1' as result;
+else
+	select '0' as result;
+end if;
 END$$
 DELIMITER ;
 
