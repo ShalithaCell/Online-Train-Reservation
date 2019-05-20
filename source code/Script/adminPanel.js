@@ -99,7 +99,7 @@ function LoadTrainTable() {
                 }
             },
             { 'data': null, 'render': function (data, type, row) {
-                    return '<button type= "button" class="btn btn-danger btn-header" style="font-size: .5vw;" onclick="viewUser(' + data.TrainID + ');"><i class="fas fa-trash-alt" aria-hidden="true"></i> Remove</button>'
+                    return '<button type= "button" class="btn btn-danger btn-header" style="font-size: .5vw;" onclick="removeTrain(' + data.TrainID + ',\''+ data.TrainName +'\');"><i class="fas fa-trash-alt" aria-hidden="true"></i> Remove</button>'
                 }
             }
         ],
@@ -1276,7 +1276,7 @@ function UpdateTrain(jsonResult, trainID) {
             '  <div class="card-body clsSchedule" rown="1">' +
             /* +content+*/
             '<div class="" id="divRout">' +
-            '<div class="row onerow donotremove">' +
+            '<div class="row onerow donotremove indx_0" ind="0">' +
             '<div class="col-md-1">' +
             '<label ></label>\n' +
             '<label class="form-control numberlist mt-3" num="1">1</label>'+
@@ -1503,11 +1503,11 @@ function UpdateTrain(jsonResult, trainID) {
                     $.ajax({
                         url: '../Controller/BIZ/logic.php',
                         type: 'get',
-                        data: { "addNewTrain": JSON.stringify(newTrainDetail)},
+                        data: { "updateTrin": JSON.stringify(newTrainDetail) ,"TrainID" : trainID},
                         success: function(response) {
                             console.log(response);
                             if(response == 'true'){
-                                toastr.success('Train Added successfully.', 'successfully');
+                                toastr.success('Train updated successfully.', 'successfully');
                                 $("#tblTrains").dataTable().fnDestroy();
 
                                 LoadTrainTable();
@@ -1607,7 +1607,59 @@ function UpdateTrain(jsonResult, trainID) {
                     var objResult =  JSON.parse(response);
 
                     $('.traniTab').attr('upadateID', objResult["TrainID"]);
+                    $('#txtTrainName').val(objResult["TrainName"]);
+                    $('#txtTrainCode').val(objResult["TrainCode"]);
+                    $('#txtDescription').val(objResult["Description"]);
+                }
+            });
 
+            //fill class details
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getTrainClassByID": trainID},
+                success: function(response) {
+                    var obj = jQuery.parseJSON(response);
+                    $.each(obj, function (index, value) {
+                        $('.classDetailBody').find('.chkClass').each(function () {
+                            if($(this).attr('classid') == value["FK_ClassID"]){
+                                $(this).closest('.train-classes').find('.chkClass').prop('checked', true);
+                                $(this).closest('.train-classes').find('.no-compartments').val(value["NoOfCompartments"]);
+                                $(this).closest('.train-classes').find('.seat-compartment').val(value["NoOfSeats"]);
+                                $(this).closest('.train-classes').find('.price-compatment').val(value["PricePerCompartment"]);
+                            }
+                        });
+                    });
+                }
+            });
+
+            //fill schedule
+            //fill class details
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getTrainSheduleByID": trainID},
+                success: function(response) {
+                    //console.log(response);
+                    var obj = jQuery.parseJSON(response);
+                    $.each(obj, function (index, value) {
+
+
+                        if(index == 0){
+                            $('.clsSchedule').find('.indx_0').find('.ddl-from').val(value["FK_From"]);
+                            $('.clsSchedule').find('.indx_0').find('.ddl-to').val(value["FK_To"]);
+                            $('.clsSchedule').find('.indx_0').find('.from-time').val(value["FromTime"]);
+                            $('.clsSchedule').find('.indx_0').find('.to-time').val(value["ToTime"]);
+                        }else{
+                            var from  = value["FK_From"];
+                            var to = value["FK_To"];
+                            var fromTime = value["FromTime"]
+                            var Totime = value["ToTime"];
+                            shuduleupdateRow(index+1, from, to, fromTime,Totime );
+                        }
+
+
+                    });
                 }
             });
 
@@ -1691,6 +1743,98 @@ function shuduleNewRow(event){
     });
 }
 
+
+function shuduleupdateRow(index,from,to,fromtime,totime){
+
+    $.ajax({
+        url: '../Controller/BIZ/logic.php',
+        type: 'get',
+        data: { "getAllStations": "test"},
+        success: function(response) {
+            var result = (JSON.stringify(response));
+            var objResult =  JSON.parse(result);
+
+            var obj = jQuery.parseJSON(objResult);
+
+
+            var number = Number($('.clsSchedule').attr('rown'))+1;
+
+            $('.clsSchedule').attr('rown',number);
+
+            var optionsFrom = '';
+            var optionsTo = '';
+
+            $.each(obj, function (index, value) {
+                if(value["StationID"] == from){
+                    optionsFrom += '<option value="' + value["StationID"]+ '" selected>' + value["Description"] + '</option>';
+                }else{
+                    optionsFrom += '<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>';
+                }
+
+
+
+                //console.log(value["ClassID"].toString());
+            });
+
+            $.each(obj, function (index, value) {
+                if(value["StationID"] == to){
+                    optionsTo += '<option value="' + value["StationID"]+ '" selected>' + value["Description"] + '</option>';
+                }else{
+                    optionsTo += '<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>';
+                }
+
+                //console.log(value["ClassID"].toString());
+            });
+
+            //console.log(index);
+
+            var sheduleContent = '<div class="row onerow indx_'+index+'" ind="'+index+'">' +
+                '<div class="col-md-1">' +
+                '<label ></label>\n' +
+                '<label class="form-control numberlist mt-3" num="'+number+'">'+number+'</label>'+
+                '</div>' +
+                '<div class="col-md-2">' +
+                '<label for="validationCustom03">From:</label>\n' +
+                '      <select class="form-control form-control-lg ddl-from" name="category" id="validationCustom03" required>\n' +
+                '        <option value="0">Choose... </option>\n' +
+                optionsFrom+
+                '      </select>'+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label >Time :</label>\n' +
+                '<input type="number" id="exampleForm2" min="0" max="24" value="'+fromtime+'" class="form-control mt-2 from-time">'+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label for="validationCustom03">To:</label>\n' +
+                '      <select class="form-control form-control-lg ddl-to" name="category" id="validationCustom03" required>\n' +
+                '        <option value="0">Choose... </option>\n' +
+                optionsTo+
+                '      </select>'+
+
+                '</div>'+
+                '<div class="col-md-2">' +
+                '<label >Time :</label>\n' +
+                '<input type="number" id="exampleForm2" min="0" max="24" value="'+totime+'" class="form-control mt-2 to-time">'+
+                '</div>'+
+                '<div class="col-md-1">'+
+                '<label ></label>\n' +
+                '<button type="button" id="row_'+number+'" class="btn btn-danger btn-sm mt-3" onclick="removeSheduleRow(\'row_'+ number +'\')">\n' +
+                '          <span class="fas fa-window-close"></span>' +
+                '        </button>'+
+                '</div>'+
+                '<div class="col-md-1">'+
+                '<label ></label>\n' +
+                '<button type="button"  class="btn btn-primary btn-sm mt-3 cls-plus" onclick="shuduleNewRow(this,event)">\n' +
+                '          <span class="fas fa-plus"></span>' +
+                '        </button>'+
+                '</div>'+
+                ' </div>';
+
+            $('#divRout').append(sheduleContent);
+        }
+    });
+}
+
 function removeSheduleRow(event) {
     console.log($('#'+event).attr('id'));
 
@@ -1706,5 +1850,44 @@ function removeSheduleRow(event) {
     })
 
     $('.clsSchedule').attr('rown',x-1);
+
+}
+
+function removeTrain(trainID,trainName) {
+    $.confirm({
+        theme: 'material',
+        content: 'Are you sure want to remove '+trainName+' ?',
+        buttons: {
+            Yes: {
+                text: 'Yes',
+                action: function(){
+
+                    $.ajax({
+                        url: '../Controller/BIZ/logic.php',
+                        type: 'get',
+                        data: { "removeTrain": trainID},
+                        success: function(response) {
+                            //console.log(response);
+                            var Obj = $.parseJSON(response);
+                            if(Obj["result"] == 'true'){
+                                toastr.success('Train removed successfully.', 'successfully');
+                                $("#tblTrains").dataTable().fnDestroy();
+
+                                LoadTrainTable();
+                            }
+                        }
+                    });
+                }
+
+            },
+            No: {
+                text: 'No',
+                action: function(){
+                }
+            }
+        }
+    });
+
+
 
 }

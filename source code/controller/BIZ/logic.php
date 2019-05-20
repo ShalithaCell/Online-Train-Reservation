@@ -182,6 +182,7 @@
         //to Json
         $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
 
+        ChromePhp::log($jsonResult);
         echo $jsonResult;
     }
 
@@ -375,6 +376,20 @@
         echo $result;
     }
 
+    function updateTrain($trainDetails,$trainID){
+        $objCRUD = new crud();  // crud operation object
+        $result = $objCRUD->UpdateTrain($trainDetails, $trainID);
+
+        //ChromePhp::log($jsonResult);
+
+        //ChromePhp::log($jsonResult["train"][0]["name"]);
+
+
+
+        //ChromePhp::log($result);
+        echo $result;
+    }
+
     function getTrainByID($trainID){
 
         $objCRUD = new crud();  // crud operation object
@@ -388,6 +403,41 @@
 
         echo $jsonResult;
     }
+
+
+    function getTrainClassesByTrainID($trainID){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getTrainClassByID($trainID);
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function getTrainScheduleByTrainID($trainID){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getTrainScheduleByTrainID($trainID);
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function removeTrain($trainID){
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->removeTrain($trainID);
+
+        //to Json
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
 
 
 
@@ -432,6 +482,8 @@
 
         echo $jsonResult;
     }
+
+
 
 
 
@@ -531,6 +583,22 @@
 
     if(isset($_GET['getTrainByID'])){
         getTrainByID($_GET['getTrainByID']);
+    }
+
+    if(isset($_GET['getTrainClassByID'])){
+        getTrainClassesByTrainID($_GET['getTrainClassByID']);
+    }
+
+    if(isset($_GET['getTrainSheduleByID'])){
+        getTrainScheduleByTrainID($_GET['getTrainSheduleByID']);
+    }
+
+    if(isset($_GET['updateTrin']) && isset($_GET['TrainID'])){
+        updateTrain($_GET['updateTrin'], $_GET['TrainID']);
+    }
+
+    if(isset($_GET['removeTrain'])){
+        removeTrain($_GET['removeTrain']);
     }
 
 

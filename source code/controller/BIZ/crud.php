@@ -78,7 +78,10 @@ class crud
 
         $sql_query = "CALL SP_GET_USER_BY_EMAIL('". mysqli_real_escape_string( $conn ,$email) ."')";
 
-
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        return $row;
 
 
     }
@@ -393,11 +396,157 @@ class crud
 
     }
 
+
+    function UpdateTrain($obj, $trainID){
+        global $conn;
+
+        //insert train
+        $jsonResult = json_decode($obj,true);   //decode json
+
+        $sql_query = "CALL SP_UPDATE_TRAIN('".$trainID."','".$jsonResult["train"][0]["code"]."','".$jsonResult["train"][0]["name"]."','".$jsonResult["train"][0]["description"]."');";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+
+
+        $dataClass = array();
+        $priceClass = array();
+        $scheduleClass = array();
+
+        for($i = 0; $i < sizeof($jsonResult["class"]) ; $i++){
+            //ChromePhp::log($jsonResult["class"][$i]["class"]);
+            $classID = $jsonResult["class"][$i]["class"];
+            $NoOfCompartments = $jsonResult["class"][$i]["noOfCompartment"];
+            $NoOfSeats = $jsonResult["class"][$i]["Seats"];
+            $price = $jsonResult["class"][$i]["Price"];
+
+            $dataClass[] = "('$trainID', '$classID', '$NoOfCompartments','$NoOfSeats')";
+            $priceClass[] = "('$trainID', '$classID', '$price')";
+        }
+
+        for($i = 0; $i < sizeof($jsonResult["schedule"]) ; $i++){
+            //ChromePhp::log($jsonResult["class"][$i]["class"]);
+            $From = $jsonResult["schedule"][$i]["from"];
+            $To = $jsonResult["schedule"][$i]["To"];
+            $FromTime = $jsonResult["schedule"][$i]["FromTime"];
+            $ToTime = $jsonResult["schedule"][$i]["ToTime"];
+
+            $scheduleClass[] = "('$trainID', '$From', '$To','$FromTime','$ToTime')";
+        }
+
+
+        while($conn->more_results())
+        {
+            $conn->next_result();
+            if($res = $conn->store_result())
+            {
+                $res->free();
+            }
+        }
+
+        $sql_query = "INSERT INTO  trainClassDetails(FK_TrainID, FK_ClassID, NoOfCompartments, NoOfSeats) VALUES " . implode(', ', $dataClass);
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        while($conn->more_results())
+        {
+            $conn->next_result();
+            if($res = $conn->store_result())
+            {
+                $res->free();
+            }
+        }
+
+        $sql_query = "INSERT INTO  ClassPrice(FK_TrainID, FK_ClassID, PricePerCompartment) VALUES " . implode(', ', $priceClass);
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        while($conn->more_results())
+        {
+            $conn->next_result();
+            if($res = $conn->store_result())
+            {
+                $res->free();
+            }
+        }
+
+        $sql_query = "INSERT INTO  trainSchedule(FK_TrainID, FK_From, FK_To, FromTime, ToTime) VALUES " . implode(', ', $scheduleClass);
+
+        mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+
+        return true;
+
+        //ChromePhp::log($dataClass);
+
+
+
+    }
+
     function getTrainByID($trainID){
         global $conn;
 
 
         $sql_query = "SELECT * FROM train WHERE TrainID = '".$trainID."';";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());
+
+        // Associative array
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+        return $row;
+    }
+
+    function getTrainClassByID($trainID){
+        global $conn;
+
+
+        $sql_query = "SELECT T.FK_TrainID, T.FK_ClassID, T.NoOfCompartments, T.NoOfSeats,P.PricePerCompartment
+                         FROM TRS.trainClassDetails as  T
+                        inner join ClassPrice as P on P.FK_ClassID =  T.FK_ClassID
+                         where T.FK_TrainID = '".$trainID."' and P.FK_TrainID = '".$trainID."';";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+
+        return $array;
+    }
+
+    function getTrainScheduleByTrainID($trainID){
+        global $conn;
+
+
+        $sql_query = "SELECT * from  trainSchedule where FK_TrainID = '".$trainID."';";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+
+        return $array;
+    }
+
+    function removeTrain($trainID){
+        global $conn;
+
+
+        $sql_query = "CALL SP_REMOVE_TRAIN('".$trainID."');";
 
 
         $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error());

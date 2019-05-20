@@ -202,6 +202,7 @@ session_start();
                 data: { "getUserByEmail": $email},
                 success: function(response) {
                     var userObj = $.parseJSON(response);
+                    //console.log(response);
 
                     if(userObj["FK_RoleID"] == "1" || userObj["FK_RoleID"] == "2"){
 
