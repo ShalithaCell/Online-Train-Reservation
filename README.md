@@ -6,7 +6,7 @@ Designed a Railway ticket booking, reservation and cancellation system. Technolo
 
 # Purpose
 
-The purpose of this project is for best practice php and jquery.
+The purpose of this project is for best practice php and jquery.This is I developed for My 1st year web project. SLIIT | Sri Lanka Institute of Information Technology First Year Semester 2  Web Project.
 
 ---
 
