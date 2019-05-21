@@ -1,21 +1,4 @@
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEW_TRAIN`(in _code nvarchar(100), in _name nvarchar(100), in _description nvarchar(500))
-BEGIN
-	insert into train(TrainCode, TrainName, Description,IsRegularRun, isActive)
-    values (_code, _name, _description, '1', '1');
-    
-    SELECT TrainID from train order by TrainID desc limit 1;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_USER_BY_ID`(in _UserID int)
-BEGIN
-	select * from users where UserID = _UserID;
-END$$
-DELIMITER ;
-
-DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEW_USER`(
 in _FirstName varchar(100),
 in _LastName varchar(100),
@@ -64,6 +47,46 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GET_USER_BY_ID`(in _UserID int)
+BEGIN
+	select * from users where UserID = _UserID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEW_TRAIN`(in _code nvarchar(100), in _name nvarchar(100), in _description nvarchar(500))
+BEGIN
+	insert into train(TrainCode, TrainName, Description,IsRegularRun, isActive)
+    values (_code, _name, _description, '1', '1');
+    
+    SELECT TrainID from train order by TrainID desc limit 1;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
+in _password nvarchar(500)
+)
+BEGIN
+
+	if exists(select * from users where Email = _userEmail and Password = _password)
+    then
+		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
+        then
+			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
+			select 'true' as auth,'false' as locked;
+		else	
+			select 'true' as auth,'true' as locked;
+		end if;
+	else
+		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
+		select 'false' as auth,'false' as locked;
+	end if;
+
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_RESET_TOKEN_VALIED`(in _token nvarchar(15))
 BEGIN
 	if exists(select * from tokenRecord where Token = _token and ExpireDate > now())
@@ -89,25 +112,18 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_USER_LOGIN`(in _userEmail nvarchar(200),
-in _password nvarchar(500)
-)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_FETCH_CLASSES_FOR_SEARCH`(in _from int, in _to int, in _trainID int)
 BEGIN
-
-	if exists(select * from users where Email = _userEmail and Password = _password)
-    then
-		if exists(select * from users where Email = _userEmail and isLocked = '0' and isActive = '1')
-        then
-			update users set FailedLoginAttempt = 0, LastLoginDate = curdate() where Email = _userEmail;
-			select 'true' as auth,'false' as locked;
-		else	
-			select 'true' as auth,'true' as locked;
-		end if;
-	else
-		update users set FailedLoginAttempt = FailedLoginAttempt+1, FailedLoginDate = curdate() where Email = _userEmail;
-		select 'false' as auth,'false' as locked;
-	end if;
-
+select T.TrainCode, TC.ClassID, TC.ClassPrice * (ABS(SS.DistanceFromMainStation-S.DistanceFromMainStation)) as Price,
+		TC.Description as Class
+	from trainSchedule as TS
+	inner join train as T on T.TrainID = TS.FK_TrainID
+	inner join trainClassDetails as TCD on TCD.FK_TrainID = T.TrainID
+	inner join trainClasses as TC on TC.ClassID = TCD.FK_ClassID
+	inner join station as S on S.StationID = TS.FK_From 
+    inner join station as SS on SS.StationID = TS.FK_To 
+	where TS.FK_From = _from and TS.FK_To = _to and T.TrainID = _trainID
+	order by FromTime asc;
 END$$
 DELIMITER ;
 
@@ -149,6 +165,19 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_TRAIN_SCHEDULE`(in _from int, in _to int)
+BEGIN
+	select T.TrainID,T.TrainCode, T.TrainName, S.Description as StationFrom, SS.Description as StationTo, TS.FromTime, TS.ToTime
+	from trainSchedule as TS
+	inner join train as T on T.TrainID = TS.FK_TrainID
+	inner join station as S on S.StationID = TS.FK_From 
+    inner join station as SS on SS.StationID = TS.FK_To 
+	where TS.FK_From = _from and TS.FK_To = _to
+	order by FromTime asc;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USERS_FOR_ADMIN_VIEW`()
 BEGIN
 	select UserID, FirstName, LastName, Email, R.Description as Role, G.Description as Gender,
@@ -168,12 +197,36 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER_WITH_DETAIL`(in _userID int)
+BEGIN
+	select U.*, R.Description as RoleDescription, G.Description as GenderDescription
+    from users as U
+    inner join role as R on U.FK_RoleID = R.RoleID
+    inner join gender as G on U.FK_GenderID = G.GenderID
+    where U.UserID = _userID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_NEW_STATION`(in _Description nvarchar(200)
 , in _DescriptionLong nvarchar(1000)
 , in _Distance decimal(12,2))
 BEGIN
 	insert into station (Description, DescriptionLong,DistanceFromMainStation,isActive )
     values (_Description, _DescriptionLong, _Distance, '1');
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_REMOVE_TRAIN`(in _trainID int)
+BEGIN
+	delete from ClassPrice where  FK_TrainID = _trainID;
+	 delete from trainClassDetails where FK_TrainID = _trainID;
+	 delete from trainSchedule where FK_TrainID = _trainID;
+     delete from train where TrainID = _trainID;
+     
+     
+     select 'true' as result;
 END$$
 DELIMITER ;
 
@@ -202,6 +255,22 @@ BEGIN
 						DescriptionLong = _Description,
                         DistanceFromMainStation = _Distance
 			where StationID = _stationID;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_UPDATE_TRAIN`(in _trainID int, 
+in _code nvarchar(100), 
+in _name nvarchar(500), 
+in _description nvarchar(500))
+BEGIN
+ update train set TrainCode = _code, TrainName = _name, Description = _description 
+ where TrainID = _trainID;
+ 
+ delete from ClassPrice where  FK_TrainID = _trainID;
+ delete from trainClassDetails where FK_TrainID = _trainID;
+ delete from trainSchedule where FK_TrainID = _trainID;
+ 
 END$$
 DELIMITER ;
 
