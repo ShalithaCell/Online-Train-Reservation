@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'user' => 'sliitproject.bookit@gmail.com',
-    'pass' => 'mydongal'
+    'user' => 'your email',
+    'pass' => 'put your password'
 ];
 
 ?>

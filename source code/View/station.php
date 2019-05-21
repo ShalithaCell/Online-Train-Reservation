@@ -50,7 +50,7 @@ include "sessionWorker.php";
     <script>
         //Jquery function for load navigation to page
         $(function () {
-            $("#Header").html(getHeaderMD());
+            $("#Header").html(getHeaderLG());
             $("#footerID").html(getFooter());
         });
 

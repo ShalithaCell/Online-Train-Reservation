@@ -14,7 +14,7 @@ include "sessionWorker.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
 
-    <title>BOOkit-Payment</title>
+    <title>BOOkit-Register</title>
 
     <!--Fontawesome-->
     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
@@ -65,7 +65,7 @@ include "sessionWorker.php";
     <script>
         //Jquery function for load navigation to page
         $(function () {
-            $("#Header").html(getHeaderMD());
+            $("#Header").html(getHeaderLG());
             $("#footerID").html(getFooter());s
         });
 
