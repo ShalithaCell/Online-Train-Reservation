@@ -59,4 +59,26 @@ The purpose of this project is for best practice php and jquery.
   * [jQuery Redirect Plugin](https://github.com/mgalante/jquery.redirect)
   
 # Screenshots
+  * <img width="500" alt="Login" src="https://user-images.githubusercontent.com/43614338/58093913-27666b80-7bed-11e9-9875-ae117941ac53.png">
+
+ * <img width="500" alt="Registration mail send" src="https://user-images.githubusercontent.com/43614338/58093957-36e5b480-7bed-11e9-94ec-864373d09db3.png">
  
+ * <img width="500" alt="Registration" src="https://user-images.githubusercontent.com/43614338/58093995-46fd9400-7bed-11e9-8e78-a67aa3b84b88.png">
+ 
+ * <img width="500" src="https://user-images.githubusercontent.com/43614338/58094016-52e95600-7bed-11e9-9917-ef41b5691bc0.png">
+ 
+  * <img width="500" src="https://user-images.githubusercontent.com/43614338/58094033-5da3eb00-7bed-11e9-908c-be09a447102d.png">
+  
+  * <img width="500" src="https://user-images.githubusercontent.com/43614338/58094047-65fc2600-7bed-11e9-870c-d3808c17caa5.png">
+  
+ # Contribute
+
+The best way to contribute is by spreading the word about the library:
+
+* Blog it
+* Comment it
+* Fork it
+* Star it
+* Share it
+
+A **HUGE THANKS** for your help.
