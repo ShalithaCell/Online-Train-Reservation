@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
-      <change beforePath="$PROJECT_DIR$/source code/View/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/TicketSearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/TicketSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/station.html" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/station.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/station.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/station.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,28 +80,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Model/user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="31" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="271">
               <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/TicketSearch.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1293">
-              <caret line="101" column="35" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -128,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/shopingcart.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="826">
@@ -136,6 +114,24 @@
               <folding>
                 <element signature="e#5032#5048#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Config/settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="9" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source code/Config/credential.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -208,7 +204,6 @@
         <option value="$PROJECT_DIR$/source code/ExternalResources/datatables/datatables.min.js" />
         <option value="$PROJECT_DIR$/source code/Script/Register.js" />
         <option value="$PROJECT_DIR$/source code/Model/user.php" />
-        <option value="$PROJECT_DIR$/source code/Config/credential.php" />
         <option value="$PROJECT_DIR$/source code/ExternalResources/TinyMCE/tinymce.min.js" />
         <option value="$PROJECT_DIR$/source code/View/sessionTest.php" />
         <option value="$PROJECT_DIR$/source code/Script/login.js" />
@@ -251,6 +246,7 @@
         <option value="$PROJECT_DIR$/source code/View/payment.html" />
         <option value="$PROJECT_DIR$/source code/View/station.html" />
         <option value="$PROJECT_DIR$/source code/View/station.php" />
+        <option value="$PROJECT_DIR$/source code/Config/credential.php" />
       </list>
     </option>
   </component>
@@ -284,25 +280,6 @@
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
               <item name="Config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="BIZ" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Script" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -446,7 +423,7 @@
       <workItem from="1558143778640" duration="27239000" />
       <workItem from="1558229485252" duration="33473000" />
       <workItem from="1558313471303" duration="10166000" />
-      <workItem from="1558331905119" duration="39690000" />
+      <workItem from="1558331905119" duration="40167000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -459,13 +436,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314326000" />
+    <option name="totallyTimeSpent" value="314803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.12886049" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49863014" visible="true" weight="0.12886049" />
       <window_info id="Structure" order="1" sideWeight="0.50136983" side_tool="true" weight="0.15105008" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -480,7 +457,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" weight="0.22739726" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" visible="true" weight="0.22673267" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" weight="0.32871288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -840,20 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Config/credential.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Config/settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/AES.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -957,6 +920,20 @@
           <folding>
             <element signature="e#5032#5048#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Config/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Config/credential.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
