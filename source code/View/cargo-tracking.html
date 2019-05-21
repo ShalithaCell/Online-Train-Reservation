@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <!--character encoding for HTML document -->
+     <meta charset="UTF-8" />
+     <!--make the webpage responsive, relative to resolution -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+     <title>BOOkit-Contact Us</title>
+ 
+     <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+     <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+ 
+     <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+     <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+ 
+ 
+     <script src="../Script/jquery-3.3.1.min.js"></script>
+     <script src="../Script/Header.js"></script>
+ 
+     <!--mdb-->
+     <script src="../ExternalResources/MDB/js/popper.min.js"></script>
+     <link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+ 
+ 
+     <!--Boostrap-->
+     <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+ 
+ 
+     <link rel="stylesheet" type="text/css" href="../Style/style-cargo.css" />
+
+     <script>
+         //Jquery function for load navigation to page
+         $(function () {
+             $("#Header").html(getHeaderMD());
+             $("#footerID").html(getFooter());
+         });
+     </script>
+</head>
+<body>
+       <!--Navigation Bar -->
+       <div id="Header"></div>
+    
+       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+</style> 
+
+
+<div class="container">
+	<div class="map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d112061.09262729759!2d77.208022!3d28.632485!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x644e33bc3def0667!2sIndior+Tours+Pvt+Ltd.!5e0!3m2!1sen!2sus!4v1527779731123" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+	<div class="contact-form">
+		<h1 class="title">Find Where Cargo Is</h1>
+		<h2 class="subtitle">This is our Responsibilities.</h2>
+		<form action="">
+			<input type="text" name="name" placeholder="Cargo ID" />
+			<input type="email" name="e-mail" placeholder="Train Name " />
+			<input type="tel" name="phone" placeholder="Your Phone Number"/>
+			
+			<button class="btn-send">Track Cargo</button>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+      <!--Footer -->
+      <footer id="footerID"></footer>
+
+      <!--cannot read property 'addeventlistener' of null mdb
+  - This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+  -->
+      <script src="../ExternalResources/MDB/js/mdb.min.js"></script>
+
+</body>
+</html>

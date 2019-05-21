@@ -1,0 +1,26 @@
+.box-header{
+    clear: both;
+    background: #f7f7f7;
+    margin: -20px -20px 20px;
+    padding: 20px;
+    border-bottom: solid 1px #eee;}
+.box{
+    background: #fff;
+    margin: 0 0 30px;
+    border: solid 1px #e6e6e6;
+    padding: 20px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.table{
+    background: #fff;
+    /*margin: 0 0 30px;*/
+    border: solid 1px #e6e6e6;
+   /* padding: 20px;*/
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+.table-header{
+    background: #f7f7f7;
+  
+}

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/x-icon" href="../resources/favicon-train.ico" />
+
+        <!--Fontawesome-->
+        <link rel="stylesheet" type="text/css" href="../fontawesome/css/all.css" />
+        <link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css" />
+        
+        <!--Navigation bar and footer-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom.css" />
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-nav.css" />
+
+        <!--style sheets for this page only-->
+        <link rel="stylesheet" type="text/css" href="../Style/style-faq.css" />
+   
+        <!--jquery-->
+        <script src="../Script/jquery-3.3.1.min.js"></script>
+        <!--jquery UI-->
+        <script src="../Script/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-ui.css" />
+
+        <!--Jquery confirm-->
+        <script src="../Script/jquery-confirm.min.js"></script>
+        <link rel="stylesheet" href="../Style/jquery-confirm.min.css" />
+
+
+        <!--Custom combo box plugins-->
+        <script src="../Script/custom-combo.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Style/style-custom-combo.css" />
+
+        <!--Herder js file-->
+        <script src="../Script/Header.js"></script>
+
+        <!--mdb-->
+        <script src="../ExternalResources/MDB/js/popper.min.js"></script>
+        <link href="../ExternalResources/MDB/css/mdb.min.css" rel="stylesheet">
+
+
+        <!--Boostrap-->
+        <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    
+
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+                        
+
+        <script>
+                //Jquery function for load navigation to page
+                $(function () {
+                        $("#Header").html(getHeaderLG());
+                        $("#footerID").html(getFooter());
+                });
+
+                
+            $( document ).ready(function() {
+                const items = document.querySelectorAll(".accordion a");
+
+                function toggleAccordion(){
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('active');
+                }
+
+                items.forEach(item => item.addEventListener('click', toggleAccordion));
+            });
+
+        </script>
+
+       
+
+        <title>BOOkit-Train Details</title>
+</head>
+
+<body>
+        <!--Navigation Bar -->
+        <div id="Header"></div>
+
+        <!--Page Content -->
+        <div class="">
+        
+            <div class="container">
+
+                <h2 class="align0">Frequently Asked Questions</h2><br>
+
+                <!-- Search form -->
+                <div class="active-cyan-4 mb-4">
+                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+            
+                <div class="accordion">
+                <div class="accordion-item">
+                    <a>1)   How are sleeping compartments kept secure?</a>
+                    <div class="content">
+                    <p>Night trains have conductors on duty all through the train ride. What's more, sleeping compartments have bolts on the entryways that you can control. Moreover, outside of these compartments are under high security camera surveillance. </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>2)   Can I bring food and drinks on board?</a>
+                    <div class="content">
+                    <p>Obviously you can! Eating and drinking are allowed on every train. You will also have the choice to purchase food and drinks if the train you're going on has any canteen in it. </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>3)   How much luggage can I take on the train?</a>
+                    <div class="content">
+                    <p>Actually,  you are not restricted to bring baggage. However, remember that you'll have to bring your baggage through the train station and onto the train. Once ready you'll have to discover a spot to keep your baggage. Little and medium measured packs regularly fit on racks situated over the seats. Bigger bags and suitcases can be put away in gear racks found close to the train entryway entrance.
+                        Know that you are responsible your baggage. The railroads accept no responsibility in case of lost of your valuables or belongings.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>4)   Are there smoking and non-smoking sections on trains?
+                        </a>
+                    <div class="content">
+                    <p>Smoking isn't allowed on any trains in Great Britain, Denmark, Ireland, Benelux (Belgium, Netherlands and Luxembourg), France, Hungary, Spain, Turkey, Italy, Switzerland, Austria, Germany, Norway, Sweden, or Poland.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>5)   Is there WiFi onboard?</a>
+                    <div class="content">
+                        <p>Most of the 1st class trains have Free WiFi. But only few 2nd class trains have got WIFI. Moreover 2nd class train WiFi is also not for free, you have to pay a little fee for it.
+                            Here is a brief list of trains offering WiFi:<br>
+                            > openTrainWIFI<br>
+                            > ExpressWIFI<br>
+                            > StarWIFI<br>
+                            > freeWIFI4U<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>6)   Can I travel with my pets?</a>
+                    <div class="content">
+                    <p>Yes, you can travel with small pets such as dogs, cats, and some domestic birds. But the maximum weight of 10Kg. Not only that you need to acquire a legal “Pet Pass” from the station which you gets up to the train.
+                        Each pet should be kept locked inside the cage for all the time.
+                        If you have any questions regarding this, please do not hesitate to contact  us.
+                    </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>7)   I didn’t receive any tickets but I was still charged!</a>
+                    <div class="content">
+                    <p>There may be delay in your bank system but do not worry you will receive a email with your train ticket.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <a>8)   What if I have forgotten or don't know my password?</a>
+                    <div class="content">
+                    <p>click on the “Forgot Password” in login page. Then type your email address in the dialog box. Then check your e mail inbox. There will be a reset password link. Click on it. Then you will be redirected to a new page. From there you can enter your new password and reset your password.IMPORTANT>> the link in the email will be expired in 2 hours.</p>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!--Footer -->
+        <footer id="footerID"></footer>
+
+        <!--cannot read property 'addeventlistener' of null mdb
+- This is probably because the script is executed before the page loads. By placing the script at the bottom of the page, I circumvented the problem.
+-->
+        <script src="../ExternalResources/MDB/js/mdb.min.js"></script>
+
+</body>
+
+</html>

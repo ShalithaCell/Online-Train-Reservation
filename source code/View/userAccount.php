@@ -67,6 +67,10 @@ if(session_status() != PHP_SESSION_NONE){
 
         <link href="../ExternalResources/DateTimePicker/bootstrap-datepicker.css" rel="stylesheet">
         <script src="../ExternalResources/DateTimePicker/bootstrap-datepicker.js"></script>
+
+        <!--Toastr-->
+        <script src="../ExternalResources/toastr/toastr.min.js"></script>
+        <link rel="stylesheet" href="../ExternalResources/toastr/toastr.min.css" />
 	 
 		 <script src="../Script/Header.js"></script>
 
@@ -77,7 +81,7 @@ if(session_status() != PHP_SESSION_NONE){
 		<script>
 			//Jquery function for load nevigation to page
 		$(function () {
-            $('#Header').html(getHeaderMD());
+            $('#Header').html(getHeaderLG());
             $('#footerID').html(getFooter());
         });
 
@@ -268,6 +272,7 @@ if(session_status() != PHP_SESSION_NONE){
                                     success: function(response) {
                                         if(response == 'true'){
                                             toastr.success('user updated successfully.', 'successfully');
+                                            location.reload();
                                             return true;
                                         }
                                         else{
@@ -439,5 +444,27 @@ if(session_status() != PHP_SESSION_NONE){
 		<script src="../ExternalResources/MDB/js/mdb.min.js"></script>
 
  	</body>
+
+    <?php
+    if(isset($_SESSION)){
+    if(session_status() != PHP_SESSION_NONE){
+
+    if(!isset($_SESSION['UserID'])){
+        ?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+    }
+    }else{
+    if($_SESSION['RoleID'] == '1' || $_SESSION['RoleID'] == '2'){
+    ?> <script type="text/javascript">setTimeout(showAdminPanel, 500)</script> <?php
+    }else{
+    ?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+    }
+
+    }
+    }else{
+    ?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+    }
+
+
+    ?>
 
  </html>	

@@ -1,3 +1,10 @@
+<?php
+include "sessionWorker.php";
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -465,4 +472,25 @@
         <footer id="footerID"></footer>
 </body>
 
+<?php
+if(isset($_SESSION)){
+if(session_status() != PHP_SESSION_NONE){
+
+if(!isset($_SESSION['UserID'])){
+    ?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+}else{
+if($_SESSION['RoleID'] == '1' || $_SESSION['RoleID'] == '2'){
+?> <script type="text/javascript">setTimeout(showAdminPanel, 500)</script> <?php
+}else{
+?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+
+}
+}else{
+?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+
+
+?>
 </html>

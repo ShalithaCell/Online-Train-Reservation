@@ -1,5 +1,6 @@
 <?php
-session_start();
+include "sessionWorker.php";
+//session_start();
 
 ?>
 <!DOCTYPE html>
@@ -230,7 +231,27 @@ session_start();
                         });
 
                     }else{
-                        window.location.href = "Home.php";
+                        var data = {     // create object
+                            UserID    : userObj["UserID"],
+                            RoleID : userObj["FK_RoleID"],
+                            FirstName :  userObj["FirstName"],
+                            LastName : userObj["LastName"],
+                            Email : userObj["Email"],
+                            Gender : userObj["FK_GenderID"],
+                            ContactNo : userObj["ContactNo"],
+                            DOB : userObj["DOB"]
+
+                        }
+
+                        $.ajax({
+                            url: 'sessionWorker.php',
+                            type: 'post',
+                            data: { "setSession": JSON.stringify(data)},
+                            success: function(response) {
+                                window.location.href = "Home.php";
+
+                            }
+                        });
                     }
 
                 }
@@ -340,7 +361,7 @@ session_start();
                         </div>
 
                         <div class="text-center p-t-136">
-                            <a class="txt2" href="#">
+                            <a class="txt2" href="Register.php">
                                 Create your Account
                                 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                             </a>
@@ -367,5 +388,27 @@ session_start();
         <script src="../ExternalResources/MDB/js/mdb.min.js"></script>
 
 </body>
+
+<?php
+if(isset($_SESSION)){
+if(session_status() != PHP_SESSION_NONE){
+
+if(!isset($_SESSION['UserID'])){
+    ?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+}else{
+if($_SESSION['RoleID'] == '1' || $_SESSION['RoleID'] == '2'){
+?> <script type="text/javascript">setTimeout(showAdminPanel, 500)</script> <?php
+}else{
+?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+
+}
+}else{
+?> <script type="text/javascript">setTimeout(hideAdminPanel, 500)</script> <?php
+}
+
+
+?>
 
 </html>

@@ -4,6 +4,11 @@ session_start();
 
 function setSession($userObject){
 
+    $_SESSION = array();
+    session_destroy();
+
+    session_start();
+
     $user = json_decode($userObject);
 
     $_SESSION['UserID'] = $user->UserID;
