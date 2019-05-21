@@ -34,6 +34,17 @@
     <link href="../ExternalResources/bootstrap-4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="../ExternalResources/bootstrap-4.3.1/js/bootstrap.min.js"></script>
 
+    <link href="../ExternalResources/DateTimePicker/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="../ExternalResources/DateTimePicker/bootstrap-datepicker.js"></script>
+
+    <!--Toastr-->
+    <script src="../ExternalResources/toastr/toastr.min.js"></script>
+    <link rel="stylesheet" href="../ExternalResources/toastr/toastr.min.css" />
+
+    <!--Boostrap-->
+    <link href="../ExternalResources/boostrap-select/bootstrap-select.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="../ExternalResources/boostrap-select/bootstrap-select.min.js"></script>
+
     <script>
         //Jquery function for load navigation to page
         $(function () {
@@ -45,31 +56,60 @@
 
             //-------------------------js methods-------------------------------------------
 
+            $('#txtDate').datepicker({
+                minDate: 0,
+                maxDate: 0,
+                changeMonth: true,
+                changeYear: true,
+                showButtonPanel: true,
+                dateFormat: "m/d/yy"
+            });
 
-            // document.getElementById("btnExchange").addEventListener("click", function(event){
-            //     event.preventDefault()
-            //
-            //     var txtFrom = document.getElementById('txtTrainFrom').value;
-            //     var txtTo = document.getElementById('txtTrainTo').value;
-            //
-            //     if(txtFrom != '' && txtTo != ''){
-            //         document.getElementById("txtTrainFrom").value = txtTo;
-            //         document.getElementById("txtTrainTo").value = txtFrom;
-            //     }
-            //
-            // });
-            //
-            // document.getElementById("TrainSearch").addEventListener("click", function(event){
-            //     event.preventDefault()
-            //     location.href = "TicketSearch.html";
-            //
-            // });
+
+            $('.btn-light').each(function () {
+                $(this).addClass('bg-color-white-t');
+            })
+
+
+            $.ajax({
+                url: '../Controller/BIZ/logic.php',
+                type: 'get',
+                data: { "getAllStations": "test"},
+                success: function(response) {
+                    var result = (JSON.stringify(response));
+                    var objResult =  JSON.parse(result);
+
+                    var obj = jQuery.parseJSON(objResult);
+
+                    $.each(obj, function (index, value) {
+                        $('.selectpicker').each(function () {
+
+                            $(this).append('<option value="' + value["StationID"]+ '">' + value["Description"] + '</option>');
+                        })
+
+                    });
+                }
+            });
+
+            $('.selectpicker').selectpicker();
 
 
         });
 
         
+        function getSearch() {
+            var from = $('#searchDDLFrom').val();
+            var To = $('#searchDDLTo').val();
 
+            var date = $('#txtDate').val();
+
+            if(from == '0' || To == '0' || date == ''){
+                toastr.warning('please fill all fields', 'warning');
+                return;
+            }
+
+            window.location.href = "TicketSearch.php?from="+from+"&To="+To+"&date="+date;
+        }
         
 
         
@@ -132,22 +172,32 @@
             <div class="row col-md-12 cus-block-1 ml-2">
                 <div class="row">
                     <div class="md-form">
-                        <i class="fa fa-diamond prefix"></i>
-                        <input type="text" id="form2" class="form-control">
-                        <label for="form2" class="">From</label>
+                        <div class="row-fluid">
+                            <select class="selectpicker bg-color-white-t" id="searchDDLFrom" data-live-search="true">
+                                <option value="0">Select</option>
+                            </select>
+
+                        </div>
                     </div>
                     <div class="md-form ml-2">
                         <button class="btn"><i class="fas fa-exchange-alt"></i></button>
                     </div>
                     <div class="md-form">
-                        <i class="fa fa-diamond prefix"></i>
-                        <input type="text" id="form2" class="form-control">
-                        <label for="form2" class="">To</label>
+                        <div class="row-fluid">
+                            <select class="selectpicker bg-color-white-t" id="searchDDLTo" data-live-search="true">
+                                <option value="0">Select</option>
+                            </select>
+
+                        </div>
                     </div>
                     <div class="md-form">
                         <i class="fa fa-diamond prefix"></i>
-                        <input type="text" id="form2" class="form-control">
-                        <label for="form2" class="">From</label>
+                        <input type="text" id="txtDate" class="form-control">
+                        <label for="form2" class="">Date</label>
+                    </div>
+                    <div class="md-form ml-3">
+                        <button type="button" onclick="getSearch();" class="btn btn-success">Search</button>
+
                     </div>
                 </div>
             </div>

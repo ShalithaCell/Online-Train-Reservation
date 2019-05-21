@@ -557,6 +557,44 @@ class crud
         return $row;
     }
 
+    function getTrainDetails($from, $to){
+        global $conn;
+
+
+        $sql_query = "CALL SP_GET_TRAIN_SCHEDULE('".$from."','".$to."');";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        return $array;
+    }
+
+    function getTrainClassesWithPrices($from, $to, $trainID){
+        global $conn;
+
+
+        $sql_query = "CALL SP_FETCH_CLASSES_FOR_SEARCH('".$from."','".$to."','".$trainID."');";
+
+
+        $result = mysqli_query($conn, $sql_query) or die("Query fail: " . mysqli_error($conn));
+
+        $array = array();
+
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            array_push($array, $row);
+        }
+
+        return $array;
+    }
+
 }
 
 ?>

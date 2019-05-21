@@ -72,6 +72,14 @@
     border: 1px solid red !important;
 }
 
+.bg-color-white-t{
+    background-color: white !important;
+}
+
+.border-line-T{
+    border: solid;
+}
+
 
 .remove-underline{
     text-decoration: none;

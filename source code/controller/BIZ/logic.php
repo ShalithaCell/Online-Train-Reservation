@@ -484,7 +484,33 @@
     }
 
 
+    //begin <fetch strain search page>
 
+    function getTrainSchedule($objParams){
+        $obj = json_decode($objParams);
+
+        $objCRUD = new crud();  // crud operation object
+
+        $result = $objCRUD->getTrainDetails($obj->From, $obj->To);
+
+        $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+        echo $jsonResult;
+    }
+
+    function getTrainClassesPrices($objParams){
+            $obj = json_decode($objParams);
+
+            $objCRUD = new crud();  // crud operation object
+
+            $result = $objCRUD->getTrainClassesWithPrices($obj->From, $obj->To, $obj->train);
+
+            $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+
+            echo $jsonResult;
+        }
+
+    //end <fetch strain search page>
 
 
 
@@ -599,6 +625,14 @@
 
     if(isset($_GET['removeTrain'])){
         removeTrain($_GET['removeTrain']);
+    }
+
+    if(isset($_GET['getTrainSheduleByRefine'])){
+        getTrainSchedule($_GET['getTrainSheduleByRefine']);
+    }
+
+    if(isset($_GET['getTrainSheduleClasPrice'])){
+        getTrainClassesPrices($_GET['getTrainSheduleClasPrice']);
     }
 
 
