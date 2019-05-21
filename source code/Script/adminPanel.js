@@ -610,7 +610,7 @@ function displayEditUserWindow(userObj) {
             $.ajax({
                 url: '../Controller/BIZ/logic.php',
                 type: 'get',
-                data: { "getRoles": sessionStorage.getItem("RoleID")},
+                data: { "getRoles": '1'},
                 success: function(response) {
                     //var result = (JSON.stringify(response));
                     //console.log(response);

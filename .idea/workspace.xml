@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf6a41f-18cb-4885-8f78-bb431455e288" name="Default Changelist" comment="redesign home page">
-      <change afterPath="$PROJECT_DIR$/source code/View/userAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Style/style-custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/Style/style-user_account.css" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Style/style-user_account.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/TicketSearch.html" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/TicketSearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/View/userAccount.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/controller/BIZ/crud.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/controller/BIZ/crud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source code/controller/BIZ/logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/controller/BIZ/logic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Script/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/Script/adminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/source code/Script/adminPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source code/View/userAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/source code/View/userAccount.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,19 +35,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
+        <entry file="file://$PROJECT_DIR$/source code/View/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="1377">
+              <caret line="204" column="22" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
+        <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="100" column="20" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="100" selection-end-column="20" />
+            <state relative-caret-position="23">
+              <caret line="49" column="87" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="49" selection-end-column="87" />
             </state>
           </provider>
         </entry>
@@ -60,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="155" column="182" lean-forward="true" selection-start-line="155" selection-start-column="133" selection-end-line="155" selection-end-column="182" />
+            <state relative-caret-position="3238">
+              <caret line="611" column="28" lean-forward="true" selection-start-line="611" selection-start-column="28" selection-end-line="611" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -74,24 +69,6 @@
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/View/Home.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="107" column="23" lean-forward="true" selection-start-line="106" selection-start-column="16" selection-end-line="107" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" selection-start-line="42" selection-end-line="44" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -116,14 +93,42 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source code/View/userAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            <state relative-caret-position="1079">
+              <caret line="373" column="83" lean-forward="true" selection-start-line="373" selection-start-column="83" selection-end-line="373" selection-end-column="83" />
               <folding>
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/View/SessionClear.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="264" column="59" lean-forward="true" selection-start-line="264" selection-start-column="59" selection-end-line="264" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source code/Script/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="870" selection-start-line="9" selection-start-column="870" selection-end-line="9" selection-end-column="870" />
             </state>
           </provider>
         </entry>
@@ -142,15 +147,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="19" column="27" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source code/Style/style-user_account.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -188,8 +184,9 @@
       <find>getUserByEmail</find>
       <find>getTrainDetails</find>
       <find>initializeCombo</find>
-      <find>RederectPayment</find>
       <find>updateUserByAdmin</find>
+      <find>RederectPayment</find>
+      <find>displayEditUserWindow</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -214,10 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/source code/Style/style-custom-nav.css" />
-        <option value="$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html" />
-        <option value="$PROJECT_DIR$/source code/Script/Header.js" />
-        <option value="$PROJECT_DIR$/source code/View/aboutUs.html" />
         <option value="$PROJECT_DIR$/source code/View/contactUs.html" />
         <option value="$PROJECT_DIR$/source code/View/Error.php" />
         <option value="$PROJECT_DIR$/source code/View/pakage.html" />
@@ -252,7 +245,6 @@
         <option value="$PROJECT_DIR$/source code/Style/style-admin.css" />
         <option value="$PROJECT_DIR$/source code/View/adminPanel.php" />
         <option value="$PROJECT_DIR$/source code/View/login.php" />
-        <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
         <option value="$PROJECT_DIR$/source code/ExternalResources/boostrap-select/bootstrap-select.min.css" />
         <option value="$PROJECT_DIR$/source code/ExternalResources/boostrap-select/bootstrap-select.min.js" />
         <option value="$PROJECT_DIR$/source code/Style/style-custom.css" />
@@ -264,7 +256,12 @@
         <option value="$PROJECT_DIR$/source code/View/TicketSearch.php" />
         <option value="$PROJECT_DIR$/source code/View/userAccount.html" />
         <option value="$PROJECT_DIR$/source code/Style/style-user_account.css" />
+        <option value="$PROJECT_DIR$/source code/Script/adminPanel.js" />
+        <option value="$PROJECT_DIR$/source code/Controller/form/sessionDestroy.php" />
         <option value="$PROJECT_DIR$/source code/View/userAccount.php" />
+        <option value="$PROJECT_DIR$/source code/View/SessionClear.php" />
+        <option value="$PROJECT_DIR$/source code/Script/Header.js" />
+        <option value="$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html" />
       </list>
     </option>
   </component>
@@ -297,39 +294,20 @@
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="BIZ" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalResources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="ExternalResources" type="462c0819:PsiDirectoryNode" />
-              <item name="boostrap-select" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
-              <item name="source code" type="462c0819:PsiDirectoryNode" />
-              <item name="Style" type="462c0819:PsiDirectoryNode" />
+              <item name="Script" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
               <item name="source code" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Online-Train-Reservation" type="462c0819:PsiDirectoryNode" />
+              <item name="source code" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Header-Footer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Online-Train-Reservation" type="b2602c69:ProjectViewProjectNode" />
@@ -378,7 +356,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.userAccount.php">
+  <component name="RunManager" selected="JavaScript Debug.Home.php">
     <configuration name="Home.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:8888/Online-Train-Reservation/source code/View/Home.php">
       <method v="2" />
     </configuration>
@@ -403,8 +381,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.userAccount.php" />
         <item itemvalue="JavaScript Debug.Home.php" />
+        <item itemvalue="JavaScript Debug.userAccount.php" />
         <item itemvalue="JavaScript Debug.adminPanel.php" />
         <item itemvalue="JavaScript Debug.TrainDetails.html" />
         <item itemvalue="JavaScript Debug.login.php" />
@@ -467,7 +445,7 @@
       <workItem from="1558143778640" duration="27239000" />
       <workItem from="1558229485252" duration="33473000" />
       <workItem from="1558313471303" duration="10166000" />
-      <workItem from="1558331905119" duration="28268000" />
+      <workItem from="1558331905119" duration="31539000" />
     </task>
     <task id="LOCAL-00001" summary="redesign home page">
       <created>1556427524726</created>
@@ -480,7 +458,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302904000" />
+    <option name="totallyTimeSpent" value="306175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -501,7 +479,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="10" weight="0.32876712" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="11" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" weight="0.16435644" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49893504" visible="true" weight="0.16435644" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50106496" side_tool="true" weight="0.32871288" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -591,28 +569,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="redesign home page" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source code/View/station.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="84" selection-start-line="29" selection-start-column="4" selection-end-line="36" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="134" selection-start-line="134" selection-end-line="134" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/logine.html" />
-    <entry file="file://$PROJECT_DIR$/source code/ExternalResources/animate/animate.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="52592" selection-start-line="10" selection-start-column="52592" selection-end-line="10" selection-end-column="52592" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/ExternalResources/animate/hamburgers.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -807,13 +763,6 @@
     <entry file="file://$PROJECT_DIR$/source code/Style/reset.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3060">
-          <caret line="204" column="22" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source code/Config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -904,6 +853,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" selection-start-line="42" selection-end-line="44" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Style/style-user_account.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="145" column="10" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/source code/View/TicketSearch.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -924,8 +894,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/source code/Script/adminPanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="155" column="182" lean-forward="true" selection-start-line="155" selection-start-column="133" selection-end-line="155" selection-end-column="182" />
+        <state relative-caret-position="3238">
+          <caret line="611" column="28" lean-forward="true" selection-start-line="611" selection-start-column="28" selection-end-line="611" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
@@ -938,20 +908,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Controller/BIZ/crud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="100" column="20" lean-forward="true" selection-start-line="89" selection-start-column="8" selection-end-line="100" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -962,10 +918,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-admin.css">
+    <entry file="file://$PROJECT_DIR$/source code/Controller/form/sessionDestroy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" selection-start-line="42" selection-end-line="44" selection-end-column="1" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/userAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1079">
+          <caret line="373" column="83" lean-forward="true" selection-start-line="373" selection-start-column="83" selection-end-line="373" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -976,20 +943,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/Style/style-user_account.css">
+    <entry file="file://$PROJECT_DIR$/source code/View/SessionClear.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        <state relative-caret-position="135">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source code/View/userAccount.php">
+    <entry file="file://$PROJECT_DIR$/source code/View/adminPanel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="49" column="87" lean-forward="true" selection-start-line="48" selection-start-column="3" selection-end-line="49" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="204" column="22" selection-start-line="204" selection-start-column="22" selection-end-line="204" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/Script/Header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="9" column="870" selection-start-line="9" selection-start-column="870" selection-end-line="9" selection-end-column="870" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source code/View/Header-Footer/NewHeaderFooter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="264" column="59" lean-forward="true" selection-start-line="264" selection-start-column="59" selection-end-line="264" selection-end-column="59" />
         </state>
       </provider>
     </entry>
