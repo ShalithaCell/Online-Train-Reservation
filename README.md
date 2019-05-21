@@ -57,6 +57,7 @@ The purpose of this project is for best practice php and jquery.
   * [Material Design for Bootstrap 4 ](https://mdbootstrap.com/)
   * [jQuery DataTables](https://datatables.net/)
   * [jQuery Redirect Plugin](https://github.com/mgalante/jquery.redirect)
+  * [jquery-confirm.js](https://craftpip.github.io/jquery-confirm/)
   
 # Screenshots
   * <img width="500" alt="Login" src="https://user-images.githubusercontent.com/43614338/58093913-27666b80-7bed-11e9-9875-ae117941ac53.png">
